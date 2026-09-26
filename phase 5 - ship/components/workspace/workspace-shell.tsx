@@ -157,6 +157,8 @@ export function WorkspaceShell({
     if (event.type === "usage") setTokens((value) => value + event.inputTokens + event.outputTokens);
     if (event.type === "agent") setAgents((current) => [...current.filter((agent) => agent.id !== event.spec.id), event.spec]);
     if (event.type === "file-op") {
+      setTab("preview");
+      setMobilePane("canvas");
       setFiles((current) => {
         const next = { projectId: project.id, path: event.path, content: event.content ?? "", sha: "" };
         const index = current.findIndex((file) => file.path === event.path);
@@ -647,7 +649,15 @@ function EventCard({ event }: { event: StreamEvent }) {
     );
   }
   if (event.type === "file-op") {
-    return <p className="font-mono text-xs">Created {event.path}</p>;
+    const code = event.content ?? "";
+    return (
+      <article className="rounded-md border border-border bg-surface">
+        <p className="border-b border-border px-3 py-2 font-mono text-xs">{event.op === "create" ? "Created" : "Updated"} {event.path}</p>
+        {code ? (
+          <pre className="max-h-48 overflow-auto px-3 py-2 font-mono text-xs text-text-muted">{code}</pre>
+        ) : null}
+      </article>
+    );
   }
   if (event.type === "agent") {
     return <p className="text-sm">Agent {event.spec.name} added.</p>;

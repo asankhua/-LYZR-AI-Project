@@ -3,7 +3,6 @@ import { z } from "zod";
 import { filesForPlan } from "@/lib/ai/draft";
 import { estimateTokens } from "@/lib/ai/limits";
 import { checkModels, MODELS } from "@/lib/ai/models";
-import { modelFileNote } from "@/lib/ai/groq";
 import { applyChange, repairFiles } from "@/lib/ai/repair";
 import { previewBatches } from "@/lib/templates/vite-react/files";
 import { ndjsonResponse } from "@/lib/ndjson";
@@ -71,9 +70,6 @@ export async function POST(request: Request) {
   return ndjsonResponse(async (send, signal) => {
     if (parsed.data.mode === "build") {
       send({ type: "step", label: "Writing the app", status: "running" });
-      const note = await modelFileNote(plan.doc);
-      if (note) send({ type: "text", text: note });
-      send({ type: "step", label: "Writing the app", status: "done" });
     }
     const manifest: Record<string, string> = Object.fromEntries(existing.map((file) => [file.path, file.sha]));
     for (const batch of batches) {
@@ -81,8 +77,10 @@ export async function POST(request: Request) {
       send({ type: "step", label: batch.label, status: "running" });
       const saved = await applyFiles(project.id, batch.files);
       for (const file of saved) {
+        if (signal.aborted) return;
         manifest[file.path] = file.sha;
         send({ type: "file-op", op: parsed.data.mode === "build" ? "create" : "update", path: file.path, content: file.content });
+        await new Promise((resolve) => setTimeout(resolve, 80));
       }
       const snapshot = await addSnapshot(project.id, session.id, parsed.data.message ?? plan.doc.title, { ...manifest });
       send({ type: "snapshot", snapshotId: snapshot.id });
@@ -97,6 +95,7 @@ export async function POST(request: Request) {
       inputTokens: tokens,
       outputTokens: tokens,
     });
+    if (parsed.data.mode === "build") send({ type: "step", label: "Writing the app", status: "done" });
     send({ type: "usage", stage: parsed.data.mode, inputTokens: tokens, outputTokens: tokens });
     if (parsed.data.mode !== "fix") {
       const pushed = await maybeAutoPush(session.id, project.id).catch(() => null);

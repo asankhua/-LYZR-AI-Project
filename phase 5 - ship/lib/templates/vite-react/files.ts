@@ -27,8 +27,8 @@ declare namespace JSX {
 function blockKind(name: string): "hero" | "grid" | "products" | "quotes" | "footer" | "section" | "skip" {
   const value = name.toLowerCase();
   if (value === "header") return "skip";
-  if (value.includes("hero") || value.includes("banner")) return "hero";
-  if (value.includes("categor") || value.includes("grid")) return "grid";
+  if (value.includes("hero") || value.includes("banner") || value.includes("prompt")) return "hero";
+  if (value.includes("categor") || value.includes("grid") || value.includes("list")) return "grid";
   if (value.includes("product") || value.includes("feature") || value.includes("carousel") || value.includes("deal")) return "products";
   if (value.includes("testimonial") || value.includes("quote") || value.includes("review")) return "quotes";
   if (value.includes("footer")) return "footer";

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { PlanDoc, PreviewError, ProjectFile } from "@/lib/types";
-import { mountSandpack, updateSandpack } from "@/lib/runtime/sandpack-fallback";
+import { previewDocument, previewHasScreen } from "@/lib/runtime/preview-document";
 import { bootPreview, syncPreviewFiles } from "@/lib/runtime/webcontainer";
 import { useRuntimeStore } from "@/stores/runtime";
 import { cn } from "@/lib/utils";
@@ -92,27 +92,16 @@ export function PreviewPane({
       onError: (message: string, file?: string) => onErrorRef.current({ kind: "build", message, file, at: Date.now() }),
     };
     if (!window.crossOriginIsolated) {
-      const iframe = iframeRef.current;
-      if (!iframe) return;
       started.current = true;
       bootedSignature.current = signature;
       setFallback(true);
-      setStatus("starting");
-      void mountSandpack(iframe, payload)
-        .then(() => setStatus("ready"))
-        .catch(() => setStatus("error"));
+      setStatus(previewHasScreen(payload) ? "ready" : "starting");
       return;
     }
     started.current = true;
     bootedSignature.current = signature;
     void bootPreview(payload, hooks).catch(() => {
-      setFallback(true);
-      setStatus("error");
-      const iframe = iframeRef.current;
-      if (!iframe) return;
-      void mountSandpack(iframe, payload)
-        .then(() => setStatus("ready"))
-        .catch(() => setStatus("error"));
+      setStatus(previewHasScreen(payload) ? "ready" : "error");
     });
   }, [active, appendLog, files.length, setFallback, setPreviewUrl, setStatus, signature]);
 
@@ -125,7 +114,6 @@ export function PreviewPane({
     bootedSignature.current = signature;
     const payload = filesRef.current.map((file) => ({ path: file.path, content: file.content }));
     if (fallback) {
-      updateSandpack(payload);
       onReadyRef.current();
       return;
     }
@@ -138,8 +126,17 @@ export function PreviewPane({
     onReadyRef.current();
   }, [appendLog, fallback, setPreviewUrl, setStatus, signature, status]);
 
-  const statusLabel =
-    status === "installing" ? "Installing packages" : status === "ready" ? "Preview ready" : status === "error" ? "Preview error" : status === "idle" ? "Waiting for files" : "Starting preview";
+  const screen = previewHasScreen(files);
+  const prototype = previewDocument(files);
+  const statusLabel = screen
+    ? "Preview ready"
+    : status === "installing"
+      ? "Installing packages"
+      : status === "error"
+        ? "Preview error"
+        : status === "idle"
+          ? "Waiting for files"
+          : "Starting preview";
 
   return (
     <div className="flex h-full min-h-0 flex-col">
@@ -178,12 +175,12 @@ export function PreviewPane({
         </p>
       ) : null}
       <div className="relative min-h-0 flex-1 bg-surface-2">
-        {status !== "ready" && !fallback ? <PreviewDraft plan={plan} statusLabel={statusLabel} /> : null}
+        {!screen && status !== "ready" && !fallback ? <PreviewDraft plan={plan} statusLabel={statusLabel} /> : null}
         <div className="flex h-full justify-center">
           <iframe
             ref={iframeRef}
             title="App preview"
-            src={fallback ? undefined : previewUrl || "about:blank"}
+            srcDoc={prototype}
             className="h-full border-0 bg-surface"
             style={{ width: widths[device] }}
           />
@@ -203,8 +200,8 @@ type DraftKind = "hero" | "grid" | "products" | "quotes" | "footer" | "section";
 function draftKind(name: string): DraftKind | "skip" {
   const value = name.toLowerCase();
   if (value === "header") return "skip";
-  if (value.includes("hero") || value.includes("banner")) return "hero";
-  if (value.includes("categor") || value.includes("grid")) return "grid";
+  if (value.includes("hero") || value.includes("banner") || value.includes("prompt")) return "hero";
+  if (value.includes("categor") || value.includes("grid") || value.includes("list")) return "grid";
   if (value.includes("product") || value.includes("feature") || value.includes("carousel") || value.includes("deal")) return "products";
   if (value.includes("testimonial") || value.includes("quote") || value.includes("review")) return "quotes";
   if (value.includes("footer")) return "footer";
