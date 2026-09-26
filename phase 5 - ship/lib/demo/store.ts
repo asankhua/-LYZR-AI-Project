@@ -212,6 +212,35 @@ export function getDemoProfile(id: string): Promise<SessionUser | null> {
   });
 }
 
+export function claimDemoAccount(id: string, fullName: string, email: string): Promise<string> {
+  const normalized = email.trim().toLowerCase();
+  return update((store) => {
+    const existing = store.profiles.find((row) => row.email?.toLowerCase() === normalized && row.id !== id);
+    if (existing) {
+      existing.fullName = existing.fullName && existing.fullName !== "Guest" ? existing.fullName : fullName;
+      existing.isAnonymous = false;
+      return existing.id;
+    }
+    let profile = store.profiles.find((row) => row.id === id);
+    if (!profile) {
+      profile = {
+        id,
+        fullName,
+        email: normalized,
+        mode: "simple",
+        isAnonymous: false,
+        onboardingDone: true,
+      };
+      store.profiles.push(profile);
+      return id;
+    }
+    profile.fullName = fullName;
+    profile.email = normalized;
+    profile.isAnonymous = false;
+    return id;
+  });
+}
+
 export function setDemoName(id: string, fullName: string): Promise<void> {
   return update((store) => {
     const profile = store.profiles.find((row) => row.id === id);

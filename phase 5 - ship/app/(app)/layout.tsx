@@ -10,7 +10,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen bg-bg">
-      <AppSidebar mode={session.mode} name={session.fullName} />
+      <AppSidebar mode={session.mode} name={session.fullName} email={session.email} guest={session.isAnonymous} />
       <div className="pl-16">
         {session.isAnonymous ? <GuestBanner /> : null}
         <AppChrome projects={projects.map((project) => ({ id: project.id, name: project.name }))}>{children}</AppChrome>

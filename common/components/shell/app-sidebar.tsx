@@ -26,7 +26,17 @@ const links = [
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
-export function AppSidebar({ mode, name }: { mode: Mode; name: string | null }) {
+export function AppSidebar({
+  mode,
+  name,
+  email,
+  guest = true,
+}: {
+  mode: Mode;
+  name: string | null;
+  email?: string | null;
+  guest?: boolean;
+}) {
   const pathname = usePathname();
   const [accountOpen, setAccountOpen] = useState(false);
   return (
@@ -92,7 +102,7 @@ export function AppSidebar({ mode, name }: { mode: Mode; name: string | null }) 
           {accountOpen ? (
             <div className="absolute bottom-0 left-12 z-40 w-44 rounded-md border border-border bg-surface p-3 shadow-card">
               <p className="text-sm font-medium">{name ?? "Guest"}</p>
-              <p className="mt-1 text-xs text-text-muted">Trying Architect</p>
+              <p className="mt-1 text-xs text-text-muted">{guest ? "Trying Architect" : email || "Signed in"}</p>
               <form action={signOut} className="mt-3">
                 <button type="submit" className="text-sm text-accent">
                   Sign out
