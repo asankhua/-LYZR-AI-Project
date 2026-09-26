@@ -1,7 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { detectFramework, isSubdomain, selectImportFiles, shouldSkipImportPath } from "@/lib/github/filter";
+import { detectFramework, isSubdomain, parseGithubRepo, selectImportFiles, shouldSkipImportPath } from "@/lib/github/filter";
 
 describe("import filter", () => {
+  it("reads a GitHub URL or owner/repo", () => {
+    expect(parseGithubRepo("https://github.com/vercel/next.js")).toBe("vercel/next.js");
+    expect(parseGithubRepo("https://github.com/vercel/next.js.git")).toBe("vercel/next.js");
+    expect(parseGithubRepo("owner/repo")).toBe("owner/repo");
+    expect(parseGithubRepo("not a repo")).toBeNull();
+  });
+
   it("skips dependencies, build output, and lockfiles", () => {
     expect(shouldSkipImportPath("node_modules/react/index.js")).toBe(true);
     expect(shouldSkipImportPath("src/App.tsx")).toBe(false);

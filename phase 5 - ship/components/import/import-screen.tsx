@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { parseGithubRepo } from "@/lib/github/filter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,7 +16,8 @@ export function ImportScreen({ guest }: { guest: boolean }) {
   const [source, setSource] = useState<"github" | "zip">("github");
   const [repos, setRepos] = useState<Repo[] | null>(null);
   const [repo, setRepo] = useState<Repo | null>(null);
-  const [branch, setBranch] = useState("main");
+  const [manual, setManual] = useState("");
+  const [branch, setBranch] = useState("");
   const [root, setRoot] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -47,11 +49,17 @@ export function ImportScreen({ guest }: { guest: boolean }) {
       form.set("file", file);
       response = await fetch("/api/import/zip", { method: "POST", body: form });
     } else {
-      if (!repo) return;
+      const fullName = repo?.fullName ?? parseGithubRepo(manual);
+      if (!fullName) {
+        setLoading(false);
+        setProgress(null);
+        setError("Use a GitHub URL or owner/repo, such as https://github.com/vercel/next.js.");
+        return;
+      }
       response = await fetch("/api/github/import", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ repo: repo.fullName, branch, root: root.trim() || undefined }),
+        body: JSON.stringify({ repo: fullName, branch: branch.trim() || undefined, root: root.trim() || undefined }),
       });
     }
     const body = (await response.json()) as { projectId?: string; codeOnly?: boolean; error?: string };
@@ -68,7 +76,8 @@ export function ImportScreen({ guest }: { guest: boolean }) {
     router.push(`/p/${body.projectId}`);
   }
 
-  const ready = source === "zip" ? Boolean(file) : Boolean(repo);
+  const pasted = parseGithubRepo(manual);
+  const ready = source === "zip" ? Boolean(file) : Boolean(repo || pasted);
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-10">
@@ -93,10 +102,33 @@ export function ImportScreen({ guest }: { guest: boolean }) {
 
       {source === "github" ? (
         <section className="flex flex-col gap-3">
+          <label className="text-sm">
+            Repository
+            <Input
+              className="mt-1"
+              value={manual}
+              placeholder="https://github.com/owner/repo"
+              onChange={(event) => {
+                setManual(event.target.value);
+                setRepo(null);
+              }}
+            />
+          </label>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="text-sm">
+              Branch
+              <Input className="mt-1" value={branch} placeholder="Default branch" onChange={(event) => setBranch(event.target.value)} />
+            </label>
+            <label className="text-sm">
+              Root directory
+              <Input className="mt-1" value={root} placeholder="optional, such as apps/web" onChange={(event) => setRoot(event.target.value)} />
+            </label>
+          </div>
+          <p className="text-sm text-text-muted">Public repositories import from the URL. Private repositories need a connected GitHub account.</p>
           {guest ? (
             <Card className="p-4">
               <h2 className="text-base font-medium">Sign up to connect</h2>
-              <p className="mt-1 text-sm text-text-muted">GitHub import uses your account. A zip import works while you are trying Architect.</p>
+              <p className="mt-1 text-sm text-text-muted">Connecting GitHub lists your private repositories. A public URL or a zip still imports while you are trying Architect.</p>
               <Button asChild variant="outline" className="mt-3">
                 <a href="/login">Sign up to connect</a>
               </Button>
@@ -116,6 +148,7 @@ export function ImportScreen({ guest }: { guest: boolean }) {
                     className={`w-full rounded-md border px-3 py-2 text-left ${repo?.fullName === item.fullName ? "border-accent" : "border-border"}`}
                     onClick={() => {
                       setRepo(item);
+                      setManual(item.fullName);
                       setBranch(item.defaultBranch);
                     }}
                   >
@@ -126,18 +159,6 @@ export function ImportScreen({ guest }: { guest: boolean }) {
               ))}
             </ul>
           )}
-          {repo ? (
-            <div className="grid gap-3 sm:grid-cols-2">
-              <label className="text-sm">
-                Branch
-                <Input className="mt-1" value={branch} onChange={(event) => setBranch(event.target.value)} />
-              </label>
-              <label className="text-sm">
-                Root directory
-                <Input className="mt-1" value={root} placeholder="optional, such as apps/web" onChange={(event) => setRoot(event.target.value)} />
-              </label>
-            </div>
-          ) : null}
         </section>
       ) : (
         <label className="text-sm">
@@ -164,7 +185,7 @@ export function ImportScreen({ guest }: { guest: boolean }) {
       ) : null}
       {error ? <p className="text-sm text-danger">{error}</p> : null}
       <div>
-        <Button type="button" disabled={!ready || loading || (source === "github" && guest)} onClick={() => void startImport()}>
+        <Button type="button" disabled={!ready || loading} onClick={() => void startImport()}>
           Import
         </Button>
       </div>

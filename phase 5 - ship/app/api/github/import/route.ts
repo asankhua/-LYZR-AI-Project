@@ -15,16 +15,27 @@ const bodySchema = z.object({
 export async function POST(request: Request) {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Sign in required" }, { status: 401 });
-  if (session.isAnonymous) return NextResponse.json({ error: "Sign up to connect GitHub." }, { status: 403 });
   const parsed = bodySchema.safeParse(await request.json().catch(() => null));
-  if (!parsed.success) return NextResponse.json({ error: "Invalid repository" }, { status: 400 });
-  const token = readGithubToken(await getGithubAccount(session.id));
-  if (!token) return NextResponse.json({ error: "Connect GitHub to import a repository." }, { status: 401 });
+  if (!parsed.success) return NextResponse.json({ error: "Use a GitHub URL or owner/repo." }, { status: 400 });
+  const token = session.isAnonymous ? null : readGithubToken(await getGithubAccount(session.id));
+  const api = githubApi(token);
   try {
-    const loaded = await filesFromRepo(githubApi(token), parsed.data.repo, parsed.data.branch ?? "main", parsed.data.root);
+    const meta = await api.request<{ default_branch?: string; message?: string }>("GET", `/repos/${parsed.data.repo}`);
+    if (meta.status === 404) {
+      return NextResponse.json(
+        { error: "That repository is private or was not found. Public repositories import from a GitHub URL." },
+        { status: 404 },
+      );
+    }
+    if (meta.status >= 300 || !meta.data.default_branch) {
+      return NextResponse.json({ error: meta.data.message ?? "GitHub could not read that repository." }, { status: 400 });
+    }
+    const branch = parsed.data.branch?.trim() || meta.data.default_branch;
+    const loaded = await filesFromRepo(api, parsed.data.repo, branch, parsed.data.root);
     if (!loaded.ok) {
-      if (loaded.status === 401) await markGithubExpired(session.id);
-      return NextResponse.json({ error: loaded.message }, { status: loaded.status === 401 ? 401 : 400 });
+      if (loaded.status === 401 && token) await markGithubExpired(session.id);
+      const error = loaded.status === 404 ? "That branch was not found. Leave the branch blank to use the repository default." : loaded.message;
+      return NextResponse.json({ error }, { status: loaded.status === 401 ? 401 : 400 });
     }
     if (loaded.files.length === 0) return NextResponse.json({ error: "That repository has no text files to import." }, { status: 400 });
     const name = parsed.data.repo.split("/")[1] ?? "Imported app";

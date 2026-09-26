@@ -5,6 +5,14 @@ export const MAX_IMPORT_FILE_BYTES = 1024 * 1024;
 const SKIP_PATH = /(?:^|\/)(?:node_modules|\.git|dist|build|\.next)(?:\/|$)/;
 const SKIP_FILE = /(?:^|\/)(?:package-lock\.json|pnpm-lock\.yaml|yarn\.lock|bun\.lockb)$/;
 
+export function parseGithubRepo(value: string): string | null {
+  const trimmed = value.trim().replace(/\.git$/i, "").replace(/\/+$/, "");
+  const fromUrl = trimmed.match(/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/i);
+  if (fromUrl) return `${fromUrl[1]}/${fromUrl[2]}`;
+  if (/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(trimmed)) return trimmed;
+  return null;
+}
+
 export function safeRelativePath(input: string): string | null {
   const path = input.replace(/\\/g, "/").replace(/^\/+/, "");
   if (!path || path.endsWith("/") || path.includes("\0")) return null;

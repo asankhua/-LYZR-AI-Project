@@ -1,14 +1,14 @@
 import "server-only";
 import type { GitHubApi } from "@/lib/github/sync";
 
-export function githubApi(token: string): GitHubApi {
+export function githubApi(token?: string | null): GitHubApi {
   return {
     async request<T = Record<string, unknown>>(method: string, path: string, body?: unknown) {
       const response = await fetch(`https://api.github.com${path}`, {
         method,
         headers: {
           accept: "application/vnd.github+json",
-          authorization: `Bearer ${token}`,
+          ...(token ? { authorization: `Bearer ${token}` } : {}),
           "user-agent": "architect",
           "x-github-api-version": "2022-11-28",
           ...(body === undefined ? {} : { "content-type": "application/json" }),
