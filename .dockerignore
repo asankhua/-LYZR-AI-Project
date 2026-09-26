@@ -1,0 +1,16 @@
+.git
+.github
+**/.next
+**/node_modules
+**/.data
+**/.vercel
+**/test-results
+**/playwright-report
+**/*.tsbuildinfo
+**/.DS_Store
+.env
+.env.*
+docs/screenshots
+docs/walkthrough.webm
+stitch_design
+*.pem

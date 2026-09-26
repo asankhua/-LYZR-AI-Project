@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Architect 2.0</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed-dim": "#c4c7ca", "error": "#ba1a1a", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#4d44e3", "secondary-fixed": "#e0e2f0", "surface-variant": "#dfe2f4", "on-primary-fixed-variant": "#3323cc", "primary-container": "#4f46e5", "surface-container-high": "#e5e7f9", "on-primary-fixed": "#0f0069", "secondary-fixed-dim": "#c3c6d4", "tertiary": "#45484b", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#c3c0ff", "on-background": "#171b28", "surface-dim": "#d6d9eb", "on-secondary-container": "#5f626f", "on-error": "#ffffff", "on-primary": "#ffffff", "primary": "#3525cd", "inverse-on-surface": "#eef0ff", "background": "#faf8ff", "surface-bright": "#faf8ff", "tertiary-container": "#5d6063", "surface-container": "#eaedff", "primary-fixed": "#e2dfff", "on-secondary-fixed": "#181b26", "tertiary-fixed": "#e0e3e6", "on-tertiary": "#ffffff", "inverse-primary": "#c3c0ff", "on-surface": "#171b28", "on-tertiary-container": "#d9dbde", "surface": "#faf8ff", "on-tertiary-fixed": "#191c1e", "secondary-container": "#dddfee", "outline": "#777587", "inverse-surface": "#2c303d", "on-secondary-fixed-variant": "#434652", "outline-variant": "#c7c4d8", "on-surface-variant": "#464555", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary": "#5b5e6a", "on-primary-container": "#dad7ff", "on-tertiary-fixed-variant": "#44474a", "surface-container-highest": "#dfe2f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xs": "0.125rem", "space-xs": "0.25rem", "space-3xl": "3rem", "space-xl": "1.5rem", "space-md": "0.5rem", "gutter-compact": "0.75rem", "space-base": "0.75rem", "margin-mobile": "1rem", "gutter": "1rem", "space-lg": "1rem", "space-2xl": "2rem", "margin": "1.5rem", "gutter-expanded": "1.5rem", "space-sm": "0.375rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "caption-medium": ["Inter"], "code-default": ["JetBrains Mono"], "caption": ["Inter"], "headline-lg-mobile": ["Inter"], "body-default": ["Inter"], "display-mobile": ["Inter"], "body-compact-medium": ["Inter"], "display": ["Inter"], "title-sm": ["Inter"], "code-compact": ["JetBrains Mono"], "body-medium": ["Inter"], "body-compact": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "caption-medium": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-default": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-default": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-compact-medium": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500" }], "code-compact": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-compact": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#FAFBFD] font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-[#FAFBFD] border-b border-[#E3E6EC]"><div class="h-14 max-w-[1440px] mx-auto px-space-xl flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-base shrink-0"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-caption-medium select-none shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]">A2</div><span class="font-title-sm text-title-sm text-on-surface font-semibold tracking-tight hidden sm:inline">Architect</span></div><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-xs group cursor-pointer"><span class="font-body-medium text-body-medium text-on-surface font-medium">Travel Planner</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface transition-colors">edit</span></div><div class="px-space-xs py-0.5 rounded-full border border-outline-variant bg-surface-container text-on-secondary-container font-code-compact text-code-compact">v0.1 draft</div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-primary-container font-medium border-b-2 border-primary-container"><a aria-current="page" class="flex items-center gap-space-xs px-space-base py-space-xs transition-colors text-primary-container font-medium border-b-2 border-primary-container" data-path="plan" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>Plan</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="agents" href="#"><span>Agents</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="build" href="#"><span>Build</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="ship" href="#"><span>Ship</span></a></nav><div class="flex items-center gap-space-base shrink-0"><div class="hidden md:flex items-center p-0.5 rounded-full border border-outline-variant bg-surface-container-low"><button class="px-space-base py-0.5 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_0_rgba(31,35,48,0.04)] font-body-compact-medium text-body-compact-medium transition-all" type="button">Simple</button><button class="px-space-base py-0.5 rounded-full text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-all" type="button">Developer</button></div><div class="flex items-center -space-x-1.5 overflow-hidden"><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-highest text-on-surface font-caption-medium text-caption-medium">JD</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium">SK</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-secondary-container text-on-secondary-container font-code-compact text-code-compact">+1</div></div><div class="h-4 w-px bg-outline-variant hidden sm:block"></div><button class="h-8 px-space-base rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container font-body-compact-medium text-body-compact-medium transition-colors shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]" type="button">Share</button><button class="h-8 px-space-base rounded-xl bg-surface-container-high text-outline cursor-not-allowed font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs select-none" disabled="" type="button"><span class="material-symbols-outlined text-[15px]">lock</span><span>Deploy</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-[#FAFBFD] min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full">
+<div class="flex flex-row w-full h-[calc(100vh-56px)] overflow-hidden bg-background">
+<!-- LEFT PANEL: Workbench Chat / Agent Prompt Stream (380px) -->
+<aside class="w-[380px] shrink-0 border-r border-[#E3E6EC] bg-surface-container-lowest flex flex-col h-full z-10 select-none">
+<!-- Panel Header -->
+<div class="h-13 px-space-base py-space-sm border-b border-[#E3E6EC] flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22A06B] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#22A06B]"></span>
+</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface uppercase tracking-wider font-semibold">AI Architect</span>
+<span class="font-caption text-caption text-on-surface-variant">• Online</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded border border-[#E3E6EC] bg-surface-container-low font-code-compact text-code-compact text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[12px] text-primary-container">neurology</span>
+<span>Claude 3.5 Sonnet</span>
+</div>
+</div>
+<!-- Scrollable Chat Stream -->
+<div class="flex-1 overflow-y-auto p-space-base space-y-space-base select-text">
+<!-- User Prompt Card -->
+<div class="flex flex-col gap-1.5 bg-surface-container-low/70 border border-[#E3E6EC] rounded-[10px] p-3 text-on-surface">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-caption-medium text-caption-medium">
+                A
+              </div>
+<span class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Asha (You)</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">10:42 AM</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface leading-relaxed pl-8">
+            Build a collaborative travel planning app for groups. People can share ideas, vote on flight and hotel options, see an auto-generated daily itinerary, and split expenses.
+          </p>
+</div>
+<!-- Architect Assistant Message -->
+<div class="space-y-space-sm">
+<div class="flex items-start gap-2">
+<div class="w-6 h-6 rounded bg-primary-container text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">architecture</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Architect</span>
+<span class="font-caption text-caption text-on-surface-variant">10:42 AM</span>
+</div>
+<div class="bg-surface-container-lowest border border-[#E3E6EC] rounded-[10px] p-3 text-on-surface shadow-[0_1px_2px_0_rgba(31,35,48,0.02)]">
+<p class="font-body-compact text-body-compact text-on-surface">
+                  Here's a plan. Edit anything, or tell me what to change. I synthesized your requirements into 8 specification blocks with active agent delegation.
+                </p>
+</div>
+</div>
+</div>
+<!-- Step Progression Card -->
+<div class="ml-8 border border-[#E3E6EC] bg-background rounded-[10px] p-3 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded-full bg-[#22A06B]/15 text-[#22A06B] flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">Drafting plan</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant">Completed in 1.4s</span>
+</div>
+<!-- Disclosure row -->
+<div class="pt-2 border-t border-[#E3E6EC]/80 flex items-center justify-between text-on-surface-variant hover:text-on-surface cursor-pointer text-xs group">
+<div class="flex items-center gap-1.5 font-caption text-caption">
+<span class="material-symbols-outlined text-[14px] text-primary-container">dataset</span>
+<span>7 sections synthesized, 3 autonomous agent roles</span>
+</div>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">expand_more</span>
+</div>
+</div>
+<!-- Assistant Suggestion Pills -->
+<div class="ml-8 pt-1 flex flex-wrap gap-1.5">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[12px] text-primary-container">add</span>
+<span>Add offline mode</span>
+</button>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[12px] text-primary-container">add</span>
+<span>Include flight alert agent</span>
+</button>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[12px] text-primary-container">tune</span>
+<span>Clarify budget split model</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Composer (Pinned) -->
+<div class="border-t border-[#E3E6EC] p-space-base bg-surface-container-lowest flex flex-col gap-2.5">
+<!-- Mode Toggle Pill -->
+<div class="flex items-center justify-between">
+<div class="inline-flex p-0.5 rounded-full border border-[#E3E6EC] bg-surface-container-low">
+<button class="px-3 py-0.5 rounded-full bg-primary-container text-on-primary font-caption-medium text-caption-medium shadow-sm transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[12px]">edit_note</span>
+<span>Plan</span>
+</button>
+<button class="px-3 py-0.5 rounded-full text-on-surface-variant hover:text-on-surface font-caption-medium text-caption-medium transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[12px]">terminal</span>
+<span>Build</span>
+</button>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant/80">Shift + Return for newline</span>
+</div>
+<!-- Input Area -->
+<div class="relative rounded-[6px] border border-[#E3E6EC] focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-fixed bg-surface-container-lowest transition-all">
+<textarea class="w-full resize-none bg-transparent p-2.5 font-body-compact text-body-compact text-on-surface placeholder:text-outline focus:outline-none" placeholder="Describe changes or ask questions about the plan…" rows="3"></textarea>
+<div class="px-2 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" title="Attach file or spec" type="button">
+<span class="material-symbols-outlined text-[16px]">attach_file</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" title="Voice prompt" type="button">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" title="Select reference" type="button">
+<span class="material-symbols-outlined text-[16px]">data_object</span>
+</button>
+</div>
+<button class="h-7 w-7 rounded-[6px] bg-primary-container text-on-primary flex items-center justify-center hover:bg-primary transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[15px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- RIGHT CANVAS: Document / Specification Workbench -->
+<main class="flex-1 bg-background flex flex-col h-full relative overflow-hidden">
+<!-- Canvas Subheader / Navigation Bar -->
+<div class="h-13 px-6 border-b border-[#E3E6EC] bg-surface-container-lowest flex items-center justify-between shrink-0">
+<div class="flex items-center gap-6 h-full">
+<nav class="flex items-center h-full gap-2">
+<a class="h-full inline-flex items-center px-2 font-body-compact-medium text-body-compact-medium border-b-2 border-primary-container text-primary-container font-semibold" href="#">
+<span class="material-symbols-outlined text-[16px] mr-1.5">article</span>
+              Specification Plan
+            </a>
+<a class="h-full inline-flex items-center px-2 font-body-compact-medium text-body-compact-medium border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] mr-1.5">smart_toy</span>
+              Autonomous Agents
+              <span class="ml-1.5 px-1.5 py-0.2 rounded-full bg-surface-container text-secondary font-code-compact text-[10px]">3</span>
+</a>
+<a class="h-full inline-flex items-center px-2 font-body-compact-medium text-body-compact-medium border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] mr-1.5">devices</span>
+              UI Prototype
+            </a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-code-compact text-code-compact text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#22A06B]"></span>
+            Auto-saved 1m ago
+          </span>
+<div class="h-3.5 w-px bg-[#E3E6EC]"></div>
+<div class="flex items-center border border-[#E3E6EC] rounded-[6px] bg-surface-container-lowest p-0.5">
+<button class="px-1.5 py-0.5 text-on-surface-variant hover:text-on-surface font-code-compact text-[11px]">-</button>
+<span class="px-2 py-0.5 font-code-compact text-[11px] text-on-surface border-x border-[#E3E6EC]">100%</span>
+<button class="px-1.5 py-0.5 text-on-surface-variant hover:text-on-surface font-code-compact text-[11px]">+</button>
+</div>
+<button class="h-8 px-2.5 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-body-compact-medium text-body-compact-medium flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">ios_share</span>
+<span>Export Spec</span>
+</button>
+</div>
+</div>
+<!-- Canvas Scrollable Working Area -->
+<div class="flex-1 overflow-y-auto px-6 py-8 pb-32">
+<div class="max-w-4xl mx-auto space-y-6">
+<!-- Master Document Card -->
+<div class="bg-surface-container-lowest border border-[#E3E6EC] rounded-[10px] p-8 shadow-[0_1px_2px_0_rgba(31,35,48,0.04)] space-y-8">
+<!-- Document Meta Header -->
+<div class="border-b border-[#E3E6EC] pb-6">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full border border-[#E3E6EC] bg-surface-container text-primary-container font-code-compact text-code-compact font-medium">Travel Planner v0.1</span>
+<span class="px-2 py-0.5 rounded-full border border-[#22A06B]/20 bg-[#22A06B]/10 text-[#22A06B] font-code-compact text-code-compact font-medium">Stage 1: Architecture</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors" title="Section options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">System Architecture &amp; Product Specification</h1>
+<div class="flex items-center gap-4 mt-2 text-on-surface-variant font-caption text-caption">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">engineering</span> Author: Architect AI + Asha</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> Updated: Just now</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">fingerprint</span> Hash: 4a9f...e10d</span>
+</div>
+</div>
+<!-- SECTION 1: Summary -->
+<section class="space-y-2 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">01 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Executive Summary</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="p-4 rounded-[8px] bg-surface-container-low/60 border border-[#E3E6EC]">
+<p class="font-body-default text-body-default text-on-surface leading-relaxed">
+                  Travel Planner is a multi-tenant, real-time group trip orchestrator engineered to eliminate group chat friction. By combining shared ideation boards with autonomous multi-agent synthesis, the app democratizes travel decisions through structured quadratic polling, automatically constructs conflict-free day plans using routing heuristics, and automates multi-currency expense equalization via split-ledger settlement graphs.
+                </p>
+</div>
+</section>
+<!-- SECTION 2: Target Audience -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">02 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">User Personas &amp; Audience</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">groups</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Group Trip Leads &amp; Coordinators</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">The designated organizer overwhelmed with Google Sheets, Venmo tracking, and endlessly scattered WhatsApp threads.</p>
+</div>
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">family_restroom</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Multi-Generational Families</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">Parties requiring varied pace settings, age-gated activity filters, accessible transport, and central booking oversight.</p>
+</div>
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">flight_takeoff</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Distributed Friend Circles</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">Peers arriving from disparate origin airports who need synced arrival windows and transparent itemized split balances.</p>
+</div>
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">work</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Offsite &amp; Retreat Planners</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">Distributed startups and agile teams running 3-5 day regional sprints needing shared block schedules and tax receipt tracking.</p>
+</div>
+</div>
+</section>
+<!-- SECTION 3: User Journey -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">03 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">End-to-End User Journey</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="border border-[#E3E6EC] rounded-[8px] divide-y divide-[#E3E6EC] bg-surface-container-lowest">
+<div class="p-3.5 flex items-start gap-4">
+<span class="font-code-default text-code-default text-primary-container font-medium shrink-0 pt-0.5">01</span>
+<div>
+<h4 class="font-body-medium text-body-medium font-medium text-on-surface">Trip Genesis &amp; Deep Link Provisioning</h4>
+<p class="font-body-compact text-body-compact text-on-surface-variant mt-0.5">Host defines destination, tentative dates, and dispatches zero-login magic links with guest role allowances.</p>
+</div>
+</div>
+<div class="p-3.5 flex items-start gap-4">
+<span class="font-code-default text-code-default text-primary-container font-medium shrink-0 pt-0.5">02</span>
+<div>
+<h4 class="font-body-medium text-body-medium font-medium text-on-surface">Collaborative Ideation &amp; Flight Staking</h4>
+<p class="font-body-compact text-body-compact text-on-surface-variant mt-0.5">Attendees pin accommodation links and flight itineraries; real-time quadratic voting aggregates consensus.</p>
+</div>
+</div>
+<div class="p-3.5 flex items-start gap-4">
+<span class="font-code-default text-code-default text-primary-container font-medium shrink-0 pt-0.5">03</span>
+<div>
+<h4 class="font-body-medium text-body-medium font-medium text-on-surface">Autonomous Itinerary Generation</h4>
+<p class="font-body-compact text-body-compact text-on-surface-variant mt-0.5">Planner Agent sequences activities by geographic clustering, venue operational hours, and commute buffers.</p>
+</div>
+</div>
+<div class="p-3.5 flex items-start gap-4">
+<span class="font-code-default text-code-default text-primary-container font-medium shrink-0 pt-0.5">04</span>
+<div>
+<h4 class="font-body-medium text-body-medium font-medium text-on-surface">Reservation Sync &amp; Calendar Export</h4>
+<p class="font-body-compact text-body-compact text-on-surface-variant mt-0.5">Automated confirmation parser binds reservation references and pushes synced iCal/Google Calendar feeds to guests.</p>
+</div>
+</div>
+<div class="p-3.5 flex items-start gap-4">
+<span class="font-code-default text-code-default text-primary-container font-medium shrink-0 pt-0.5">05</span>
+<div>
+<h4 class="font-body-medium text-body-medium font-medium text-on-surface">Unified Ledger &amp; Net-Debt Settlement</h4>
+<p class="font-body-compact text-body-compact text-on-surface-variant mt-0.5">Optical Character Recognition (OCR) receipt intake resolves group debt into minimal transaction pairs via Stripe.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Screens -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">04 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Core Screen Modules</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Card 1 -->
+<div class="border border-[#E3E6EC] rounded-[8px] p-3.5 bg-surface-container-lowest flex flex-col justify-between space-y-3 hover:border-primary-container/40 transition-colors">
+<div class="space-y-2">
+<div class="h-28 w-full rounded bg-surface-container-low border border-[#E3E6EC] flex flex-col p-2.5 justify-between">
+<div class="flex items-center justify-between border-b border-[#E3E6EC] pb-1.5">
+<div class="w-16 h-2 rounded bg-surface-container-high"></div>
+<div class="flex gap-1">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container/20"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container/40"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="h-6 w-full rounded bg-surface-container-lowest border border-[#E3E6EC] flex items-center px-2">
+<span class="material-symbols-outlined text-[11px] text-outline">search</span>
+<div class="ml-1 w-20 h-1.5 rounded bg-surface-container"></div>
+</div>
+<div class="grid grid-cols-2 gap-1.5">
+<div class="h-7 rounded bg-surface-container-lowest border border-[#E3E6EC]"></div>
+<div class="h-7 rounded bg-surface-container-lowest border border-[#E3E6EC]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">travel_explore</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Search &amp; Discovery</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">
+                      Multi-modal query interface evaluating flight matrices, neighborhood ratings, and group budget feasibility with instant voting widgets.
+                    </p>
+</div>
+<span class="font-code-compact text-[11px] text-primary-container font-medium">Spec: /screens/search-hub</span>
+</div>
+<!-- Card 2 -->
+<div class="border border-[#E3E6EC] rounded-[8px] p-3.5 bg-surface-container-lowest flex flex-col justify-between space-y-3 hover:border-primary-container/40 transition-colors">
+<div class="space-y-2">
+<div class="h-28 w-full rounded bg-surface-container-low border border-[#E3E6EC] flex flex-col p-2.5 justify-between">
+<div class="flex items-center justify-between border-b border-[#E3E6EC] pb-1.5">
+<div class="flex gap-1">
+<div class="px-1.5 py-0.5 rounded bg-primary-container text-white text-[8px] font-code-compact">DAY 1</div>
+<div class="px-1.5 py-0.5 rounded bg-surface-container text-secondary text-[8px] font-code-compact">DAY 2</div>
+</div>
+<span class="material-symbols-outlined text-[12px] text-primary-container">map</span>
+</div>
+<div class="space-y-1">
+<div class="h-4 w-full rounded bg-surface-container-lowest border-l-2 border-l-primary-container px-1 flex items-center">
+<div class="w-12 h-1 rounded bg-secondary"></div>
+</div>
+<div class="h-4 w-3/4 rounded bg-surface-container-lowest border-l-2 border-l-[#22A06B] px-1 flex items-center">
+<div class="w-10 h-1 rounded bg-secondary"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">calendar_month</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Interactive Itinerary</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">
+                      Visual multi-lane timeline with integrated Mapbox vector tiles, drag-and-drop sequencing, transit buffers, and conflict alerts.
+                    </p>
+</div>
+<span class="font-code-compact text-[11px] text-primary-container font-medium">Spec: /screens/itinerary-grid</span>
+</div>
+<!-- Card 3 -->
+<div class="border border-[#E3E6EC] rounded-[8px] p-3.5 bg-surface-container-lowest flex flex-col justify-between space-y-3 hover:border-primary-container/40 transition-colors">
+<div class="space-y-2">
+<div class="h-28 w-full rounded bg-surface-container-low border border-[#E3E6EC] flex flex-col p-2.5 justify-between">
+<div class="flex items-center justify-between border-b border-[#E3E6EC] pb-1.5">
+<div class="w-12 h-2 rounded bg-surface-container-high"></div>
+<span class="font-code-compact text-[9px] text-[#22A06B] font-bold">$1,420.00</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-[9px]">
+<span class="text-secondary font-code-compact">Asha → Sarah</span>
+<span class="text-on-surface font-code-compact">$45.50</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1">
+<div class="bg-primary-container h-1 rounded-full w-2/3"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">account_balance_wallet</span>
+<h3 class="font-body-medium text-body-medium font-semibold text-on-surface">Ledger &amp; Settlement</h3>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">
+                      Multi-currency debt simplification matrix, receipt photo scanner with line-item tagging, and automated Stripe Connect pay-outs.
+                    </p>
+</div>
+<span class="font-code-compact text-[11px] text-primary-container font-medium">Spec: /screens/ledger-split</span>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Agents -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">05 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Autonomous Agent Architecture</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-low/40">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-white font-code-compact text-code-compact font-medium">Agent 01</span>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">Planner Agent</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant mb-2">
+                    Orchestrates timeline sequencing, resolves overlapping booking constraints, and computes realistic transit margins using live traffic curves.
+                  </p>
+<span class="inline-flex items-center gap-1 text-[11px] font-code-compact text-primary-container font-medium">
+<span class="material-symbols-outlined text-[12px]">tune</span> Cron: on_itinerary_mutation
+                  </span>
+</div>
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-low/40">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-white font-code-compact text-code-compact font-medium">Agent 02</span>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">Flight Finder</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant mb-2">
+                    Tracks flight fares across varying departure cities, discovers overlapping arrival windows for the party, and surfaces delay alerts.
+                  </p>
+<span class="inline-flex items-center gap-1 text-[11px] font-code-compact text-primary-container font-medium">
+<span class="material-symbols-outlined text-[12px]">tune</span> Polling: 30m delta
+                  </span>
+</div>
+<div class="p-3.5 rounded-[8px] border border-[#E3E6EC] bg-surface-container-low/40">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-white font-code-compact text-code-compact font-medium">Agent 03</span>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">Hotel Scout</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant mb-2">
+                    Filters vacation rentals and boutique hotels based on group bedroom quotas, host response scores, cancellation terms, and verified reviews.
+                  </p>
+<span class="inline-flex items-center gap-1 text-[11px] font-code-compact text-primary-container font-medium">
+<span class="material-symbols-outlined text-[12px]">tune</span> Source: Amadeus API
+                  </span>
+</div>
+</div>
+</section>
+<!-- SECTION 6: Data Schema -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">06 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Data Schema Collections</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="border border-[#E3E6EC] rounded-[8px] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-[#E3E6EC] font-caption-medium text-caption-medium text-on-surface-variant">
+<th class="p-3 font-medium">Collection</th>
+<th class="p-3 font-medium">Type</th>
+<th class="p-3 font-medium">Key Attributes</th>
+<th class="p-3 font-medium">Relations</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E3E6EC] font-body-compact text-body-compact text-on-surface">
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-3 font-code-compact text-primary-container font-medium">Users</td>
+<td class="p-3 text-on-surface-variant">Document</td>
+<td class="p-3 font-code-compact text-[11px]">id, email, full_name, avatar_url, preferences</td>
+<td class="p-3 text-secondary">1:N Trips, 1:N Expenses</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-3 font-code-compact text-primary-container font-medium">Trips</td>
+<td class="p-3 text-on-surface-variant">Document</td>
+<td class="p-3 font-code-compact text-[11px]">id, title, destination, date_range, currency</td>
+<td class="p-3 text-secondary">N:M Users, 1:N Itinerary</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-3 font-code-compact text-primary-container font-medium">ItineraryItems</td>
+<td class="p-3 text-on-surface-variant">Document</td>
+<td class="p-3 font-code-compact text-[11px]">id, trip_id, lat, lng, start_time, category, cost</td>
+<td class="p-3 text-secondary">N:1 Trips, 1:N PollVotes</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-3 font-code-compact text-primary-container font-medium">PollVotes</td>
+<td class="p-3 text-on-surface-variant">Timeseries</td>
+<td class="p-3 font-code-compact text-[11px]">id, item_id, user_id, weight, timestamp</td>
+<td class="p-3 text-secondary">N:1 ItineraryItems</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-3 font-code-compact text-primary-container font-medium">Expenses</td>
+<td class="p-3 text-on-surface-variant">Ledger</td>
+<td class="p-3 font-code-compact text-[11px]">id, trip_id, payer_id, amount, splits[], receipt_url</td>
+<td class="p-3 text-secondary">N:1 Trips, 1:N Users</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECTION 7: Integrations -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">07 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">External API Integrations</h2>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-xs" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="p-3 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-[#4285F4]/10 text-[#4285F4] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Google Maps</h4>
+<p class="font-caption text-[11px] text-on-surface-variant">Geocoding &amp; Places</p>
+</div>
+</div>
+<div class="p-3 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-primary-container/10 text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">flight</span>
+</div>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Amadeus Air</h4>
+<p class="font-caption text-[11px] text-on-surface-variant">Live GDS Fares</p>
+</div>
+</div>
+<div class="p-3 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-[#635BFF]/10 text-[#635BFF] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Stripe Connect</h4>
+<p class="font-caption text-[11px] text-on-surface-variant">Multi-Party Payouts</p>
+</div>
+</div>
+<div class="p-3 rounded-[8px] border border-[#E3E6EC] bg-surface-container-lowest flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-[#25D366]/10 text-[#25D366] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</div>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium font-medium text-on-surface">Twilio Engine</h4>
+<p class="font-caption text-[11px] text-on-surface-variant">WhatsApp Broadcast</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: Open Questions & Decisions Needed -->
+<section class="space-y-3 group relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code-compact text-code-compact text-primary-container font-bold">08 //</span>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Architect Decisions &amp; Open RFCs</h2>
+</div>
+<span class="font-caption-medium text-caption-medium text-on-secondary-container px-2 py-0.5 rounded-full bg-secondary-container">2 Actions Required</span>
+</div>
+<div class="space-y-3">
+<!-- Decision 1 -->
+<div class="p-4 rounded-[8px] border border-primary-container/30 bg-primary-fixed/20 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">help</span>
+<h4 class="font-body-medium text-body-medium font-semibold text-on-surface">Decision: Guest Voting Permissions</h4>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-code-compact bg-surface-container-lowest text-primary-container border border-[#E3E6EC]">High Priority</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">
+                    Should non-registered users be allowed to vote on itinerary polls via magic link without authenticating?
+                  </p>
+<div class="flex flex-col sm:flex-row gap-3 pt-1">
+<label class="flex items-center gap-2 px-3 py-2 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors">
+<input checked="" class="accent-primary-container h-4 w-4" name="guest_access" type="radio"/>
+<span class="font-body-compact text-body-compact text-on-surface">Yes, guest voting enabled via signed URL token (Recommended)</span>
+</label>
+<label class="flex items-center gap-2 px-3 py-2 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="accent-primary-container h-4 w-4" name="guest_access" type="radio"/>
+<span class="font-body-compact text-body-compact text-on-surface">No, require SSO / Email magic sign-in</span>
+</label>
+</div>
+</div>
+<!-- Decision 2 -->
+<div class="p-4 rounded-[8px] border border-[#E3E6EC] bg-surface-container-low/40 space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">notifications_active</span>
+<h4 class="font-body-medium text-body-medium font-semibold text-on-surface">Decision: Flight Alert Dispatch Frequency</h4>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-code-compact bg-surface-container-lowest text-secondary border border-[#E3E6EC]">Configuration</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface-variant">
+                    Do you want automated price change notifications sent daily as a digest, or broadcast instantly whenever price dips exceed 10%?
+                  </p>
+<div class="flex items-center gap-3">
+<input class="flex-1 h-9 px-3 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest text-on-surface font-body-compact text-body-compact focus:outline-none focus:border-primary-container" type="text" value="Immediate push on &gt;10% price variance + 9:00 AM daily briefing digest"/>
+<button class="h-9 px-3 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest text-on-surface hover:bg-surface-container font-body-compact-medium text-body-compact-medium" type="button">Save Setting</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Approval Bar -->
+<footer class="absolute bottom-0 left-0 right-0 h-16 border-t border-[#E3E6EC] bg-surface-container-lowest/95 backdrop-blur-md px-8 flex items-center justify-between shadow-[0_-4px_16px_rgba(0,0,0,0.03)] z-20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+</div>
+<div>
+<p class="font-body-medium text-body-medium font-medium text-on-surface leading-tight">
+              Looks good? Agents are designed next.
+            </p>
+<p class="font-caption text-caption text-on-surface-variant">
+              Stage 1 Plan will be locked and compiled into agent prompt templates.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-9 px-4 rounded-[6px] border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-body-compact-medium text-body-compact-medium transition-colors" type="button">
+            Ask for changes
+          </button>
+<button class="h-9 px-4 rounded-[6px] bg-primary-container hover:bg-primary text-on-primary font-body-compact-medium text-body-compact-medium shadow-sm transition-colors flex items-center gap-1.5 font-medium" type="button">
+<span>Approve plan</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</div></main><footer class="w-full border-t border-[#E3E6EC] bg-surface-container-low py-space-base"><div class="max-w-[1440px] mx-auto px-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-base"><span class="font-code-compact text-code-compact text-on-surface-variant">Architect 2.0 Engine • Travel Planner</span><span class="h-3 w-px bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant">Workspace Synced</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-caption text-caption"><a class="hover:text-on-surface transition-colors" href="#">Docs</a><a class="hover:text-on-surface transition-colors" href="#">API Spec</a><a class="hover:text-on-surface transition-colors" href="#">Feedback</a></div></div></footer></body></html>

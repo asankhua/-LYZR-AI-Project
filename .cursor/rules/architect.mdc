@@ -1,0 +1,16 @@
+---
+description: Architect 2.0 build rules. Apply to every change in this repository.
+alwaysApply: true
+---
+
+Follow CLAUDE.md. architecture.md is the source of truth, prd.md says what to build, and implementation_plan.md says the order.
+
+Each phase is a separate folder named for what it covers. The current app is in `phase 5 - ship/`. Phase 4 stays in `phase 4 - coverage polish/`. Phase 3 stays in `phase 3 - github import deploy/`. Phase 2 stays in `phase 2 - preview developer tools/`. Phase 1 stays in `phase 1 - plan agents code/`. Phase 0 stays in `phase 0 - home workspace shell/`. Do not put phase code in the repository root, and do not mix two phases in one folder. Shared code lives in `common/`. Phases import it. Next.js route files stay in the phase `app/` folder. Phase-specific code stays in the phase folder.
+
+The only env file is `/.env`. Phase folders load that file. Do not create an env file inside a phase folder.
+
+Use the tokens in `common/styles/tokens.css`. Each phase loads them from `app/globals.css`. Do not copy colours, radius or fonts from `stitch_design/`. Stitch screens are a layout reference only.
+
+Every API route checks the session, validates input with zod, and checks project membership. Every new table enables row level security.
+
+Do not add a dependency without listing it in architecture.md section 7. Secrets stay server-side.

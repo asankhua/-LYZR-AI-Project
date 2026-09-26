@@ -1,0 +1,1 @@
+../common/next.config.ts

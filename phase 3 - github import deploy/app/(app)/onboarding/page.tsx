@@ -1,0 +1,1 @@
+../../../../common/app/(app)/onboarding/page.tsx

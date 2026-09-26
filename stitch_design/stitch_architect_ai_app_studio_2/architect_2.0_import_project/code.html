@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#464555","surface-container-highest":"#dfe2f4","inverse-primary":"#c3c0ff","tertiary":"#45484b","tertiary-fixed":"#e0e3e6","on-surface":"#171b28","surface-container-low":"#f2f3ff","on-tertiary-fixed":"#191c1e","surface-container":"#eaedff","on-error-container":"#93000a","primary-container":"#4f46e5","surface-dim":"#d6d9eb","primary-fixed":"#e2dfff","on-primary-container":"#dad7ff","secondary-fixed-dim":"#c3c6d4","on-primary-fixed":"#0f0069","on-tertiary":"#ffffff","on-error":"#ffffff","error":"#ba1a1a","error-container":"#ffdad6","on-secondary-fixed":"#181b26","surface-container-lowest":"#ffffff","secondary-fixed":"#e0e2f0","inverse-surface":"#2c303d","primary-fixed-dim":"#c3c0ff","tertiary-fixed-dim":"#c4c7ca","background":"#faf8ff","on-tertiary-container":"#d9dbde","on-tertiary-fixed-variant":"#44474a","surface-bright":"#faf8ff","on-primary":"#ffffff","on-secondary-container":"#5f626f","on-primary-fixed-variant":"#3323cc","outline-variant":"#c7c4d8","on-background":"#171b28","surface-tint":"#4d44e3","surface-container-high":"#e5e7f9","secondary":"#5b5e6a","surface":"#faf8ff","inverse-on-surface":"#eef0ff","on-secondary-fixed-variant":"#434652","surface-variant":"#dfe2f4","tertiary-container":"#5d6063","outline":"#777587","on-secondary":"#ffffff","primary":"#3525cd","secondary-container":"#dddfee"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"0.5rem","space-base":"0.75rem","margin-mobile":"1rem","margin":"1.5rem","gutter-expanded":"1.5rem","gutter-compact":"0.75rem","space-xl":"1.5rem","space-lg":"1rem","space-sm":"0.375rem","space-2xl":"2rem","gutter":"1rem","space-xs":"0.25rem","space-2xs":"0.125rem","space-3xl":"3rem"},fontFamily:{"headline-lg":["Inter"],"code-default":["JetBrains Mono"],"caption-medium":["Inter"],display:["Inter"],"body-compact":["Inter"],"headline-lg-mobile":["Inter"],"body-compact-medium":["Inter"],"body-medium":["Inter"],"headline-md":["Inter"],caption:["Inter"],"body-default":["Inter"],"display-mobile":["Inter"],"code-compact":["JetBrains Mono"],"title-sm":["Inter"]},fontSize:{"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"500"}],"code-default":["13px",{lineHeight:"18px",fontWeight:"400"}],"caption-medium":["12px",{lineHeight:"16px",fontWeight:"500"}],display:["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"500"}],"body-compact":["13px",{lineHeight:"18px",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-compact-medium":["13px",{lineHeight:"18px",fontWeight:"500"}],"body-medium":["14px",{lineHeight:"20px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"500"}],caption:["12px",{lineHeight:"16px",fontWeight:"400"}],"body-default":["14px",{lineHeight:"20px",fontWeight:"400"}],"display-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"500"}],"code-compact":["12px",{lineHeight:"16px",fontWeight:"400"}],"title-sm":["16px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-default text-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 w-full px-margin flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><span class="font-title-sm text-title-sm text-on-surface tracking-tight font-semibold">Architect</span><span class="font-code-compact text-code-compact px-space-xs py-space-2xs rounded-full bg-surface-container-high text-primary font-medium">2.0</span></div><div class="h-4 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-xs text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">folder_open</span><span class="font-body-compact-medium text-body-compact-medium text-on-surface">Import Project</span><span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span></div></div><div class="flex items-center gap-space-lg"><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-on-surface font-body-compact-medium text-body-compact-medium"><a aria-current="page" class="transition-colors text-on-surface font-body-compact-medium text-body-compact-medium" data-path="import-project" href="#">Import Hub</a><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="git-repository" href="#">Git Provider</a><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="local-bundle" href="#">Local Archive</a><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="starter-templates" href="#">Templates</a></nav><div class="h-4 w-px bg-surface-container-highest hidden sm:block"></div><div class="flex items-center gap-space-md"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-lg transition-colors" href="#">Docs</a><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-lg transition-colors" href="#">Help &amp; Feedback</a></div><div class="flex items-center gap-space-xs pl-space-sm pr-space-md py-space-2xs rounded-full bg-surface-container-low"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left pr-space-xs"><span class="font-caption-medium text-caption-medium text-on-surface leading-tight">Asha Dev</span><span class="font-caption text-[10px] leading-tight text-on-surface-variant">Core Eng</span></div></div><a class="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" href="#" title="Back to Projects"><span class="material-symbols-outlined text-[18px]">close</span></a></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-64px)]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Canvas Backdrop -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 right-1/4 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-80 -left-20 w-80 h-80 bg-surface-container-highest/40 rounded-full blur-2xl pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin pb-space-3xl pt-space-lg">
+<!-- Top Navigation & Breadcrumb Layer -->
+<nav aria-label="Breadcrumb" class="flex flex-wrap items-center justify-between gap-space-md mb-space-xl">
+<div class="flex items-center gap-space-sm font-caption text-caption text-on-surface-variant">
+<a class="flex items-center gap-space-xs hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Projects</span>
+</a>
+<span class="text-outline-variant font-code-compact text-code-compact">/</span>
+<span class="text-on-surface-variant">New</span>
+<span class="text-outline-variant font-code-compact text-code-compact">/</span>
+<span class="font-caption-medium text-caption-medium text-primary bg-primary-fixed/40 px-space-sm py-space-2xs rounded-full">Import</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-code-compact text-code-compact text-on-surface-variant bg-surface-container-low px-space-sm py-space-2xs rounded-md shadow-sm">
+            RUNNER: edge-us-east-1
+          </span>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-space-2xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Sandboxes Idle
+          </span>
+</div>
+</nav>
+<!-- Page Headline Section -->
+<header class="mb-space-2xl">
+<div class="flex items-center gap-space-xs font-code-compact text-code-compact uppercase tracking-wider text-primary font-medium mb-space-xs">
+<span>Engine v2.4</span>
+<span>•</span>
+<span>Automated AST Pipeline</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:font-display md:text-display text-on-surface tracking-tight font-medium mb-space-sm">
+          Import an existing project
+        </h1>
+<p class="font-body-default text-body-default text-on-surface-variant max-w-3xl leading-relaxed">
+          Bring your codebase into Architect 2.0. We will parse your components, analyze agents or APIs, and configure a live sandbox.
+        </p>
+</header>
+<!-- Top Section: Source Selector Bento Cards -->
+<section aria-label="Import Method Selection" class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-2xl">
+<!-- Option 1: GitHub (SELECTED / ACTIVE) -->
+<article class="relative flex flex-col justify-between p-space-xl rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer">
+<!-- Active Indicator Pill -->
+<div class="absolute -top-2.5 right-6 bg-primary text-on-primary px-space-sm py-space-2xs rounded-full font-code-compact text-code-compact flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>ACTIVE SELECTION</span>
+</div>
+<div>
+<div class="flex items-start justify-between mb-space-base">
+<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<!-- GitHub Vector Mark -->
+<svg aria-hidden="true" class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<!-- Radio Dot Active Indicator -->
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold mb-space-xs">
+              Import from GitHub
+            </h2>
+<p class="font-body-compact text-body-compact text-on-surface-variant leading-relaxed mb-space-lg">
+              Connect your GitHub account or organizations to clone repositories directly with two-way sync.
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md bg-surface-container-low/70 px-space-base py-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-caption-medium text-caption-medium text-on-surface">Connected as <strong class="font-semibold text-primary">asha-dev</strong></span>
+</div>
+<a class="font-code-compact text-code-compact text-on-surface-variant hover:text-on-surface flex items-center gap-1 transition-colors" href="#">
+<span>Switch</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</a>
+</div>
+</article>
+<!-- Option 2: Upload a ZIP (UNSELECTED) -->
+<article class="flex flex-col justify-between p-space-xl rounded-xl bg-surface-container-lowest/60 hover:bg-surface-container-lowest shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div>
+<div class="flex items-start justify-between mb-space-base">
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">folder_zip</span>
+</div>
+<!-- Radio Dot Inactive Indicator -->
+<div class="w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center"></div>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold mb-space-xs">
+              Upload a zip
+            </h2>
+<p class="font-body-compact text-body-compact text-on-surface-variant leading-relaxed mb-space-lg">
+              Drag and drop a .zip archive of your project directory (up to 50MB, node_modules excluded).
+            </p>
+</div>
+<div class="flex items-center justify-between pt-space-md bg-surface-container/50 px-space-base py-space-sm rounded-lg group-hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">cloud_upload</span>
+<span class="font-caption text-caption">Drop archive or browse files</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant bg-surface-container px-space-xs py-space-2xs rounded">.zip only</span>
+</div>
+</article>
+</section>
+<!-- Active GitHub Workspace Section: Split Grid 65% / 35% -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left/Middle Content Pane (65% width equivalent: col-span-12 lg:col-span-8) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Filter Controls Bar -->
+<div class="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-base">
+<!-- Search Repositories Input -->
+<div class="relative w-full sm:flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface-container-low text-on-surface placeholder:text-outline text-body-compact font-body-compact rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search repositories..." type="text" value=""/>
+<button class="absolute right-2.5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface flex items-center" title="Clear search">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+</button>
+</div>
+<!-- Organization Selector Dropdown -->
+<div class="relative w-full sm:w-auto min-w-[210px]">
+<button class="w-full h-9 px-space-base bg-surface-container-low hover:bg-surface-container text-on-surface font-body-compact text-body-compact rounded-lg flex items-center justify-between gap-space-sm transition-colors" type="button">
+<div class="flex items-center gap-space-xs truncate">
+<span class="w-4 h-4 rounded-full bg-primary/20 text-primary font-code-compact text-[10px] flex items-center justify-center font-bold">@</span>
+<span class="truncate font-body-compact-medium text-body-compact-medium">asha-dev (Personal)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Metadata & Synchronize Counter Bar -->
+<div class="flex items-center justify-between px-space-xs text-on-surface-variant font-caption text-caption">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Showing 5 of 28 repositories</span>
+<span>•</span>
+<span>Last synced 2m ago</span>
+</div>
+<button class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary transition-colors py-1 px-2 rounded-md hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span class="font-caption-medium text-caption-medium">Refresh Repos</span>
+</button>
+</div>
+<!-- Repositories List Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- ROW 1 (SELECTED ROW): crm-dashboard -->
+<div class="p-space-lg bg-surface-container-low/50 transition-colors">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-base mb-space-base">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="font-title-sm text-title-sm font-semibold text-primary">asha-dev/crm-dashboard</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-code-compact text-code-compact">Public</span>
+<span class="flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-[11px]">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        TypeScript
+                      </span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-caption text-caption">
+<span>Updated 18m ago</span>
+<span class="flex items-center gap-0.5 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-compact text-code-compact">142</span>
+</span>
+<span class="font-code-compact text-code-compact text-primary">Active AST Pipeline</span>
+</div>
+</div>
+</div>
+<!-- Active Row Status Button -->
+<div class="flex items-center self-end md:self-auto gap-space-sm">
+<button class="h-8 px-space-base rounded-md bg-primary-container text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs shadow-sm hover:opacity-95 transition-all">
+<span class="w-3.5 h-3.5 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></span>
+<span>Importing...</span>
+</button>
+</div>
+</div>
+<!-- Expanded Active Configuration Surface -->
+<div class="p-space-base bg-surface-container-lowest rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-space-base">
+<!-- Branch Selector -->
+<div>
+<label class="block font-caption-medium text-caption-medium text-on-surface-variant mb-space-2xs">
+                    Target Branch
+                  </label>
+<div class="relative">
+<button class="w-full h-8 px-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface font-body-compact text-body-compact rounded-md flex items-center justify-between text-left transition-colors">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-[16px] text-outline">fork_right</span>
+<span class="font-code-compact text-code-compact font-medium truncate">main (default)</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span>
+</button>
+</div>
+</div>
+<!-- Root Directory Override -->
+<div>
+<label class="block font-caption-medium text-caption-medium text-on-surface-variant mb-space-2xs">
+                    Root Directory Override
+                  </label>
+<div class="relative">
+<input class="w-full h-8 px-space-sm bg-surface-container-low text-on-surface font-code-compact text-code-compact rounded-md focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="./"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 font-caption text-[10px] text-outline uppercase tracking-wider">Default</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 2: travel-planner -->
+<div class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="font-title-sm text-title-sm font-medium text-on-surface">asha-dev/travel-planner</span>
+<span class="flex items-center gap-0.5 px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-code-compact">
+<span class="material-symbols-outlined text-[12px]">lock</span>
+<span>Private</span>
+</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-[11px]">
+                      TypeScript / Python
+                    </span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-caption text-caption">
+<span>Updated 2h ago</span>
+<span>•</span>
+<span>branch: main</span>
+</div>
+</div>
+</div>
+<button class="h-8 px-space-lg rounded-md bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-compact-medium text-body-compact-medium transition-colors self-end md:self-auto">
+                Import
+              </button>
+</div>
+<!-- ROW 3: customer-support-agent -->
+<div class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="font-title-sm text-title-sm font-medium text-on-surface">asha-dev/customer-support-agent</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-code-compact text-code-compact">Public</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-[11px]">
+                      Python (LangGraph)
+                    </span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-caption text-caption">
+<span>Updated yesterday</span>
+<span>•</span>
+<span>Multi-Agent Workflow</span>
+</div>
+</div>
+</div>
+<button class="h-8 px-space-lg rounded-md bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-compact-medium text-body-compact-medium transition-colors self-end md:self-auto">
+                Import
+              </button>
+</div>
+<!-- ROW 4: ecommerce-storefront -->
+<div class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="font-title-sm text-title-sm font-medium text-on-surface">asha-dev/ecommerce-storefront</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-code-compact text-code-compact">Public</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-[11px]">
+                      TypeScript (Next.js)
+                    </span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-caption text-caption">
+<span>Updated 3 days ago</span>
+<span>•</span>
+<span>SSR Enabled</span>
+</div>
+</div>
+</div>
+<button class="h-8 px-space-lg rounded-md bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-compact-medium text-body-compact-medium transition-colors self-end md:self-auto">
+                Import
+              </button>
+</div>
+<!-- ROW 5: docs-site -->
+<div class="p-space-lg hover:bg-surface-container-low/40 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center mt-0.5">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="font-title-sm text-title-sm font-medium text-on-surface">asha-dev/docs-site</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-code-compact text-code-compact">Public</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption text-[11px]">
+                      MDX / Astro
+                    </span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-caption text-caption">
+<span>Updated last week</span>
+<span>•</span>
+<span>Static Content</span>
+</div>
+</div>
+</div>
+<button class="h-8 px-space-lg rounded-md bg-surface-container-low hover:bg-primary hover:text-on-primary text-on-surface font-body-compact-medium text-body-compact-medium transition-colors self-end md:self-auto">
+                Import
+              </button>
+</div>
+</div>
+<!-- Bottom Repository Helper -->
+<footer class="p-space-base rounded-xl bg-surface-container-low/50 flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm font-caption text-caption text-on-surface-variant">
+<span>Can't find your repository?</span>
+<div class="flex items-center gap-space-md font-body-compact-medium text-body-compact-medium">
+<a class="text-primary hover:underline flex items-center gap-1" href="#">
+                Configure GitHub App permissions
+                <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<span>or</span>
+<a class="text-primary hover:underline" href="#">import via Git URL →</a>
+</div>
+</footer>
+</div>
+<!-- Right Explainer & Active Progress Pane (35% width equivalent: col-span-12 lg:col-span-4) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1. Progress State Variant Card (PROMINENT, Demonstrating active import in flight) -->
+<article class="p-space-xl rounded-xl bg-surface-container-lowest shadow-md relative overflow-hidden">
+<!-- Top Gradient Accent Strip -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-container to-surface-tint"></div>
+<div class="flex items-center justify-between mb-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-code-compact text-code-compact uppercase tracking-wider text-primary font-semibold">Import in progress</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant bg-surface-container px-space-xs py-space-2xs rounded">AST v2</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-bold mb-space-2xs">
+              Importing asha-dev/crm-dashboard
+            </h3>
+<p class="font-code-compact text-code-compact text-on-surface-variant mb-space-lg flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">fork_right</span>
+<span>branch: main • commit <code class="text-primary font-semibold">3b8f1a</code></span>
+</p>
+<!-- Inline Flow / Architecture Diagram Indicator SVG -->
+<div class="mb-space-lg p-space-sm rounded-lg bg-surface-container-low/60 flex items-center justify-center">
+<svg class="w-full h-12 text-primary" fill="none" viewbox="0 0 320 48" xmlns="http://www.w3.org/2000/svg">
+<!-- Step 1 -->
+<circle class="fill-emerald-500/20 stroke-emerald-500" cx="28" cy="24" r="10" stroke-width="2"></circle>
+<path class="stroke-emerald-600" d="M24 24L27 27L32 21" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<line class="stroke-emerald-400" stroke-dasharray="2 2" stroke-width="2" x1="38" x2="108" y1="24" y2="24"></line>
+<!-- Step 2 -->
+<circle class="fill-emerald-500/20 stroke-emerald-500" cx="118" cy="24" r="10" stroke-width="2"></circle>
+<path class="stroke-emerald-600" d="M114 24L117 27L122 21" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<line class="stroke-primary" stroke-width="2" x1="128" x2="198" y1="24" y2="24"></line>
+<!-- Step 3 Active -->
+<circle class="fill-primary-fixed stroke-primary" cx="208" cy="24" r="12" stroke-width="2"></circle>
+<circle class="fill-primary animate-pulse" cx="208" cy="24" r="4"></circle>
+<line class="stroke-surface-container-highest" stroke-width="2" x1="220" x2="288" y1="24" y2="24"></line>
+<!-- Step 4 Pending -->
+<circle class="fill-surface-container stroke-outline-variant" cx="298" cy="24" r="8" stroke-width="1.5"></circle>
+</svg>
+</div>
+<!-- Step Checklist with Status Indicators -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<!-- Step 1: Fetched -->
+<div class="flex items-start gap-space-sm">
+<div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+<div>
+<div class="font-body-compact-medium text-body-compact-medium text-on-surface">Fetching files</div>
+<div class="font-caption text-caption text-on-surface-variant font-code-compact">142 files retrieved, 8.4MB</div>
+</div>
+</div>
+<!-- Step 2: Framework Detected -->
+<div class="flex items-start gap-space-sm">
+<div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+<div>
+<div class="font-body-compact-medium text-body-compact-medium text-on-surface">Detecting framework: Vite React</div>
+<div class="font-caption text-caption text-on-surface-variant">Vite 5.2 + Tailwind CSS + Lucide detected</div>
+</div>
+</div>
+<!-- Step 3: Writing plan (IN PROGRESS) -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="w-2.5 h-2.5 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></span>
+</div>
+<div>
+<div class="font-body-compact-medium text-body-compact-medium text-primary font-semibold">Writing plan</div>
+<div class="font-caption text-caption text-on-surface-variant">Analyzing component graph &amp; routing...</div>
+</div>
+</div>
+<!-- Step 4: Live Sandbox (PENDING) -->
+<div class="flex items-start gap-space-sm opacity-60">
+<div class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+<div>
+<div class="font-body-compact text-body-compact text-on-surface">Preparing live sandbox &amp; HMR</div>
+<div class="font-caption text-caption text-on-surface-variant font-code-compact">Upcoming</div>
+</div>
+</div>
+</div>
+<!-- Progress Card Footer Note -->
+<div class="pt-space-base bg-surface-container-low/70 -mx-space-xl -mb-space-xl px-space-xl pb-space-base rounded-b-xl flex flex-col gap-space-sm">
+<p class="font-caption text-caption text-on-surface-variant">
+                This usually takes 15–30 seconds. You can safely navigate away.
+              </p>
+<div class="flex items-center justify-between">
+<button class="font-code-compact text-code-compact text-primary hover:underline flex items-center gap-1" type="button">
+<span>View live log</span>
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+</button>
+<span class="font-code-compact text-code-compact text-outline">PID: 40912</span>
+</div>
+</div>
+</article>
+<!-- 2. Explainer Card: What Happens Next -->
+<article class="p-space-xl rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-base">
+<span class="material-symbols-outlined text-[20px] text-primary">info</span>
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">
+                What happens next
+              </h3>
+</div>
+<ol class="flex flex-col gap-space-base mb-space-xl">
+<!-- Item 1 -->
+<li class="flex items-start gap-space-base">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-code-compact text-code-compact font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  1
+                </span>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium text-on-surface font-medium">We copy your code</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+                    Up to 500 files copied into an isolated edge development container with Git history intact.
+                  </p>
+</div>
+</li>
+<!-- Item 2 -->
+<li class="flex items-start gap-space-base">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-code-compact text-code-compact font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  2
+                </span>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium text-on-surface font-medium">We detect the framework</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+                    Automatic support for Vite, Next.js, Remix, Astro, and Python LangGraph or FastAPI backends.
+                  </p>
+</div>
+</li>
+<!-- Item 3 -->
+<li class="flex items-start gap-space-base">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-code-compact text-code-compact font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  3
+                </span>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium text-on-surface font-medium">We write a plan from your code</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+                    Our AI inspects schemas, components, and state to create an interactive visual map your team can follow.
+                  </p>
+</div>
+</li>
+<!-- Item 4 -->
+<li class="flex items-start gap-space-base">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface font-code-compact text-code-compact font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  4
+                </span>
+<div>
+<h4 class="font-body-compact-medium text-body-compact-medium text-on-surface font-medium">Preview starts or code-only mode</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+                    Vite React apps spin up an instant live preview; other stacks launch in high-speed Developer Code mode with docked terminal.
+                  </p>
+</div>
+</li>
+</ol>
+<!-- Security Note Box -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex items-start gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0 mt-0.5">lock</span>
+<p class="font-caption text-caption leading-relaxed">
+<strong class="font-medium text-on-surface">Security note:</strong> We never store your credentials. Code is sandboxed with strict isolation and ephemeral runtime disks.
+              </p>
+</div>
+</article>
+</aside>
+</section>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low py-space-xl mt-auto"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-caption text-caption"><span>Architect 2.0 • High-Performance System Workbench</span><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Keyboard Shortcuts</a><a class="hover:text-on-surface transition-colors" href="#">CLI Integration</a><a class="hover:text-on-surface transition-colors" href="#">System Status</a></div></div></footer></body></html>

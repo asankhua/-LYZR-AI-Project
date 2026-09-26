@@ -1,0 +1,12 @@
+{
+  "name": "architect-2-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter architect-2 dev",
+    "build": "pnpm --filter architect-2 build",
+    "lint": "pnpm --filter architect-2 lint",
+    "typecheck": "pnpm --filter architect-2 typecheck",
+    "test": "pnpm --filter architect-2 test",
+    "test:e2e": "pnpm --filter architect-2 test:e2e"
+  }
+}

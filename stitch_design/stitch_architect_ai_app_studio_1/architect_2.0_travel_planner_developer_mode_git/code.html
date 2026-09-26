@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Architect 2.0</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed-dim": "#c4c7ca", "error": "#ba1a1a", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#4d44e3", "secondary-fixed": "#e0e2f0", "surface-variant": "#dfe2f4", "on-primary-fixed-variant": "#3323cc", "primary-container": "#4f46e5", "surface-container-high": "#e5e7f9", "on-primary-fixed": "#0f0069", "secondary-fixed-dim": "#c3c6d4", "tertiary": "#45484b", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#c3c0ff", "on-background": "#171b28", "surface-dim": "#d6d9eb", "on-secondary-container": "#5f626f", "on-error": "#ffffff", "on-primary": "#ffffff", "primary": "#3525cd", "inverse-on-surface": "#eef0ff", "background": "#faf8ff", "surface-bright": "#faf8ff", "tertiary-container": "#5d6063", "surface-container": "#eaedff", "primary-fixed": "#e2dfff", "on-secondary-fixed": "#181b26", "tertiary-fixed": "#e0e3e6", "on-tertiary": "#ffffff", "inverse-primary": "#c3c0ff", "on-surface": "#171b28", "on-tertiary-container": "#d9dbde", "surface": "#faf8ff", "on-tertiary-fixed": "#191c1e", "secondary-container": "#dddfee", "outline": "#777587", "inverse-surface": "#2c303d", "on-secondary-fixed-variant": "#434652", "outline-variant": "#c7c4d8", "on-surface-variant": "#464555", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary": "#5b5e6a", "on-primary-container": "#dad7ff", "on-tertiary-fixed-variant": "#44474a", "surface-container-highest": "#dfe2f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xs": "0.125rem", "space-xs": "0.25rem", "space-3xl": "3rem", "space-xl": "1.5rem", "space-md": "0.5rem", "gutter-compact": "0.75rem", "space-base": "0.75rem", "margin-mobile": "1rem", "gutter": "1rem", "space-lg": "1rem", "space-2xl": "2rem", "margin": "1.5rem", "gutter-expanded": "1.5rem", "space-sm": "0.375rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "caption-medium": ["Inter"], "code-default": ["JetBrains Mono"], "caption": ["Inter"], "headline-lg-mobile": ["Inter"], "body-default": ["Inter"], "display-mobile": ["Inter"], "body-compact-medium": ["Inter"], "display": ["Inter"], "title-sm": ["Inter"], "code-compact": ["JetBrains Mono"], "body-medium": ["Inter"], "body-compact": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "caption-medium": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-default": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-default": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-compact-medium": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500" }], "code-compact": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-compact": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#FAFBFD] font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-[#FAFBFD] border-b border-[#E3E6EC]"><div class="h-14 max-w-[1440px] mx-auto px-space-xl flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-base shrink-0"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-caption-medium select-none shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]">A2</div><span class="font-title-sm text-title-sm text-on-surface font-semibold tracking-tight hidden sm:inline">Architect</span></div><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-xs group cursor-pointer"><span class="font-body-medium text-body-medium text-on-surface font-medium">Travel Planner</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface transition-colors">edit</span></div><div class="px-space-xs py-0.5 rounded-full border border-outline-variant bg-surface-container text-on-secondary-container font-code-compact text-code-compact">v0.1 draft</div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-primary-container font-medium border-b-2 border-primary-container"><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="plan" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>Plan</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="agents" href="#"><span>Agents</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="build" href="#"><span>Build</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="ship" href="#"><span>Ship</span></a></nav><div class="flex items-center gap-space-base shrink-0"><div class="hidden md:flex items-center p-0.5 rounded-full border border-outline-variant bg-surface-container-low"><button class="px-space-base py-0.5 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_0_rgba(31,35,48,0.04)] font-body-compact-medium text-body-compact-medium transition-all" type="button">Simple</button><button class="px-space-base py-0.5 rounded-full text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-all" type="button">Developer</button></div><div class="flex items-center -space-x-1.5 overflow-hidden"><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-highest text-on-surface font-caption-medium text-caption-medium">JD</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium">SK</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-secondary-container text-on-secondary-container font-code-compact text-code-compact">+1</div></div><div class="h-4 w-px bg-outline-variant hidden sm:block"></div><button class="h-8 px-space-base rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container font-body-compact-medium text-body-compact-medium transition-colors shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]" type="button">Share</button><button class="h-8 px-space-base rounded-xl bg-surface-container-high text-outline cursor-not-allowed font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs select-none" disabled="" type="button"><span class="material-symbols-outlined text-[15px]">lock</span><span>Deploy</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-[#FAFBFD] min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full">
+<!-- Developer Mode Sub-bar -->
+<div class="w-full bg-surface-container-low px-space-xl py-space-xs flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md text-caption font-caption text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Developer Mode Active</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="font-code-compact text-code-compact">Claude 3.5 Sonnet + Vite 5.3</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-compact text-code-compact">Node 20.14 ESM</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-compact text-code-compact">LangGraph v0.2.1 Router</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-2xs px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-code-compact text-code-compact">
+<span class="material-symbols-outlined text-[13px]">commit</span>
+<span>main*</span>
+</div>
+<div class="flex items-center gap-space-2xs px-space-xs py-0.5 rounded-full bg-surface-container text-on-secondary-container font-code-compact text-code-compact">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span>HMR Live Sync</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant">v8.4-alpha</span>
+</div>
+</div>
+<!-- Workspace Canvas Wrapper -->
+<div class="w-full flex flex-1 min-h-[calc(100vh-8.5rem)]">
+<!-- Left AI Utility Rail (Narrow 56px) -->
+<aside class="w-14 bg-surface-container-lowest flex flex-col items-center justify-between py-space-base shrink-0 shadow-sm">
+<div class="flex flex-col items-center gap-space-base w-full">
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Expand Assistant Panel">
+<span class="material-symbols-outlined text-[20px]">side_navigation</span>
+</button>
+<div class="w-6 h-px bg-surface-container-high"></div>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors relative" title="AI Chat &amp; Assistant">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="LangGraph Agent Topology">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</button>
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Workspace Snapshot History">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-space-base w-full">
+<button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Developer Tools Settings">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</aside>
+<!-- Main Git Canvas Workspace -->
+<div class="flex-1 flex flex-col min-w-0 bg-[#FAFBFD]">
+<!-- Canvas Tab Bar -->
+<div class="w-full bg-surface-container-lowest px-space-xl flex items-center justify-between gap-space-md shadow-sm">
+<!-- Tabs List -->
+<div class="flex items-center overflow-x-auto scrollbar-none gap-space-xs">
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Preview</span>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>Plan</span>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Agents</span>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>Code</span>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">database</span>
+<span>Database</span>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">key</span>
+<span>Env</span>
+</button>
+<!-- Git Active Tab -->
+<button class="relative px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-primary font-medium flex items-center gap-space-xs bg-surface-container-low rounded-t-lg">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">device_hub</span>
+<span>Git</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-primary-fixed text-on-primary-fixed font-code-compact text-[11px] leading-tight font-medium">2</span>
+<div class="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-container"></div>
+</button>
+<button class="px-space-base py-space-sm font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>Terminal</span>
+</button>
+</div>
+<!-- Right Action Controls -->
+<div class="flex items-center gap-space-sm shrink-0 py-space-xs">
+<div class="hidden md:flex items-center gap-space-xs px-space-xs py-0.5 rounded-full bg-surface-container text-on-secondary-container font-code-compact text-code-compact">
+<span class="material-symbols-outlined text-[14px]">call_split</span>
+<span>git: main*</span>
+</div>
+<button class="h-8 px-space-base rounded-xl bg-primary-container hover:bg-primary text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[15px]">publish</span>
+<span>Commit &amp; Push</span>
+</button>
+<button class="w-8 h-8 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Git Settings">
+<span class="material-symbols-outlined text-[17px]">settings</span>
+</button>
+</div>
+</div>
+<!-- Main Git Two-Column Split Content -->
+<div class="flex-1 p-space-xl overflow-y-auto">
+<div class="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Column 1: Connected GitHub Repository & Commit History (7 cols on lg, 8 cols on xl) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-xl">
+<!-- Connected Repository Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-base min-w-0">
+<!-- GitHub User Avatar / Octocat -->
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-on-surface shrink-0 shadow-sm">
+<svg aria-hidden="true" class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Connected as</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">asha-dev</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container text-on-surface-variant font-code-compact text-[11px]">OAuth App</span>
+</div>
+<a class="font-title-sm text-title-sm text-primary hover:text-primary-container font-semibold tracking-tight flex items-center gap-space-xs group truncate" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span>asha-dev/travel-planner</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-primary transition-colors">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Branch Selector & Quick Actions -->
+<div class="flex items-center gap-space-xs shrink-0 self-start sm:self-auto">
+<div class="relative inline-flex items-center">
+<button class="h-8 px-space-base rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-code-compact text-code-compact flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[15px] text-primary-container">call_split</span>
+<span>main</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-on-surface-variant text-[10px]">14</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<button class="h-8 px-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs transition-colors" title="Sync now">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Auto-sync & Snapshot Info Box -->
+<div class="bg-surface-container-low rounded-xl p-space-base flex flex-col sm:flex-row sm:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary-container mt-0.5">auto_mode</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface font-medium">Auto-commit after each successful build</span>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-code-compact text-[11px]">Active</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Automatically commits snapshots whenever compilation and schema checks pass</span>
+</div>
+</div>
+<!-- Toggle switch (active) -->
+<div class="shrink-0 flex items-center">
+<button aria-checked="true" class="w-10 h-5 bg-primary-container rounded-full relative p-0.5 transition-colors focus:outline-none" role="switch" type="button">
+<span class="w-4 h-4 bg-surface-container-lowest rounded-full block shadow-sm transform translate-x-5 transition-transform"></span>
+</button>
+</div>
+</div>
+<!-- Sync State line -->
+<div class="flex items-center justify-between text-caption font-caption text-on-surface-variant pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Last synced 3m ago</span>
+<span>•</span>
+<span>Remote origin up to date with origin/main</span>
+</div>
+<button class="text-primary hover:underline font-body-compact-medium text-[12px] flex items-center gap-space-2xs">
+<span>Repository settings</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Status Banner: Changes Not Pushed -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-space-base bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-base">
+<div class="flex items-start gap-space-base">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-[18px]">publish</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-medium text-body-medium text-on-surface font-medium">2 changes not pushed</span>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-container text-on-primary font-code-compact text-[11px]">+2 local commits</span>
+</div>
+<p class="font-code-compact text-code-compact text-on-surface-variant mt-0.5">
+                      HEAD -&gt; main [ahead 2] • 3 files modified in <span class="text-on-surface">src/components</span>, 1 new file in <span class="text-on-surface">src/agents/langgraph</span>
+</p>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="h-8 px-space-base rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[15px]">file_download</span>
+<span>Pull</span>
+</button>
+<button class="h-8 px-space-base rounded-xl bg-primary-container hover:bg-primary text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[15px]">arrow_upward</span>
+<span>Push (2 commits)</span>
+</button>
+</div>
+</div>
+<!-- Quick File Diff Micro-Readout -->
+<div class="px-space-base py-space-xs bg-surface-container-lowest flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<div class="flex items-center gap-space-md truncate">
+<span class="flex items-center gap-space-2xs text-on-surface font-code-compact text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-primary-container">add_circle</span>
+<span>ItineraryExporter.tsx (+142, -0)</span>
+</span>
+<span class="flex items-center gap-space-2xs font-code-compact text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-outline">tune</span>
+<span>SearchBar.tsx (+8, -4)</span>
+</span>
+<span class="flex items-center gap-space-2xs font-code-compact text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-outline">tune</span>
+<span>hotelScoutAgent.ts (+64, -2)</span>
+</span>
+</div>
+<a class="text-primary hover:underline font-body-compact-medium text-[12px] shrink-0 ml-space-base" href="#">View Full Diff</a>
+</div>
+</div>
+<!-- Commit History Table / List -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<!-- Commit History Header & Filters -->
+<div class="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-surface-container-lowest rounded-t-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Commit History</h2>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Architect automatic checkpoints and developer pushes</p>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant">search</span>
+<input class="h-8 pl-8 pr-3 text-caption font-caption rounded-xl bg-surface-container-low focus:bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant outline-none transition-colors w-40 sm:w-48" placeholder="Filter commits..." type="text"/>
+</div>
+<div class="flex items-center p-0.5 rounded-xl bg-surface-container-low">
+<button class="px-space-xs py-1 rounded-lg bg-surface-container-lowest text-on-surface font-code-compact text-[11px] shadow-sm">All</button>
+<button class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-code-compact text-[11px]">v8</button>
+<button class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-code-compact text-[11px]">main</button>
+</div>
+</div>
+</div>
+<!-- Commit Rows -->
+<div class="divide-y divide-surface-container flex flex-col">
+<!-- Commit 1 (Unpushed) -->
+<div class="p-space-base hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-base min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-caption-medium text-caption-medium shrink-0 mt-0.5">
+                      AD
+                    </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-medium text-body-medium text-on-surface font-medium truncate">Add itinerary export and multi-day PDF generator</span>
+<span class="px-space-xs py-0.2 rounded-full bg-primary-fixed text-on-primary-fixed font-code-compact text-[11px] font-medium">Unpushed</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-[11px]">v8</span>
+</div>
+<div class="flex items-center gap-space-sm text-caption font-caption text-on-surface-variant mt-0.5">
+<span class="font-code-compact text-code-compact text-on-surface font-medium">f4a8b12</span>
+<span>•</span>
+<span>Asha Dev</span>
+<span>•</span>
+<span>12 minutes ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs" title="Copy SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs">
+<span>Diff</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Commit 2 (Unpushed) -->
+<div class="p-space-base hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-base min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-caption-medium text-caption-medium shrink-0 mt-0.5">
+                      AD
+                    </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-medium text-body-medium text-on-surface font-medium truncate">Fix responsive button width in SearchBar on mobile</span>
+<span class="px-space-xs py-0.2 rounded-full bg-primary-fixed text-on-primary-fixed font-code-compact text-[11px] font-medium">Unpushed</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-[11px]">v8</span>
+</div>
+<div class="flex items-center gap-space-sm text-caption font-caption text-on-surface-variant mt-0.5">
+<span class="font-code-compact text-code-compact text-on-surface font-medium">9e2c4d0</span>
+<span>•</span>
+<span>Asha Dev</span>
+<span>•</span>
+<span>28 minutes ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs" title="Copy SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs">
+<span>Diff</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Commit 3 (Pushed / Remote) -->
+<div class="p-space-base hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-base min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-caption-medium text-caption-medium shrink-0 mt-0.5">
+                      AD
+                    </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-medium text-body-medium text-on-surface font-medium truncate">Integrate LangGraph hotel scout agent &amp; tool schemas</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container text-on-surface-variant font-code-compact text-[11px]">main</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-[11px]">v7</span>
+</div>
+<div class="flex items-center gap-space-sm text-caption font-caption text-on-surface-variant mt-0.5">
+<span class="font-code-compact text-code-compact text-on-surface font-medium">b18e74f</span>
+<span>•</span>
+<span>Asha Dev</span>
+<span>•</span>
+<span>2 hours ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs" title="Copy SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs">
+<span>Diff</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Commit 4 (Pushed / Remote - Architect AI) -->
+<div class="p-space-base hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-base min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-caption-medium text-caption-medium shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-medium text-body-medium text-on-surface font-medium truncate">Setup Vite React scaffold and Tailwind token theme</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container text-on-surface-variant font-code-compact text-[11px]">main</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-[11px]">v6</span>
+</div>
+<div class="flex items-center gap-space-sm text-caption font-caption text-on-surface-variant mt-0.5">
+<span class="font-code-compact text-code-compact text-on-surface font-medium">3c9a102</span>
+<span>•</span>
+<span>Architect AI</span>
+<span>•</span>
+<span>4 hours ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs" title="Copy SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs">
+<span>Diff</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Commit 5 (Initial Commit) -->
+<div class="p-space-base hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-space-md group">
+<div class="flex items-start gap-space-base min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-caption-medium text-caption-medium shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-medium text-body-medium text-on-surface font-medium truncate">Initial commit from Architect 2.0 template generator</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container text-on-surface-variant font-code-compact text-[11px]">main</span>
+<span class="px-space-xs py-0.2 rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-[11px]">v1</span>
+</div>
+<div class="flex items-center gap-space-sm text-caption font-caption text-on-surface-variant mt-0.5">
+<span class="font-code-compact text-code-compact text-on-surface font-medium">1a0f88e</span>
+<span>•</span>
+<span>Architect AI</span>
+<span>•</span>
+<span>Yesterday</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end sm:self-center opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs" title="Copy SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+<button class="h-7 px-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-code-compact text-[11px] flex items-center gap-space-2xs">
+<span>Diff</span>
+<span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Empty State Variant Reference / Onboarding Preview Panel (5 cols on lg, 4 cols on xl) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Reference Callout Badge -->
+<div class="flex items-center justify-between">
+<span class="px-space-base py-0.5 rounded-full bg-surface-container text-on-surface-variant font-code-compact text-code-compact flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Variant: Not Connected State Preview</span>
+</span>
+<span class="font-caption text-caption text-on-surface-variant">First-time Setup</span>
+</div>
+<!-- Empty State Card Preview -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col items-center text-center relative overflow-hidden">
+<!-- Subtle decorative gradient ring -->
+<div class="w-48 h-48 rounded-full bg-primary-fixed/20 blur-2xl absolute -top-12 -right-12 pointer-events-none"></div>
+<!-- Modern Custom SVG Git Sync / Octocat Bridge Graphic -->
+<div class="w-full max-w-[280px] h-44 mb-space-lg flex items-center justify-center relative">
+<svg class="w-full h-full" fill="none" viewbox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+<!-- Connection Path lines with animated dash effect -->
+<path d="M 60 90 L 160 50 L 260 90" stroke="#c7c4d8" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 60 90 L 160 130 L 260 90" stroke="#4f46e5" stroke-linecap="round" stroke-opacity="0.3" stroke-width="2"></path>
+<!-- Left: Architect Workspace Node -->
+<g transform="translate(30, 60)">
+<rect fill="#ffffff" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))" height="60" rx="14" width="60"></rect>
+<rect fill="#eaedff" height="56" rx="12" width="56" x="2" y="2"></rect>
+<!-- Code window icon inside -->
+<rect fill="#ffffff" height="24" rx="4" width="32" x="14" y="16"></rect>
+<circle cx="20" cy="22" fill="#4f46e5" r="1.5"></circle>
+<circle cx="26" cy="22" fill="#c7c4d8" r="1.5"></circle>
+<circle cx="32" cy="22" fill="#c7c4d8" r="1.5"></circle>
+<line stroke="#4f46e5" stroke-linecap="round" stroke-width="1.5" x1="18" x2="34" y1="28" y2="28"></line>
+<line stroke="#777587" stroke-linecap="round" stroke-width="1.5" x1="18" x2="28" y1="33" y2="33"></line>
+</g>
+<!-- Center: Sync hub node -->
+<g transform="translate(136, 66)">
+<circle cx="24" cy="24" fill="#ffffff" filter="drop-shadow(0 6px 12px rgba(79,70,229,0.12))" r="22"></circle>
+<circle cx="24" cy="24" fill="#4f46e5" r="17"></circle>
+<!-- Sync arrows inside center circle -->
+<path d="M21 19 L25 15 L29 19 M25 16 V27 M27 29 L23 33 L19 29 M23 32 V21" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</g>
+<!-- Right: GitHub / Remote Node -->
+<g transform="translate(230, 60)">
+<rect fill="#ffffff" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))" height="60" rx="14" width="60"></rect>
+<rect fill="#171b28" height="56" rx="12" width="56" x="2" y="2"></rect>
+<!-- GitHub Octocat Silhouette -->
+<path clip-rule="evenodd" d="M30 18C23.37 18 18 23.38 18 30.02c0 5.31 3.44 9.82 8.2 11.41.6.11.82-.26.82-.58 0-.28-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.77.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58 4.76-1.59 8.2-6.1 8.2-11.41C42 23.38 36.63 18 30 18z" fill="#ffffff" fill-rule="evenodd"></path>
+</g>
+</svg>
+</div>
+<!-- Content Headline & Copy -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Own your code</h3>
+<p class="font-body-default text-body-default text-on-surface-variant mt-space-xs text-center max-w-[340px]">
+                Connect GitHub to create a repository and keep it continuously synchronized. Every agent modification, component diff, and generated test is backed by standard Git commits.
+              </p>
+<!-- Value Props / Checklist -->
+<div class="w-full my-space-lg flex flex-col gap-space-sm text-left bg-surface-container-low rounded-xl p-space-base">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[17px] text-primary-container shrink-0 mt-0.5">sync_alt</span>
+<div class="text-caption font-caption text-on-surface">
+<strong class="font-caption-medium text-caption-medium">Two-way sync:</strong> Push to GitHub or pull team edits into Architect seamlessly.
+                  </div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[17px] text-primary-container shrink-0 mt-0.5">verified</span>
+<div class="text-caption font-caption text-on-surface">
+<strong class="font-caption-medium text-caption-medium">Full ownership:</strong> Clean, production-ready TypeScript React &amp; Python code.
+                  </div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[17px] text-primary-container shrink-0 mt-0.5">rocket_launch</span>
+<div class="text-caption font-caption text-on-surface">
+<strong class="font-caption-medium text-caption-medium">Branch previews:</strong> Trigger automated preview builds on Vercel or AWS.
+                  </div>
+</div>
+</div>
+<!-- Call to Action button -->
+<div class="w-full flex flex-col gap-space-sm">
+<button class="w-full h-10 rounded-xl bg-inverse-surface hover:bg-on-surface text-inverse-on-surface font-body-compact-medium text-body-compact-medium flex items-center justify-center gap-space-sm transition-colors shadow-sm">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+<span>Connect GitHub</span>
+</button>
+<a class="font-caption text-caption text-on-surface-variant hover:text-on-surface underline transition-colors" href="#">
+                  Or configure custom Git remote (GitLab, Bitbucket, SSH)...
+                </a>
+</div>
+</div>
+<!-- Fast Remote Quick Tips / Spec -->
+<div class="bg-surface-container-low rounded-xl p-space-base flex flex-col gap-space-xs text-caption font-caption text-on-surface-variant">
+<div class="flex items-center gap-space-2xs text-on-surface font-caption-medium text-caption-medium">
+<span class="material-symbols-outlined text-[16px] text-primary-container">info</span>
+<span>SSH &amp; GPG Keys</span>
+</div>
+<p>Architect signs automated snapshot commits with your workspace identity key <span class="font-code-compact text-code-compact text-on-surface">ed25519:arch-v8</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Docked Terminal Console Output Strip -->
+<div class="w-full bg-[#171b28] text-inverse-on-surface flex flex-col shrink-0 shadow-lg">
+<div class="px-space-base py-space-xs bg-[#1f2330] flex items-center justify-between text-code-compact font-code-compact">
+<div class="flex items-center gap-space-base">
+<span class="flex items-center gap-space-2xs text-on-primary">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">terminal</span>
+<span>terminal</span>
+</span>
+<span class="text-tertiary-fixed-dim">git status</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
+<span class="text-tertiary-fixed-dim text-[11px]">Clean tree</span>
+</div>
+</div>
+<div class="px-space-xl py-space-base font-code-compact text-[12px] leading-relaxed overflow-x-auto text-[#e0e2f0]">
+<p class="text-primary-fixed">$ git status</p>
+<p>On branch <span class="text-white font-medium">main</span></p>
+<p>Your branch is ahead of <span class="text-primary-fixed">'origin/main'</span> by 2 commits.</p>
+<p class="text-tertiary-fixed-dim">  (use "git push" to publish your local commits)</p>
+<p class="mt-1 text-primary-fixed">nothing to commit, working tree clean (snapshot active)</p>
+</div>
+</div>
+<!-- Pinned Bottom Workspace Status Strip -->
+<div class="w-full bg-surface-container-low px-space-xl py-1 flex flex-wrap items-center justify-between gap-space-sm text-caption font-caption text-on-surface-variant shrink-0">
+<div class="flex items-center gap-space-base">
+<span class="flex items-center gap-space-2xs text-on-surface font-code-compact text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Git: main* (2 ahead)</span>
+</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-compact text-[11px]">HMR Active</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-compact text-[11px]">Snapshot v8</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-compact text-[11px]">Port: 3000</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-compact text-[11px] truncate">Repository: asha-dev/travel-planner</span>
+</div>
+<div class="flex items-center gap-space-md text-caption font-caption text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Docs</a>
+<a class="hover:text-on-surface transition-colors" href="#">API Spec</a>
+<a class="hover:text-on-surface transition-colors" href="#">Feedback</a>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full border-t border-[#E3E6EC] bg-surface-container-low py-space-base"><div class="max-w-[1440px] mx-auto px-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-base"><span class="font-code-compact text-code-compact text-on-surface-variant">Architect 2.0 Engine • Travel Planner</span><span class="h-3 w-px bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant">Workspace Synced</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-caption text-caption"><a class="hover:text-on-surface transition-colors" href="#">Docs</a><a class="hover:text-on-surface transition-colors" href="#">API Spec</a><a class="hover:text-on-surface transition-colors" href="#">Feedback</a></div></div></footer></body></html>

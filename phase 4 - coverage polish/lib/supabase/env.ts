@@ -1,0 +1,1 @@
+../../../common/lib/supabase/env.ts

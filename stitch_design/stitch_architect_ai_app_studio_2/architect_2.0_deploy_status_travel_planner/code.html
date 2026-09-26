@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Architect 2.0</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed-variant":"#3323cc","primary-fixed":"#e2dfff","on-primary-container":"#dad7ff","on-background":"#171b28","tertiary":"#45484b","on-tertiary":"#ffffff","primary-fixed-dim":"#c3c0ff","secondary-fixed":"#e0e2f0","secondary-container":"#dddfee","on-secondary-fixed-variant":"#434652","on-tertiary-fixed":"#191c1e","tertiary-fixed":"#e0e3e6","primary-container":"#4f46e5","on-error-container":"#93000a","tertiary-container":"#5d6063","primary":"#3525cd","surface":"#faf8ff","tertiary-fixed-dim":"#c4c7ca","surface-container":"#eaedff","error-container":"#ffdad6","inverse-primary":"#c3c0ff","surface-bright":"#faf8ff","on-surface":"#171b28","on-primary":"#ffffff","surface-variant":"#dfe2f4","surface-container-lowest":"#ffffff","on-secondary":"#ffffff","error":"#ba1a1a","on-secondary-fixed":"#181b26","inverse-on-surface":"#eef0ff","on-tertiary-container":"#d9dbde","on-tertiary-fixed-variant":"#44474a","secondary-fixed-dim":"#c3c6d4","outline":"#777587","outline-variant":"#c7c4d8","surface-container-low":"#f2f3ff","surface-container-high":"#e5e7f9","surface-container-highest":"#dfe2f4","on-error":"#ffffff","surface-dim":"#d6d9eb","secondary":"#5b5e6a","surface-tint":"#4d44e3","on-secondary-container":"#5f626f","on-primary-fixed":"#0f0069","inverse-surface":"#2c303d","background":"#faf8ff","on-surface-variant":"#464555"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","space-xl":"1.5rem","gutter-expanded":"1.5rem","space-md":"0.5rem","margin-mobile":"1rem","space-2xl":"2rem","gutter-compact":"0.75rem","space-base":"0.75rem","margin":"1.5rem","gutter":"1rem","space-3xl":"3rem","space-xs":"0.25rem","space-2xs":"0.125rem","space-lg":"1rem"},"fontFamily":{"body-compact":["Inter"],"caption":["Inter"],"code-default":["JetBrains Mono"],"code-compact":["JetBrains Mono"],"title-sm":["Inter"],"headline-lg":["Inter"],"caption-medium":["Inter"],"headline-md":["Inter"],"body-compact-medium":["Inter"],"body-default":["Inter"],"body-medium":["Inter"],"display":["Inter"],"display-mobile":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"body-compact":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"code-default":["13px",{"lineHeight":"18px","fontWeight":"400"}],"code-compact":["12px",{"lineHeight":"16px","fontWeight":"400"}],"title-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"500"}],"caption-medium":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-compact-medium":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"display":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"500"}],"display-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-default text-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 w-full px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[15px]">architecture</span></div><span class="font-title-sm text-title-sm text-on-surface tracking-tight">Architect</span><span class="font-code-compact text-code-compact px-space-xs py-space-2xs rounded-full bg-surface-container-high text-on-surface-variant">2.0</span></div><div class="h-4 w-[1px] bg-outline-variant"></div><button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[16px] text-primary">folder</span><span class="font-body-compact-medium text-body-compact-medium">Travel Planner</span><span class="material-symbols-outlined text-[14px] text-on-surface-variant">unfold_more</span></button></div><nav class="hidden xl:flex items-center p-space-2xs rounded-lg bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary font-body-compact-medium text-body-compact-medium rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.05)]"><a class="px-space-md py-space-2xs rounded-lg font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="plan" href="#">Plan</a><span class="material-symbols-outlined text-[12px] text-outline-variant mx-space-2xs">chevron_right</span><a class="px-space-md py-space-2xs rounded-lg font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="agents" href="#">Agents</a><span class="material-symbols-outlined text-[12px] text-outline-variant mx-space-2xs">chevron_right</span><a class="px-space-md py-space-2xs rounded-lg font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="build" href="#">Build</a><span class="material-symbols-outlined text-[12px] text-outline-variant mx-space-2xs">chevron_right</span><a aria-current="page" class="px-space-md py-space-2xs transition-colors bg-primary-container text-on-primary font-body-compact-medium text-body-compact-medium rounded-lg shadow-[0_1px_2px_rgba(0,0,0,0.05)]" data-path="ship" href="#">Ship</a></nav><div class="flex items-center gap-space-base shrink-0"><div class="hidden md:flex items-center p-space-2xs rounded-lg bg-surface-container-low"><button class="px-space-sm py-space-2xs rounded-lg font-caption-medium text-caption-medium bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_rgba(0,0,0,0.03)]" type="button">Simple</button><button class="px-space-sm py-space-2xs rounded-lg font-caption text-caption text-on-surface-variant hover:text-on-surface transition-colors" type="button">Developer</button></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-caption-medium text-caption-medium text-on-surface">Deploying v2.4</span></div><div class="flex items-center -space-x-space-xs"><div class="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center ring-2 ring-surface text-on-secondary-container font-caption-medium text-caption-medium" title="JD">JD</div><div class="w-7 h-7 rounded-full bg-tertiary-fixed flex items-center justify-center ring-2 ring-surface text-on-tertiary-fixed font-caption-medium text-caption-medium" title="SK">SK</div><div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center ring-2 ring-surface text-on-surface-variant font-code-compact text-code-compact">+1</div></div><button class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-compact-medium text-body-compact-medium" type="button"><span class="material-symbols-outlined text-[15px]">share</span><span>Share</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full">
+<div class="w-full max-w-[1520px] mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
+<!-- Breadcrumb & Pipeline Progress Meta Strip -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-compact text-body-compact text-on-surface-variant">Travel Planner</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="font-body-compact text-body-compact text-on-surface-variant">Deployments</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">#28 (Production)</span>
+<span class="px-space-xs py-space-2xs rounded-full bg-surface-container text-on-primary-fixed-variant font-code-compact text-code-compact font-medium">f4a8b12</span>
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container-high text-on-surface-variant font-code-compact text-code-compact">
+<span class="material-symbols-outlined text-[13px] text-outline">fork_right</span>main
+          </span>
+</div>
+<div class="flex items-center gap-space-sm font-caption text-caption text-on-surface-variant">
+<span>Total deploy time: <strong class="font-caption-medium text-caption-medium text-on-surface">38s</strong></span>
+<span>•</span>
+<span>Initiated by <strong class="font-caption-medium text-caption-medium text-on-surface">Asha Dev</strong> via Git push</span>
+<span>•</span>
+<span class="text-on-surface-variant">Region: Global Anycast (18 POPs)</span>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-body-compact-medium text-body-compact-medium transition-colors" id="triggerRollbackBtn" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">history</span>
+<span>Instant Rollback</span>
+</button>
+<button class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-body-compact-medium text-body-compact-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">refresh</span>
+<span>Redeploy</span>
+</button>
+<a class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm font-body-compact-medium text-body-compact-medium transition-all" href="https://travel-planner.vercel.app" rel="noreferrer" target="_blank">
+<span>Visit Live Edge</span>
+<span class="material-symbols-outlined text-[15px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Stepper Progress Track -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-base p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">1. Queued</span>
+<span class="font-code-compact text-code-compact text-on-surface-variant">0.4s</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant truncate">Isolated container allocated</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-base p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">2. Building &amp; Bundling</span>
+<span class="font-code-compact text-code-compact text-on-surface-variant">18.2s</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant truncate">Vite 5.3 + LangGraph edge runtime</span>
+</div>
+</div>
+<!-- Step 3 Active -->
+<div class="flex items-center gap-space-base p-space-sm rounded-lg bg-primary-fixed/50">
+<div class="relative w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">3. Ready &amp; Live</span>
+<span class="px-space-xs rounded-full bg-primary-container text-on-primary font-caption-medium text-caption-medium">Live</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant truncate">Propagated to 18 regions</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Workspace Grid (2 Columns) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Primary Column (Left 8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Celebration / Live Card -->
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-space-xl sm:p-space-2xl shadow-sm flex flex-col gap-space-xl">
+<!-- Subtle decorative radial background wash -->
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary-fixed/40 blur-3xl pointer-events-none"></div>
+<!-- Hero Status Row -->
+<div class="relative flex flex-col sm:flex-row items-start sm:items-center gap-space-base">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center text-primary-container shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">cloud_done</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Your app is live</h1>
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  Healthy
+                </span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant mt-space-2xs">
+                Deployed globally across 18 edge regions with automated SSL, LangGraph multi-agent trip planner runtime, and zero-cold-start memory caching.
+              </p>
+</div>
+</div>
+<!-- High-Contrast URL Banner Strip -->
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-base p-space-base rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-code-default text-code-default text-on-surface font-medium truncate" id="canonicalUrlText">https://travel-planner.vercel.app</span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container-lowest text-on-surface-variant font-caption-medium text-caption-medium">Production (Current)</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Target: Anycast Edge Gateway • SSL Auto-renew Let's Encrypt</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end md:self-center">
+<button class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-body-compact-medium text-body-compact-medium shadow-sm" id="copyUrlBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" id="copyIcon">content_copy</span>
+<span id="copyButtonLabel">Copy URL</span>
+</button>
+<a class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-colors font-body-compact-medium text-body-compact-medium shadow-sm" href="https://travel-planner.vercel.app" rel="noreferrer" target="_blank">
+<span>Visit Site</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Share & Mobile Access Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-base items-center p-space-base rounded-xl bg-surface-container-lowest">
+<!-- Left: QR Mobile Device Verification Block -->
+<div class="md:col-span-5 flex items-center gap-space-base p-space-sm rounded-lg bg-surface-container-low">
+<!-- Rendered Vector-Style SVG QR Code -->
+<div class="w-20 h-20 bg-surface-container-lowest p-1.5 rounded-lg shrink-0 shadow-sm flex items-center justify-center">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<!-- QR Top-Left Position Detection Marker -->
+<path d="M0,0 h30 v30 h-30 z M5,5 v20 h20 v-20 z M10,10 h10 v10 h-10 z"></path>
+<!-- QR Top-Right Position Detection Marker -->
+<path d="M70,0 h30 v30 h-30 z M75,5 v20 h20 v-20 z M80,10 h10 v10 h-10 z"></path>
+<!-- QR Bottom-Left Position Detection Marker -->
+<path d="M0,70 h30 v30 h-30 z M5,75 v20 h20 v-20 z M10,80 h10 v10 h-10 z"></path>
+<!-- Data Elements / Timing / Random Pattern simulation -->
+<rect height="6" width="6" x="36" y="6"></rect>
+<rect height="6" width="12" x="48" y="6"></rect>
+<rect height="12" width="6" x="36" y="18"></rect>
+<rect height="6" width="6" x="48" y="24"></rect>
+<rect height="6" width="12" x="6" y="36"></rect>
+<rect height="12" width="6" x="24" y="36"></rect>
+<rect height="8" width="8" x="36" y="36"></rect>
+<rect height="6" width="6" x="52" y="36"></rect>
+<rect height="6" width="12" x="66" y="36"></rect>
+<rect height="6" width="10" x="84" y="36"></rect>
+<rect height="8" width="6" x="6" y="52"></rect>
+<rect height="6" width="8" x="18" y="48"></rect>
+<rect height="6" width="14" x="36" y="50"></rect>
+<rect height="10" width="10" x="58" y="48"></rect>
+<rect height="6" width="14" x="76" y="48"></rect>
+<rect height="14" width="6" x="36" y="64"></rect>
+<rect height="6" width="12" x="48" y="66"></rect>
+<rect height="14" width="6" x="68" y="64"></rect>
+<rect height="8" width="12" x="80" y="64"></rect>
+<rect height="8" width="18" x="36" y="86"></rect>
+<rect height="10" width="12" x="62" y="84"></rect>
+<rect height="14" width="12" x="82" y="80"></rect>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Scan for mobile test</span>
+<span class="font-caption text-caption text-on-surface-variant leading-relaxed">Instant camera scan opens production preview on iOS/Android</span>
+</div>
+</div>
+<!-- Right: Broadcast & Social Distribution -->
+<div class="md:col-span-7 flex flex-col gap-space-xs">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Share deployment link</span>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-body-compact text-body-compact" onclick="navigator.clipboard.writeText('https://travel-planner.vercel.app')" type="button">
+<span class="material-symbols-outlined text-[15px] text-primary">link</span>
+<span>Copy Link</span>
+</button>
+<a class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-body-compact text-body-compact" href="mailto:?subject=Travel%20Planner%20is%20Live&amp;body=Check%20out%20the%20live%20build:%20https://travel-planner.vercel.app">
+<span class="material-symbols-outlined text-[15px] text-secondary">mail</span>
+<span>Email Team</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-body-compact text-body-compact" href="https://twitter.com/intent/tweet?text=Just%20shipped%20Travel%20Planner%20with%20Architect%202.0%20and%20LangGraph%20agents!%20Check%20it%20out:&amp;url=https://travel-planner.vercel.app" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px] text-on-surface">send</span>
+<span>X / Twitter</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-8 px-space-base rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-body-compact text-body-compact" href="https://www.linkedin.com/sharing/share-offsite/?url=https://travel-planner.vercel.app" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px] text-primary">share</span>
+<span>LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Telemetry & Performance Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md pt-space-xs">
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-caption text-caption text-on-surface-variant">Active Domains</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface mt-space-2xs">1 production</span>
+<span class="font-caption text-caption text-primary">travel-planner.vercel.app</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-caption text-caption text-on-surface-variant">Edge TTFB</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">24 ms</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Sub-50ms Global SLA</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-caption text-caption text-on-surface-variant">Runtime Framework</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface mt-space-2xs">Vite 5.3 + LangGraph</span>
+<span class="font-caption text-caption text-on-surface-variant">Agent v0.2.1 Edge bundle</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low">
+<span class="font-caption text-caption text-on-surface-variant">Edge Cache Status</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface mt-space-2xs">100% Hit Ratio</span>
+<span class="font-caption text-caption text-primary">Immutable assets tagged</span>
+</div>
+</div>
+</div>
+<!-- Collapsible Dark Monospace Build Logs Workstation Panel -->
+<div class="bg-inverse-surface rounded-xl overflow-hidden shadow-md flex flex-col">
+<!-- Terminal Header Bar -->
+<div class="px-space-base py-space-sm bg-inverse-surface flex items-center justify-between gap-space-sm text-inverse-on-surface">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-variant/40 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-surface-variant/40 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-surface-variant/40 inline-block"></span>
+</div>
+<div class="h-3 w-[1px] bg-secondary"></div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed">terminal</span>
+<span class="font-code-default text-code-default text-inverse-on-surface font-medium">Build Logs</span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-variant/20 text-inverse-on-surface font-code-compact text-code-compact">18.4s total</span>
+</div>
+</div>
+<!-- Terminal Controls -->
+<div class="flex items-center gap-space-xs">
+<span class="hidden sm:inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-surface-variant/10 text-inverse-on-surface font-code-compact text-code-compact">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim"></span>
+                Auto-scroll: ON
+              </span>
+<button class="p-space-2xs rounded text-inverse-on-surface hover:bg-surface-variant/20 transition-colors" id="copyLogsBtn" title="Download or Copy Logs" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</button>
+<button class="p-space-2xs rounded text-inverse-on-surface hover:bg-surface-variant/20 transition-colors" id="toggleLogsBtn" title="Collapse terminal" type="button">
+<span class="material-symbols-outlined text-[16px]" id="logsToggleIcon">unfold_less</span>
+</button>
+</div>
+</div>
+<!-- Code Stream Content Area -->
+<div class="p-space-base font-code-default text-code-default leading-relaxed text-inverse-on-surface/90 overflow-x-auto select-text space-y-1 bg-[#131722]" id="logsBody">
+<div class="flex items-start gap-space-sm text-outline-variant">
+<span class="shrink-0 text-secondary">[14:22:01]</span>
+<span>▲ vite v5.3.4 building for production...</span>
+</div>
+<div class="flex items-start gap-space-sm text-outline-variant">
+<span class="shrink-0 text-secondary">[14:22:04]</span>
+<span>transforming (18) components, views and dynamic agent subroutines...</span>
+</div>
+<div class="flex items-start gap-space-sm text-primary-fixed-dim">
+<span class="shrink-0 text-secondary">[14:22:08]</span>
+<span>✓ 18 modules transformed cleanly without tree-shaking warnings.</span>
+</div>
+<div class="flex items-start gap-space-sm text-outline-variant">
+<span class="shrink-0 text-secondary">[14:22:12]</span>
+<span>rendering modular code chunks for modern edge-ESM target...</span>
+</div>
+<div class="flex items-start gap-space-sm text-primary-fixed-dim">
+<span class="shrink-0 text-secondary">[14:22:15]</span>
+<span>computing agent graph schemas (LangGraph v0.2.1 multi-agent DAG)...</span>
+</div>
+<div class="flex items-start gap-space-sm text-primary-fixed">
+<span class="shrink-0 text-secondary">[14:22:17]</span>
+<span>✓ Edge routes compiled: <span class="text-on-primary-fixed-variant bg-primary-fixed px-1 rounded">/api/agents/trip_orchestrator</span> (12.4 kB gzip)</span>
+</div>
+<div class="flex items-start gap-space-sm text-inverse-on-surface/80">
+<span class="shrink-0 text-secondary">[14:22:18]</span>
+<span>✓ dist/index.html                    0.82 kB</span>
+</div>
+<div class="flex items-start gap-space-sm text-inverse-on-surface/80">
+<span class="shrink-0 text-secondary">[14:22:18]</span>
+<span>✓ dist/assets/index-D7s9f2.js        142.18 kB │ gzip: 44.12 kB</span>
+</div>
+<div class="flex items-start gap-space-sm text-inverse-on-surface/80">
+<span class="shrink-0 text-secondary">[14:22:19]</span>
+<span>✓ dist/assets/index-B1a9x8.css        18.42 kB │ gzip:  4.20 kB</span>
+</div>
+<div class="flex items-start gap-space-sm pt-space-xs text-primary-fixed font-medium">
+<span class="shrink-0 text-secondary">[14:22:20]</span>
+<span>✨ Deployment completed in 18.2s. Status: HTTP 200 OK. Global edge healthcheck passed on all 18 nodes.</span>
+</div>
+</div>
+<!-- Terminal Footer Status Bar -->
+<div class="px-space-base py-space-xs bg-inverse-surface flex items-center justify-between text-outline-variant font-caption text-caption">
+<span>Process exited with code 0</span>
+<span class="font-code-compact text-code-compact">Node.js v20.14.0 (Edge Isolated V8)</span>
+</div>
+</div>
+</div>
+<!-- Secondary Column: Deployments History Rail (Right 4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Rail Header -->
+<div class="flex items-center justify-between gap-space-sm px-space-xs">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-title-sm text-title-sm text-on-surface">Deployments</h2>
+<span class="px-space-xs py-space-2xs rounded-full bg-surface-container font-caption-medium text-caption-medium text-on-surface-variant">5 deploys</span>
+</div>
+<button class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors font-body-compact text-body-compact" type="button">
+<span class="material-symbols-outlined text-[15px]">filter_list</span>
+<span>main</span>
+</button>
+</div>
+<!-- Deployments List Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- Row 1: Active Deployment -->
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex items-center justify-between gap-space-sm pl-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-primary-fixed text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  Ready
+                </span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium">v8 (Prod)</span>
+</div>
+<span class="font-code-compact text-code-compact text-primary font-medium">f4a8b12</span>
+</div>
+<p class="font-body-compact-medium text-body-compact-medium text-on-surface pl-space-xs">
+              Add itinerary export and multi-day PDF generator
+            </p>
+<div class="flex items-center justify-between text-on-surface-variant font-caption text-caption pl-space-xs pt-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] flex items-center justify-center font-medium">AD</span>
+<span>Asha Dev • Just now</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-caption-medium text-caption-medium text-primary hover:underline" type="button">Inspect</button>
+</div>
+</div>
+</div>
+<!-- Row 2: Prior Successful Deployment -->
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container text-on-surface font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Ready
+                </span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium">v7</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant">b18e74f</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface">
+              Integrate LangGraph hotel scout agent &amp; tool schemas
+            </p>
+<div class="flex items-center justify-between text-on-surface-variant font-caption text-caption pt-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] flex items-center justify-center font-medium">AD</span>
+<span>Asha Dev • 2h ago</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-caption-medium text-caption-medium text-on-surface hover:text-primary transition-colors" type="button">Promote</button>
+<span>•</span>
+<button class="font-caption-medium text-caption-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button">Rollback</button>
+</div>
+</div>
+</div>
+<!-- Row 3: Errored Deployment -->
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-error-container text-on-error-container font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Failed
+                </span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium">v8.2-err</span>
+</div>
+<span class="font-code-compact text-code-compact text-error">3c9a102</span>
+</div>
+<p class="font-body-compact text-body-compact text-error line-clamp-1">
+              Failed import './TripMap' runtime exception
+            </p>
+<div class="flex items-center justify-between text-on-surface-variant font-caption text-caption pt-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] flex items-center justify-center font-medium">AI</span>
+<span>Architect AI • 3h ago</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-caption-medium text-caption-medium text-error hover:underline" type="button">View Trace</button>
+<span>•</span>
+<button class="font-caption-medium text-caption-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button">Retry</button>
+</div>
+</div>
+</div>
+<!-- Row 4: Older Clean Build -->
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container text-on-surface font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Ready
+                </span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium">v6</span>
+</div>
+<span class="font-code-compact text-code-compact text-on-surface-variant">1a0f88e</span>
+</div>
+<p class="font-body-compact text-body-compact text-on-surface">
+              Initial commit from Architect 2.0 template generator
+            </p>
+<div class="flex items-center justify-between text-on-surface-variant font-caption text-caption pt-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] flex items-center justify-center font-medium">AI</span>
+<span>Architect AI • Yesterday</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-caption-medium text-caption-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button">Inspect</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Continuous Deployment Information Card -->
+<div class="p-space-base rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">sync</span>
+<span class="font-body-compact-medium text-body-compact-medium">Continuous Deployment Active</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+            Connected to GitHub. Every commit pushed to branch <code class="font-code-compact text-code-compact text-on-surface px-1 bg-surface-container rounded">main</code> triggers preview builds and automatic edge canary verification.
+          </p>
+<div class="flex items-center gap-space-xs pt-space-2xs">
+<span class="px-space-xs py-space-2xs rounded bg-surface-container-lowest text-on-surface font-code-compact text-code-compact shadow-sm">asha-dev/travel-planner</span>
+<span class="font-caption text-caption text-on-surface-variant">Syncing: Instant</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script for Micro-interactions -->
+<script>
+    (function initDeployWorkbench() {
+      // Copy URL button interaction
+      const copyBtn = document.getElementById('copyUrlBtn');
+      const copyLabel = document.getElementById('copyButtonLabel');
+      const copyIcon = document.getElementById('copyIcon');
+      const urlText = document.getElementById('canonicalUrlText')?.innerText || 'https://travel-planner.vercel.app';
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(urlText);
+            if (copyLabel && copyIcon) {
+              copyLabel.textContent = 'Copied!';
+              copyIcon.textContent = 'done';
+              copyIcon.classList.add('text-primary');
+              setTimeout(() => {
+                copyLabel.textContent = 'Copy URL';
+                copyIcon.textContent = 'content_copy';
+                copyIcon.classList.remove('text-primary');
+              }, 2000);
+            }
+          } catch (e) {
+            console.error('Clipboard copy failed', e);
+          }
+        });
+      }
+
+      // Terminal logs toggle interaction
+      const toggleLogsBtn = document.getElementById('toggleLogsBtn');
+      const logsBody = document.getElementById('logsBody');
+      const logsToggleIcon = document.getElementById('logsToggleIcon');
+
+      if (toggleLogsBtn && logsBody && logsToggleIcon) {
+        let isExpanded = true;
+        toggleLogsBtn.addEventListener('click', () => {
+          isExpanded = !isExpanded;
+          if (isExpanded) {
+            logsBody.classList.remove('hidden');
+            logsToggleIcon.textContent = 'unfold_less';
+          } else {
+            logsBody.classList.add('hidden');
+            logsToggleIcon.textContent = 'unfold_more';
+          }
+        });
+      }
+
+      // Copy Logs Interaction
+      const copyLogsBtn = document.getElementById('copyLogsBtn');
+      if (copyLogsBtn && logsBody) {
+        copyLogsBtn.addEventListener('click', async () => {
+          const logLines = Array.from(logsBody.querySelectorAll('div'))
+            .map(div => div.innerText)
+            .join('\n');
+          await navigator.clipboard.writeText(logLines);
+          const originalTitle = copyLogsBtn.getAttribute('title');
+          copyLogsBtn.setAttribute('title', 'Logs Copied to Clipboard!');
+          setTimeout(() => {
+            copyLogsBtn.setAttribute('title', originalTitle);
+          }, 2000);
+        });
+      }
+
+      // Rollback Confirmation Mock
+      const triggerRollbackBtn = document.getElementById('triggerRollbackBtn');
+      if (triggerRollbackBtn) {
+        triggerRollbackBtn.addEventListener('click', () => {
+          const confirmed = confirm('Promote prior stable deployment v7 (b18e74f) back to live production traffic immediately?');
+          if (confirmed) {
+            alert('Instant Rollback executed: Routing edge traffic to v7 (b18e74f).');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-base"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-code-compact text-code-compact text-on-surface-variant">Architect 2.0 • Travel Planner Engine</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-caption-medium text-caption-medium text-on-surface-variant">All systems operational</span></div></div></footer></body></html>

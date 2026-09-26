@@ -1,0 +1,1 @@
+../../../common/lib/supabase/client.ts

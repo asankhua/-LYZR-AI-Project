@@ -1,0 +1,1 @@
+../../../../common/app/auth/callback/route.ts

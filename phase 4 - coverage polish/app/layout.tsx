@@ -1,0 +1,1 @@
+../../common/app/layout.tsx

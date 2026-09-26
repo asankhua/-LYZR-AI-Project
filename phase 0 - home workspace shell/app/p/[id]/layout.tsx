@@ -1,0 +1,1 @@
+../../../../common/app/p/[id]/layout.tsx

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Architect 2.0</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed-dim": "#c4c7ca", "error": "#ba1a1a", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#4d44e3", "secondary-fixed": "#e0e2f0", "surface-variant": "#dfe2f4", "on-primary-fixed-variant": "#3323cc", "primary-container": "#4f46e5", "surface-container-high": "#e5e7f9", "on-primary-fixed": "#0f0069", "secondary-fixed-dim": "#c3c6d4", "tertiary": "#45484b", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#c3c0ff", "on-background": "#171b28", "surface-dim": "#d6d9eb", "on-secondary-container": "#5f626f", "on-error": "#ffffff", "on-primary": "#ffffff", "primary": "#3525cd", "inverse-on-surface": "#eef0ff", "background": "#faf8ff", "surface-bright": "#faf8ff", "tertiary-container": "#5d6063", "surface-container": "#eaedff", "primary-fixed": "#e2dfff", "on-secondary-fixed": "#181b26", "tertiary-fixed": "#e0e3e6", "on-tertiary": "#ffffff", "inverse-primary": "#c3c0ff", "on-surface": "#171b28", "on-tertiary-container": "#d9dbde", "surface": "#faf8ff", "on-tertiary-fixed": "#191c1e", "secondary-container": "#dddfee", "outline": "#777587", "inverse-surface": "#2c303d", "on-secondary-fixed-variant": "#434652", "outline-variant": "#c7c4d8", "on-surface-variant": "#464555", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary": "#5b5e6a", "on-primary-container": "#dad7ff", "on-tertiary-fixed-variant": "#44474a", "surface-container-highest": "#dfe2f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xs": "0.125rem", "space-xs": "0.25rem", "space-3xl": "3rem", "space-xl": "1.5rem", "space-md": "0.5rem", "gutter-compact": "0.75rem", "space-base": "0.75rem", "margin-mobile": "1rem", "gutter": "1rem", "space-lg": "1rem", "space-2xl": "2rem", "margin": "1.5rem", "gutter-expanded": "1.5rem", "space-sm": "0.375rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "caption-medium": ["Inter"], "code-default": ["JetBrains Mono"], "caption": ["Inter"], "headline-lg-mobile": ["Inter"], "body-default": ["Inter"], "display-mobile": ["Inter"], "body-compact-medium": ["Inter"], "display": ["Inter"], "title-sm": ["Inter"], "code-compact": ["JetBrains Mono"], "body-medium": ["Inter"], "body-compact": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "caption-medium": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-default": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-default": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-compact-medium": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500" }], "code-compact": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-compact": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#FAFBFD] font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-[#FAFBFD] border-b border-[#E3E6EC]"><div class="h-14 max-w-[1440px] mx-auto px-space-xl flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-base shrink-0"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-caption-medium select-none shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]">A2</div><span class="font-title-sm text-title-sm text-on-surface font-semibold tracking-tight hidden sm:inline">Architect</span></div><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-xs group cursor-pointer"><span class="font-body-medium text-body-medium text-on-surface font-medium">Travel Planner</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface transition-colors">edit</span></div><div class="px-space-xs py-0.5 rounded-full border border-outline-variant bg-surface-container text-on-secondary-container font-code-compact text-code-compact">v0.1 draft</div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-primary-container font-medium border-b-2 border-primary-container"><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="plan" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>Plan</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="agents" href="#"><span>Agents</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="build" href="#"><span>Build</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="ship" href="#"><span>Ship</span></a></nav><div class="flex items-center gap-space-base shrink-0"><div class="hidden md:flex items-center p-0.5 rounded-full border border-outline-variant bg-surface-container-low"><button class="px-space-base py-0.5 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_0_rgba(31,35,48,0.04)] font-body-compact-medium text-body-compact-medium transition-all" type="button">Simple</button><button class="px-space-base py-0.5 rounded-full text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-all" type="button">Developer</button></div><div class="flex items-center -space-x-1.5 overflow-hidden"><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-highest text-on-surface font-caption-medium text-caption-medium">JD</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium">SK</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-secondary-container text-on-secondary-container font-code-compact text-code-compact">+1</div></div><div class="h-4 w-px bg-outline-variant hidden sm:block"></div><button class="h-8 px-space-base rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container font-body-compact-medium text-body-compact-medium transition-colors shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]" type="button">Share</button><button class="h-8 px-space-base rounded-xl bg-surface-container-high text-outline cursor-not-allowed font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs select-none" disabled="" type="button"><span class="material-symbols-outlined text-[15px]">lock</span><span>Deploy</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-[#FAFBFD] min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full">
+<!-- Developer Mode Top Sub-Header & Live Diagnostic Strip -->
+<section class="w-full bg-surface-container-low border-b border-[#E3E6EC] px-space-xl py-space-xs">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-space-sm font-caption-medium text-caption-medium">
+<div class="flex items-center gap-space-base flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-code-compact text-code-compact">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Developer Mode Active
+        </span>
+<span class="text-on-surface-variant font-code-compact text-code-compact">Claude 3.5 Sonnet + Vite 5.3</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-code-compact text-code-compact">Node 20.14 ESM</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">LangGraph v0.2.1 Router</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span class="font-body-compact-medium text-body-compact-medium">HMR Live Sync</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant font-code-compact text-code-compact">v8.4-alpha</span>
+<button class="px-space-xs py-0.5 rounded border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container text-on-surface text-caption font-code-compact transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">refresh</span>
+          Hard Reload
+        </button>
+</div>
+</div>
+</section>
+<!-- Secondary Workspace Ribbon: Stepper & Canvas View Switcher -->
+<header class="w-full bg-[#FAFBFD] border-b border-[#E3E6EC]">
+<div class="max-w-[1440px] mx-auto px-space-xl h-11 flex items-center justify-between gap-space-md">
+<!-- Secondary Stepper Indication -->
+<div class="flex items-center gap-space-base overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-compact text-body-compact">
+<span class="material-symbols-outlined text-[15px] text-[#10b981]">check_circle</span>
+<span>Plan</span>
+</div>
+<span class="material-symbols-outlined text-[13px] text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-compact text-body-compact">
+<span class="material-symbols-outlined text-[15px] text-[#10b981]">check_circle</span>
+<span>Agents</span>
+</div>
+<span class="material-symbols-outlined text-[13px] text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-1.5 font-body-compact-medium text-body-compact-medium text-primary">
+<span class="w-2 h-2 rounded-full bg-primary-container ring-4 ring-primary-fixed"></span>
+<span>Build Workspace</span>
+</div>
+<span class="material-symbols-outlined text-[13px] text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-1.5 text-outline font-body-compact text-body-compact">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+<span>Ship</span>
+</div>
+</div>
+<!-- Quick Canvas Actions -->
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="inline-flex items-center p-0.5 bg-[#EAEDF5] rounded-lg">
+<button class="px-space-sm py-1 rounded text-caption text-on-surface-variant hover:text-on-surface transition-colors font-body-compact">Canvas</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface shadow-sm text-caption font-body-compact-medium">Code IDE</button>
+<button class="px-space-sm py-1 rounded text-caption text-on-surface-variant hover:text-on-surface transition-colors font-body-compact">Split View</button>
+</div>
+<button class="h-7 px-2.5 rounded border border-[#E3E6EC] bg-surface-container-lowest hover:bg-surface-container text-on-surface text-caption font-body-compact flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">save</span>
+<span>Snapshot</span>
+</button>
+<button class="h-7 px-2.5 rounded bg-primary-container text-on-primary hover:bg-[#4338CA] text-caption font-body-compact-medium flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span>
+<span>Run Tests</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main IDE Workspace Framework (Collapsed Chat Rail + Multi-pane Workbench) -->
+<main class="w-full flex flex-1 min-h-[calc(100vh-10rem)] max-w-[1440px] mx-auto overflow-hidden">
+<!-- Collapsed Left AI Chat Rail (56px) -->
+<aside aria-label="Architect Chat Rail" class="w-14 shrink-0 bg-[#F4F6F9] border-r border-[#E3E6EC] flex flex-col items-center justify-between py-space-sm">
+<div class="flex flex-col items-center gap-space-sm w-full">
+<!-- Expand Rail Trigger -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative group" id="expand-chat-btn" title="Expand Architect AI Chat (⌘K)">
+<span class="material-symbols-outlined text-[18px]">dock_to_right</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-white"></span>
+<div class="absolute left-12 whitespace-nowrap bg-inverse-surface text-inverse-on-surface font-caption text-caption px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 shadow-md">
+            Expand Architect AI Chat (⌘K)
+          </div>
+</button>
+<div class="w-8 h-px bg-[#E3E6EC] my-0.5"></div>
+<!-- AI Assistant Status Icon -->
+<div class="relative group cursor-pointer">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-[#E3E6EC] flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#10b981] ring-2 ring-white"></span>
+<div class="absolute left-12 whitespace-nowrap bg-inverse-surface text-inverse-on-surface font-caption text-caption px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 shadow-md">
+            Claude 3.5 Assistant: Online
+          </div>
+</div>
+<!-- Vertical Rail Icons -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Prompt History">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Agent Graph Inspector">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Saved Prompts &amp; Snippets">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</button>
+</div>
+<!-- Bottom Rail Actions -->
+<div class="flex flex-col items-center gap-space-xs">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Architect Logs">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Workspace Config">
+<span class="material-symbols-outlined text-[16px]">settings_suggest</span>
+</button>
+</div>
+</aside>
+<!-- Center/Right IDE Column (Main Workspace Canvas) -->
+<div class="flex-1 flex flex-col min-w-0 bg-white">
+<!-- Top Canvas Workstation Tabs Bar -->
+<div class="h-10 bg-[#FAFBFD] border-b border-[#E3E6EC] flex items-center justify-between px-space-base gap-space-sm select-none">
+<!-- Tab Navigation -->
+<nav aria-label="Editor View Tabs" class="flex items-center h-full gap-0.5 overflow-x-auto no-scrollbar">
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">desktop_windows</span>
+<span>Preview</span>
+</button>
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">view_timeline</span>
+<span>Plan</span>
+</button>
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">smart_toy</span>
+<span>Agents</span>
+</button>
+<!-- Active Tab: CODE -->
+<button class="h-full px-space-base flex items-center gap-1.5 text-primary-container font-body-compact-medium text-caption border-b-2 border-primary-container bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+<span>Code</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</button>
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">data_object</span>
+<span>Database</span>
+</button>
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">key</span>
+<span>Env</span>
+</button>
+<button class="h-full px-space-base flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface text-caption font-body-compact border-b-2 border-transparent transition-colors">
+<span class="material-symbols-outlined text-[15px]">fork_right</span>
+<span>Git</span>
+</button>
+</nav>
+<!-- Right Workbench Utilities -->
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded border border-[#E3E6EC] bg-white font-code-compact text-code-compact text-on-surface">
+<span class="material-symbols-outlined text-[13px] text-primary">alt_route</span>
+<span>git: main*</span>
+</div>
+<button class="h-7 px-2 rounded border border-[#E3E6EC] hover:bg-[#F3F5F8] text-on-surface text-caption font-body-compact flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">cloud_upload</span>
+<span class="hidden sm:inline">Commit &amp; Push</span>
+</button>
+<button class="h-7 w-7 rounded border border-[#E3E6EC] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-[#F3F5F8] transition-colors" title="Quick Search in Files (⌘P)">
+<span class="material-symbols-outlined text-[15px]">search</span>
+</button>
+<button class="h-7 w-7 rounded border border-[#E3E6EC] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-[#F3F5F8] transition-colors" title="Workspace Settings">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+</button>
+</div>
+</div>
+<!-- 3-Column Code Workspace Layout -->
+<div class="flex-1 grid grid-cols-12 min-h-0 divide-x divide-[#E3E6EC]">
+<!-- Left Sub-Column: File Tree Explorer (2 Columns on 12-col grid: ~240px) -->
+<section aria-label="File Explorer" class="col-span-12 md:col-span-3 lg:col-span-2 bg-[#FAFBFD] flex flex-col min-h-0 select-none">
+<!-- Explorer Header -->
+<div class="h-8 px-space-sm border-b border-[#E3E6EC] flex items-center justify-between text-caption font-caption-medium text-on-surface-variant tracking-wider uppercase">
+<span class="flex items-center gap-1 font-semibold text-[11px]">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+              EXPLORER
+            </span>
+<div class="flex items-center gap-1">
+<button class="p-0.5 hover:text-on-surface rounded transition-colors" title="New File"><span class="material-symbols-outlined text-[14px]">note_add</span></button>
+<button class="p-0.5 hover:text-on-surface rounded transition-colors" title="New Folder"><span class="material-symbols-outlined text-[14px]">create_new_folder</span></button>
+<button class="p-0.5 hover:text-on-surface rounded transition-colors" title="Refresh"><span class="material-symbols-outlined text-[14px]">refresh</span></button>
+<button class="p-0.5 hover:text-on-surface rounded transition-colors" title="Collapse All"><span class="material-symbols-outlined text-[14px]">unfold_less</span></button>
+</div>
+</div>
+<!-- Tree View Items -->
+<div class="flex-1 overflow-y-auto p-1 font-code-compact text-code-compact space-y-0.5 text-[#2C303D]">
+<!-- Folder: src -->
+<div class="flex items-center gap-1 px-1.5 py-1 rounded hover:bg-[#ECEFF5] cursor-pointer text-[#171B28] font-medium">
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span>
+<span class="material-symbols-outlined text-[15px] text-[#4f46e5]">folder_open</span>
+<span>src</span>
+</div>
+<!-- Sub-folder: agents -->
+<div class="pl-3.5 space-y-0.5">
+<div class="flex items-center gap-1 px-1.5 py-1 rounded hover:bg-[#ECEFF5] cursor-pointer text-[#171B28]">
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span>
+<span class="material-symbols-outlined text-[15px] text-primary">folder_open</span>
+<span>agents</span>
+</div>
+<!-- Langgraph nested -->
+<div class="pl-3.5 space-y-0.5">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">folder</span>
+<span>langgraph</span>
+</div>
+<div class="pl-4 space-y-0.5">
+<div class="flex items-center justify-between px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer group">
+<div class="flex items-center gap-1.5 truncate">
+<span class="text-[10px] font-bold text-[#3178C6]">TS</span>
+<span class="truncate text-on-surface">trip_orchestrator.ts</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shrink-0" title="Modified"></span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#3178C6]">TS</span>
+<span class="truncate">state_schema.ts</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#3178C6]">TS</span>
+<span class="truncate">routing.ts</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#3572A5]">PY</span>
+<span class="truncate">flight_worker.py</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#3572A5]">PY</span>
+<span class="truncate">hotel_scout.py</span>
+</div>
+</div>
+<!-- Sub-folder: components -->
+<div class="flex items-center gap-1 px-1.5 py-1 rounded hover:bg-[#ECEFF5] cursor-pointer text-[#171B28]">
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_drop_down</span>
+<span class="material-symbols-outlined text-[15px] text-[#4f46e5]">folder_open</span>
+<span>components</span>
+</div>
+<div class="pl-4 space-y-0.5">
+<!-- ACTIVE SELECTED FILE: SearchBar.tsx -->
+<div class="flex items-center justify-between px-2 py-1 rounded bg-[#E4E8F7] text-primary-container font-medium cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">SearchBar.tsx</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">ItineraryCard.tsx</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">SplitLedgerModal.tsx</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">VotingBadge.tsx</span>
+</div>
+</div>
+<!-- Sub-folder: pages -->
+<div class="flex items-center gap-1 px-1.5 py-1 rounded hover:bg-[#ECEFF5] cursor-pointer text-[#171B28]">
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_right</span>
+<span class="material-symbols-outlined text-[15px] text-secondary">folder</span>
+<span>pages</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">App.tsx</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#0284c7]">TSX</span>
+<span class="truncate">main.tsx</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#e11d48]">CSS</span>
+<span class="truncate">index.css</span>
+</div>
+</div>
+<!-- Root Config Files -->
+<div class="pt-2 border-t border-[#E3E6EC] space-y-0.5">
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#ca8a04]">{}</span>
+<span class="truncate">package.json</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#3178C6]">TS</span>
+<span class="truncate">tsconfig.json</span>
+</div>
+<div class="flex items-center gap-1.5 px-1.5 py-0.5 rounded hover:bg-[#ECEFF5] cursor-pointer text-on-surface-variant">
+<span class="text-[10px] font-bold text-[#8b5cf6]">⚡</span>
+<span class="truncate">vite.config.ts</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Middle Column: Monaco-Style Code Editor (6 Columns on lg: 50% width) -->
+<section aria-label="Code Editor" class="col-span-12 md:col-span-9 lg:col-span-7 bg-[#1E1E2E] text-[#CDD6F4] flex flex-col min-h-0">
+<!-- Editor File Tab Bar -->
+<div class="h-9 bg-[#181825] border-b border-[#313244] flex items-center justify-between px-2 select-none overflow-x-auto no-scrollbar">
+<div class="flex items-center h-full">
+<!-- Active File Tab: SearchBar.tsx -->
+<div class="h-full px-3 bg-[#1E1E2E] border-t-2 border-primary-container text-white flex items-center gap-2 font-code-compact text-code-compact font-medium">
+<span class="text-[10px] font-bold text-[#38bdf8]">TSX</span>
+<span>SearchBar.tsx</span>
+<span class="material-symbols-outlined text-[14px] text-slate-400 hover:text-white cursor-pointer ml-1">close</span>
+</div>
+<!-- Tab 2 -->
+<div class="h-full px-3 text-[#A6ADC8] hover:bg-[#232438] flex items-center gap-2 font-code-compact text-code-compact border-t-2 border-transparent cursor-pointer">
+<span class="text-[10px] font-bold text-[#3178C6]">TS</span>
+<span>trip_orchestrator.ts</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"></span>
+<span class="material-symbols-outlined text-[13px] text-slate-500 hover:text-white">close</span>
+</div>
+<!-- Tab 3 -->
+<div class="h-full px-3 text-[#A6ADC8] hover:bg-[#232438] flex items-center gap-2 font-code-compact text-code-compact border-t-2 border-transparent cursor-pointer">
+<span class="text-[10px] font-bold text-[#fab387]">{}</span>
+<span>package.json</span>
+<span class="material-symbols-outlined text-[13px] text-slate-500 hover:text-white">close</span>
+</div>
+</div>
+<!-- Code Window Actions -->
+<div class="flex items-center gap-1 text-[#9399B2]">
+<button class="p-1 hover:text-white rounded" title="Split Right"><span class="material-symbols-outlined text-[15px]">vertical_split</span></button>
+<button class="p-1 hover:text-white rounded" title="More Actions"><span class="material-symbols-outlined text-[15px]">more_horiz</span></button>
+</div>
+</div>
+<!-- Breadcrumb Navigation Bar -->
+<div class="h-7 bg-[#1E1E2E] border-b border-[#2B2B3D] px-3 flex items-center gap-1.5 font-code-compact text-[11px] text-[#A6ADC8]">
+<span class="hover:text-white cursor-pointer">src</span>
+<span class="material-symbols-outlined text-[11px]">chevron_right</span>
+<span class="hover:text-white cursor-pointer">components</span>
+<span class="material-symbols-outlined text-[11px]">chevron_right</span>
+<span class="text-[#89DCEB] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">code</span>
+              SearchBar.tsx
+            </span>
+<span class="material-symbols-outlined text-[11px]">chevron_right</span>
+<span class="text-[#FAB387]">SearchBar</span>
+</div>
+<!-- Code Canvas with Line Numbers & Precision Syntax Highlighting -->
+<div class="flex-1 overflow-y-auto p-2 font-code-default text-code-default leading-relaxed select-text">
+<div class="table w-full">
+<!-- Line 1 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70] w-9">1</div>
+<div class="table-cell"><span class="text-[#CBA6F7]">import</span> <span class="text-[#F5E0DC]">React</span>, { <span class="text-[#89DCEB]">useState</span> } <span class="text-[#CBA6F7]">from</span> <span class="text-[#A6E3A1]">'react'</span>;</div>
+</div>
+<!-- Line 2 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">2</div>
+<div class="table-cell"><span class="text-[#CBA6F7]">import</span> { <span class="text-[#89DCEB]">Search</span>, <span class="text-[#89DCEB]">Calendar</span>, <span class="text-[#89DCEB]">Users</span>, <span class="text-[#89DCEB]">ArrowRight</span> } <span class="text-[#CBA6F7]">from</span> <span class="text-[#A6E3A1]">'lucide-react'</span>;</div>
+</div>
+<!-- Line 3 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">3</div>
+<div class="table-cell"><span class="text-[#CBA6F7]">import</span> { <span class="text-[#89DCEB]">useTripStore</span> } <span class="text-[#CBA6F7]">from</span> <span class="text-[#A6E3A1]'../store/tripStore'&lt;/span&gt;;&lt;/div&gt; &lt;/div&gt; &lt;!-- Line 4 --&gt; &lt;div class=" group="" hover:bg-[#252538]"="" table-row="">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">4</div>
+<div class="table-cell text-transparent select-none">.</div>
+</span></div>
+<!-- Line 5 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">5</div>
+<div class="table-cell"><span class="text-[#CBA6F7]">interface</span> <span class="text-[#F9E2AF]">SearchBarProps</span> {</div>
+</div>
+<!-- Line 6 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">6</div>
+<div class="table-cell pl-4"><span class="text-[#89DCEB]">onSearch</span>?: (<span class="text-[#F5E0DC]">query</span>: <span class="text-[#F9E2AF]">SearchParams</span>) =&gt; <span class="text-[#CBA6F7]">void</span>;</div>
+</div>
+<!-- Line 7 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">7</div>
+<div class="table-cell pl-4"><span class="text-[#89DCEB]">className</span>?: <span class="text-[#89DCEB]">string</span>;</div>
+</div>
+<!-- Line 8 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">8</div>
+<div class="table-cell">}</div>
+</div>
+<!-- Line 9 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">9</div>
+<div class="table-cell text-transparent select-none">.</div>
+</div>
+<!-- Line 10 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">10</div>
+<div class="table-cell"><span class="text-[#CBA6F7]">export const</span> <span class="text-[#89B4FA]">SearchBar</span>: <span class="text-[#F9E2AF]">React.FC</span>&lt;<span class="text-[#F9E2AF]">SearchBarProps</span>&gt; = ({ <span class="text-[#F5E0DC]">onSearch</span>, <span class="text-[#F5E0DC]">className</span> }) =&gt; {</div>
+</div>
+<!-- Line 11 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">11</div>
+<div class="table-cell pl-4"><span class="text-[#CBA6F7]">const</span> [<span class="text-[#F5E0DC]">destination</span>, <span class="text-[#89DCEB]">setDestination</span>] = <span class="text-[#89B4FA]">useState</span>(<span class="text-[#A6E3A1]">'Tokyo, Japan'</span>);</div>
+</div>
+<!-- Line 12 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">12</div>
+<div class="table-cell pl-4"><span class="text-[#CBA6F7]">const</span> [<span class="text-[#F5E0DC]">dates</span>, <span class="text-[#89DCEB]">setDates</span>] = <span class="text-[#89B4FA]">useState</span>(<span class="text-[#A6E3A1]">'Oct 12 - Oct 20, 2025'</span>);</div>
+</div>
+<!-- Line 13 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">13</div>
+<div class="table-cell pl-4"><span class="text-[#CBA6F7]">const</span> [<span class="text-[#F5E0DC]">partySize</span>, <span class="text-[#89DCEB]">setPartySize</span>] = <span class="text-[#89B4FA]">useState</span>(<span class="text-[#FAB387]">4</span>);</div>
+</div>
+<!-- Line 14 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">14</div>
+<div class="table-cell pl-4"><span class="text-[#CBA6F7]">const</span> { <span class="text-[#F5E0DC]">isMobile</span>, <span class="text-[#F5E0DC]">dispatchVotingSync</span> } = <span class="text-[#89B4FA]">useTripStore</span>();</div>
+</div>
+<!-- Line 15 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">15</div>
+<div class="table-cell text-transparent select-none">.</div>
+</div>
+<!-- Line 16 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">16</div>
+<div class="table-cell pl-4"><span class="text-[#CBA6F7]">return</span> (</div>
+</div>
+<!-- Line 17 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">17</div>
+<div class="table-cell pl-8">&lt;<span class="text-[#F38BA8]">div</span> <span class="text-[#FAB387]">className</span>={<span class="text-[#A6E3A1]">`bg-white rounded-xl shadow-sm border border-slate-200 p-3 ${</span><span class="text-[#F5E0DC]">className</span><span class="text-[#A6E3A1]">}`</span>}&gt;</div>
+</div>
+<!-- Line 18 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">18</div>
+<div class="table-cell pl-12">&lt;<span class="text-[#F38BA8]">div</span> <span class="text-[#FAB387]">className</span>=<span class="text-[#A6E3A1]">"flex flex-col md:flex-row items-center gap-4"</span>&gt;</div>
+</div>
+<!-- Line 19 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">19</div>
+<div class="table-cell pl-16">&lt;<span class="text-[#F9E2AF]">DestinationPicker</span> <span class="text-[#FAB387]">value</span>={<span class="text-[#F5E0DC]">destination</span>} <span class="text-[#FAB387]">onChange</span>={<span class="text-[#89DCEB]">setDestination</span>} /&gt;</div>
+</div>
+<!-- Line 20 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">20</div>
+<div class="table-cell pl-16">&lt;<span class="text-[#F9E2AF]">DateRangeSelector</span> <span class="text-[#FAB387]">value</span>={<span class="text-[#F5E0DC]">dates</span>} <span class="text-[#FAB387]">onChange</span>={<span class="text-[#89DCEB]">setDates</span>} /&gt;</div>
+</div>
+<!-- Line 21 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">21</div>
+<div class="table-cell pl-16">&lt;<span class="text-[#F9E2AF]">GuestPartyCounter</span> <span class="text-[#FAB387]">count</span>={<span class="text-[#F5E0DC]">partySize</span>} <span class="text-[#FAB387]">onChange</span>={<span class="text-[#89DCEB]">setPartySize</span>} /&gt;</div>
+</div>
+<!-- Line 22 (Modified focus) -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">22</div>
+<div class="table-cell pl-16">&lt;<span class="text-[#F38BA8]">button</span></div>
+</div>
+<!-- Line 23 -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">23</div>
+<div class="table-cell pl-20"><span class="text-[#FAB387]">onClick</span>={() =&gt; <span class="text-[#89DCEB]">onSearch</span>?.({ <span class="text-[#F5E0DC]">destination</span>, <span class="text-[#F5E0DC]">dates</span>, <span class="text-[#F5E0DC]">partySize</span> })}</div>
+</div>
+<!-- Line 24 -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">24</div>
+<div class="table-cell pl-20"><span class="text-[#FAB387]">className</span>=<span class="text-[#A6E3A1]">"w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-sm transition-all flex items-center justify-center gap-2"</span></div>
+</div>
+<!-- Line 25 -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">25</div>
+<div class="table-cell pl-16">&gt;</div>
+</div>
+<!-- Line 26 -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">26</div>
+<div class="table-cell pl-20">&lt;<span class="text-[#F9E2AF]">Search</span> <span class="text-[#FAB387]">className</span>=<span class="text-[#A6E3A1]">"w-4 h-4"</span> /&gt;</div>
+</div>
+<!-- Line 27 -->
+<div class="table-row bg-[#2b304d]/40 group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#89B4FA]">27</div>
+<div class="table-cell pl-20">&lt;<span class="text-[#F38BA8]">span</span>&gt;Plan my trip&lt;/<span class="text-[#F38BA8]">span</span>&gt;</div>
+</div>
+<!-- Line 28 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">28</div>
+<div class="table-cell pl-16">&lt;/<span class="text-[#F38BA8]">button</span>&gt;</div>
+</div>
+<!-- Line 29 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">29</div>
+<div class="table-cell pl-12">&lt;/<span class="text-[#F38BA8]">div</span>&gt;</div>
+</div>
+<!-- Line 30 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">30</div>
+<div class="table-cell pl-8">&lt;/<span class="text-[#F38BA8]">div</span>&gt;</div>
+</div>
+<!-- Line 31 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">31</div>
+<div class="table-cell pl-4">);</div>
+</div>
+<!-- Line 32 -->
+<div class="table-row group hover:bg-[#252538]">
+<div class="table-cell pr-4 text-right select-none text-[#585B70]">32</div>
+<div class="table-cell">};</div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- Right Column: Changes in v8 Pane (~320px width) -->
+<aside aria-label="Version Diff Inspector" class="col-span-12 lg:col-span-3 bg-[#FAFBFD] flex flex-col min-h-0">
+<!-- Pane Header -->
+<div class="h-9 px-space-base bg-[#F4F6F9] border-b border-[#E3E6EC] flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Changes in v8</span>
+<span class="px-1.5 py-0.5 rounded text-[11px] font-code-compact bg-[#EEF0FF] text-primary border border-primary/20">+14 -4</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" title="Diff Options">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<!-- File Context Header -->
+<div class="p-space-base border-b border-[#E3E6EC] bg-white">
+<div class="flex items-center justify-between text-caption font-code-compact text-on-surface-variant mb-1">
+<div class="flex items-center gap-1">
+<span class="text-primary font-bold">TSX</span>
+<span class="font-medium text-on-surface">SearchBar.tsx</span>
+</div>
+<span class="text-[11px] text-outline">Review HMR diff</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex-1 bg-surface-container h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-[#10b981] w-[75%]"></div>
+<div class="bg-[#ef4444] w-[25%]"></div>
+</div>
+<span class="text-[10px] font-code-compact text-on-surface-variant">78% updated</span>
+</div>
+</div>
+<!-- Interactive Inline Diff View -->
+<div class="flex-1 overflow-y-auto p-2 space-y-1 font-code-compact text-[11px] leading-snug">
+<div class="text-[10px] uppercase font-semibold text-outline tracking-wider px-1 pt-1 pb-0.5">Line 22 - 27 Substitution</div>
+<!-- Deleted Lines (Red) -->
+<div class="bg-[#FEE2E2]/60 rounded p-1.5 border border-[#FCA5A5]/40 text-[#991B1B] space-y-0.5">
+<div class="flex items-start gap-1 select-none font-bold text-[#DC2626]">
+<span>-</span>
+<span class="font-normal font-code-compact">&lt;button className="px-5 py-2.5 bg-blue-600 text-white rounded"&gt;</span>
+</div>
+<div class="flex items-start gap-1 pl-2 select-none font-bold text-[#DC2626]">
+<span>-</span>
+<span class="font-normal font-code-compact">  Search trips</span>
+</div>
+<div class="flex items-start gap-1 select-none font-bold text-[#DC2626]">
+<span>-</span>
+<span class="font-normal font-code-compact">&lt;/button&gt;</span>
+</div>
+</div>
+<!-- Added Lines (Green) -->
+<div class="bg-[#DCFCE7]/60 rounded p-1.5 border border-[#86EFAC]/50 text-[#166534] space-y-0.5">
+<div class="flex items-start gap-1 select-none font-bold text-[#16A34A]">
+<span>+</span>
+<span class="font-normal font-code-compact">&lt;button className="w-full md:w-auto px-6 py-3 bg-indigo-600 font-medium rounded-lg flex items-center justify-center gap-2"&gt;</span>
+</div>
+<div class="flex items-start gap-1 pl-2 select-none font-bold text-[#16A34A]">
+<span>+</span>
+<span class="font-normal font-code-compact">  &lt;Search className="w-4 h-4" /&gt;</span>
+</div>
+<div class="flex items-start gap-1 pl-2 select-none font-bold text-[#16A34A]">
+<span>+</span>
+<span class="font-normal font-code-compact">  &lt;span&gt;Plan my trip&lt;/span&gt;</span>
+</div>
+<div class="flex items-start gap-1 select-none font-bold text-[#16A34A]">
+<span>+</span>
+<span class="font-normal font-code-compact">&lt;/button&gt;</span>
+</div>
+</div>
+<!-- Explanation Callout from AI -->
+<div class="mt-3 p-space-sm bg-surface-container-low rounded-lg border border-[#E3E6EC]">
+<div class="flex items-center gap-1.5 text-caption-medium font-body-compact-medium text-primary">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span>Architect AI Rationale</span>
+</div>
+<p class="mt-1 text-[11px] font-body-compact text-on-surface-variant leading-relaxed">
+                Refactored submit button to adopt responsive full-width states on mobile, integrated lucide icons, and bound dynamic party size telemetry to global trip store.
+              </p>
+</div>
+</div>
+<!-- Bottom Action Bar for Diff -->
+<div class="p-space-base border-t border-[#E3E6EC] bg-white flex flex-col gap-1.5">
+<button class="w-full h-8 rounded bg-primary-container hover:bg-[#4338CA] text-on-primary font-body-compact-medium text-body-compact flex items-center justify-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+<span>Accept Diff (⌘S)</span>
+</button>
+<button class="w-full h-8 rounded border border-[#E3E6EC] bg-white hover:bg-surface-container text-on-surface font-body-compact text-body-compact flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px]">undo</span>
+<span>Revert to v7</span>
+</button>
+</div>
+</aside>
+</div>
+<!-- Docked Bottom Terminal Panel (~185px height) -->
+<section aria-label="Terminal Console" class="w-full h-44 bg-[#14141E] border-t border-[#2F3146] flex flex-col shrink-0">
+<!-- Terminal Header Controls -->
+<div class="h-8 bg-[#181825] px-space-base flex items-center justify-between border-b border-[#2B2B3D] select-none">
+<div class="flex items-center h-full gap- space-base">
+<div class="flex items-center gap-1.5 h-full border-b-2 border-primary-container px-2 text-[#CDD6F4] font-code-compact text-code-compact font-medium">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span>TERMINAL</span>
+</div>
+<button class="h-full px-2 text-[#9399B2] hover:text-white font-code-compact text-code-compact transition-colors">
+              OUTPUT
+            </button>
+<button class="h-full px-2 text-[#9399B2] hover:text-white font-code-compact text-code-compact transition-colors flex items-center gap-1">
+<span>PROBLEMS</span>
+<span class="px-1 bg-[#313244] text-[#A6ADC8] rounded-full text-[10px]">0</span>
+</button>
+<button class="h-full px-2 text-[#9399B2] hover:text-white font-code-compact text-code-compact transition-colors">
+              DEBUG CONSOLE
+            </button>
+</div>
+<div class="flex items-center gap-2 text-[#9399B2]">
+<div class="flex items-center gap-1 bg-[#232438] px-2 py-0.5 rounded text-[11px] font-code-compact text-[#BAC2DE]">
+<span class="material-symbols-outlined text-[12px] text-[#A6E3A1]">terminal</span>
+<span>1: bash</span>
+</div>
+<div class="h-3.5 w-px bg-[#313244]"></div>
+<button class="hover:text-white" title="New Terminal"><span class="material-symbols-outlined text-[15px]">add</span></button>
+<button class="hover:text-white" title="Split Terminal"><span class="material-symbols-outlined text-[15px]">splitscreen</span></button>
+<button class="hover:text-white" title="Clear Console"><span class="material-symbols-outlined text-[15px]">block</span></button>
+<button class="hover:text-white" title="Minimize Panel"><span class="material-symbols-outlined text-[15px]">keyboard_arrow_down</span></button>
+</div>
+</div>
+<!-- Terminal Console Scroll Area -->
+<div class="flex-1 p-3 overflow-y-auto font-code-default text-[12px] leading-relaxed select-text space-y-1">
+<div class="flex items-center gap-2 text-[#A6ADC8]">
+<span class="text-[#89B4FA]">~/projects/travel-planner</span>
+<span class="text-[#F5C2E7]">(main)</span>
+<span class="text-[#FAB387]">$</span>
+<span class="text-white">npm run dev</span>
+</div>
+<div class="text-[#6C7086] pl-2">&gt; travel-planner@0.1.0 dev</div>
+<div class="text-[#6C7086] pl-2">&gt; vite --port 3000 --host</div>
+<div class="py-1 text-[#89DCEB] font-medium pl-2">
+            VITE v5.3.4 <span class="text-[#A6E3A1]">ready in 820 ms</span>
+</div>
+<div class="pl-2 space-y-0.5">
+<div class="flex items-center gap-2 text-[#CDD6F4]">
+<span class="text-[#A6E3A1]">➜</span>
+<span class="text-[#BAC2DE]">Local:</span>
+<a class="text-[#89B4FA] underline hover:text-[#B4BEFE]" href="#">http://localhost:3000/trips/summer-tokyo-2025</a>
+</div>
+<div class="flex items-center gap-2 text-[#A6ADC8]">
+<span class="text-[#A6E3A1]">➜</span>
+<span class="text-[#BAC2DE]">Network:</span>
+<span>use --host to expose</span>
+</div>
+<div class="text-[#585B70]">➜ press h + enter to show help</div>
+</div>
+<div class="pt-1.5 space-y-0.5 pl-2 text-[11px]">
+<div class="text-[#A6ADC8] flex items-center gap-1.5">
+<span class="text-[#A6E3A1]">[HMR]</span>
+<span>connected.</span>
+</div>
+<div class="text-[#F9E2AF] flex items-center gap-1.5">
+<span class="text-[#A6E3A1]">[HMR]</span>
+<span>update /src/components/SearchBar.tsx (reloaded in 34ms)</span>
+</div>
+<div class="text-[#CBA6F7] flex items-center gap-1.5">
+<span class="text-[#89B4FA]">[Agent Orchestrator]</span>
+<span>LangGraph runtime synchronized with WebSocket bridge.</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Workspace Global Status Bar -->
+<footer class="w-full bg-[#11111B] text-[#A6ADC8] border-t border-[#2B2B3D] px-space-base py-1">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-space-sm text-code-compact font-code-compact">
+<!-- Left Diagnostics -->
+<div class="flex items-center gap- space-sm flex-wrap">
+<div class="flex items-center gap-1.5 text-white">
+<span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+<span>App Ready</span>
+</div>
+<span class="text-[#45475A]">|</span>
+<span class="text-[#89DCEB]">HMR Active</span>
+<span class="text-[#45475A]">|</span>
+<span>Snapshot v8</span>
+<span class="text-[#45475A]">|</span>
+<span>Port: 3000</span>
+<span class="text-[#45475A]">|</span>
+<span class="text-[#F5C2E7]">Git: main*</span>
+<span class="text-[#45475A]">|</span>
+<span>UTF-8</span>
+<span class="text-[#45475A]">|</span>
+<span class="text-[#F9E2AF]">TypeScript React</span>
+</div>
+<!-- Right Support Links -->
+<div class="flex items-center gap-space-base text-[#9399B2]">
+<button class="hover:text-white transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">list_alt</span>
+<span>Build logs</span>
+</button>
+<button class="hover:text-white transition-colors">Sandbox settings</button>
+<span class="bg-[#313244] px-1.5 py-0.2 rounded text-[10px] text-white">⌥T</span>
+<button class="hover:text-white transition-colors">Docs</button>
+<button class="hover:text-white transition-colors">API Spec</button>
+<button class="hover:text-white transition-colors">Feedback</button>
+</div>
+</div>
+</footer>
+</div>
+<script>
+  // Simple micro-interaction for panel expansion simulation
+  document.getElementById('expand-chat-btn')?.addEventListener('click', () => {
+    const notify = document.createElement('div');
+    notify.className = 'fixed bottom-10 right-10 bg-[#1E1E2E] text-white px-4 py-2 rounded-lg shadow-xl font-body-compact text-body-compact border border-slate-700 z-50 flex items-center gap-2';
+    notify.innerHTML = '<span class="material-symbols-outlined text-[16px] text-primary">chat</span> Architect AI Assistant docked panel toggled';
+    document.body.appendChild(notify);
+    setTimeout(() => notify.remove(), 2600);
+  });
+</script></main><footer class="w-full border-t border-[#E3E6EC] bg-surface-container-low py-space-base"><div class="max-w-[1440px] mx-auto px-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-base"><span class="font-code-compact text-code-compact text-on-surface-variant">Architect 2.0 Engine • Travel Planner</span><span class="h-3 w-px bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant">Workspace Synced</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-caption text-caption"><a class="hover:text-on-surface transition-colors" href="#">Docs</a><a class="hover:text-on-surface transition-colors" href="#">API Spec</a><a class="hover:text-on-surface transition-colors" href="#">Feedback</a></div></div></footer></body></html>

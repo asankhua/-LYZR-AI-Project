@@ -1,0 +1,1 @@
+../../../common/components/workspace/plan-view.tsx

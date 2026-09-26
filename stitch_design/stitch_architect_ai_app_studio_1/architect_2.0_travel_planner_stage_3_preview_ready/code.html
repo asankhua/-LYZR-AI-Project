@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Architect 2.0</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed-dim": "#c4c7ca", "error": "#ba1a1a", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#4d44e3", "secondary-fixed": "#e0e2f0", "surface-variant": "#dfe2f4", "on-primary-fixed-variant": "#3323cc", "primary-container": "#4f46e5", "surface-container-high": "#e5e7f9", "on-primary-fixed": "#0f0069", "secondary-fixed-dim": "#c3c6d4", "tertiary": "#45484b", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#c3c0ff", "on-background": "#171b28", "surface-dim": "#d6d9eb", "on-secondary-container": "#5f626f", "on-error": "#ffffff", "on-primary": "#ffffff", "primary": "#3525cd", "inverse-on-surface": "#eef0ff", "background": "#faf8ff", "surface-bright": "#faf8ff", "tertiary-container": "#5d6063", "surface-container": "#eaedff", "primary-fixed": "#e2dfff", "on-secondary-fixed": "#181b26", "tertiary-fixed": "#e0e3e6", "on-tertiary": "#ffffff", "inverse-primary": "#c3c0ff", "on-surface": "#171b28", "on-tertiary-container": "#d9dbde", "surface": "#faf8ff", "on-tertiary-fixed": "#191c1e", "secondary-container": "#dddfee", "outline": "#777587", "inverse-surface": "#2c303d", "on-secondary-fixed-variant": "#434652", "outline-variant": "#c7c4d8", "on-surface-variant": "#464555", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "secondary": "#5b5e6a", "on-primary-container": "#dad7ff", "on-tertiary-fixed-variant": "#44474a", "surface-container-highest": "#dfe2f4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xs": "0.125rem", "space-xs": "0.25rem", "space-3xl": "3rem", "space-xl": "1.5rem", "space-md": "0.5rem", "gutter-compact": "0.75rem", "space-base": "0.75rem", "margin-mobile": "1rem", "gutter": "1rem", "space-lg": "1rem", "space-2xl": "2rem", "margin": "1.5rem", "gutter-expanded": "1.5rem", "space-sm": "0.375rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "caption-medium": ["Inter"], "code-default": ["JetBrains Mono"], "caption": ["Inter"], "headline-lg-mobile": ["Inter"], "body-default": ["Inter"], "display-mobile": ["Inter"], "body-compact-medium": ["Inter"], "display": ["Inter"], "title-sm": ["Inter"], "code-compact": ["JetBrains Mono"], "body-medium": ["Inter"], "body-compact": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "caption-medium": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-default": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-default": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-compact-medium": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500" }], "code-compact": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "body-compact": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#FAFBFD] font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-[#FAFBFD] border-b border-[#E3E6EC]"><div class="h-14 max-w-[1440px] mx-auto px-space-xl flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-base shrink-0"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-caption-medium select-none shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]">A2</div><span class="font-title-sm text-title-sm text-on-surface font-semibold tracking-tight hidden sm:inline">Architect</span></div><div class="h-4 w-px bg-outline-variant"></div><div class="flex items-center gap-space-xs group cursor-pointer"><span class="font-body-medium text-body-medium text-on-surface font-medium">Travel Planner</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface transition-colors">edit</span></div><div class="px-space-xs py-0.5 rounded-full border border-outline-variant bg-surface-container text-on-secondary-container font-code-compact text-code-compact">v0.1 draft</div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="text-primary-container font-medium border-b-2 border-primary-container"><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="plan" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span>Plan</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="agents" href="#"><span>Agents</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="build" href="#"><span>Build</span></a><span class="material-symbols-outlined text-[14px] text-outline-variant select-none">chevron_right</span><a class="flex items-center gap-space-xs px-space-base py-space-xs font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="ship" href="#"><span>Ship</span></a></nav><div class="flex items-center gap-space-base shrink-0"><div class="hidden md:flex items-center p-0.5 rounded-full border border-outline-variant bg-surface-container-low"><button class="px-space-base py-0.5 rounded-full bg-surface-container-lowest text-on-surface shadow-[0_1px_2px_0_rgba(31,35,48,0.04)] font-body-compact-medium text-body-compact-medium transition-all" type="button">Simple</button><button class="px-space-base py-0.5 rounded-full text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-all" type="button">Developer</button></div><div class="flex items-center -space-x-1.5 overflow-hidden"><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-surface-container-highest text-on-surface font-caption-medium text-caption-medium">JD</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium">SK</div><div class="inline-flex items-center justify-center w-7 h-7 rounded-full ring-2 ring-surface-container-lowest bg-secondary-container text-on-secondary-container font-code-compact text-code-compact">+1</div></div><div class="h-4 w-px bg-outline-variant hidden sm:block"></div><button class="h-8 px-space-base rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container font-body-compact-medium text-body-compact-medium transition-colors shadow-[0_1px_2px_0_rgba(31,35,48,0.04)]" type="button">Share</button><button class="h-8 px-space-base rounded-xl bg-surface-container-high text-outline cursor-not-allowed font-body-compact-medium text-body-compact-medium flex items-center gap-space-xs select-none" disabled="" type="button"><span class="material-symbols-outlined text-[15px]">lock</span><span>Deploy</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-[#FAFBFD] min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full h-[calc(100vh-3.5rem)] overflow-hidden bg-surface text-on-surface">
+<!-- Interactive State Bar / Upper Utility Ribbon -->
+<div class="h-10 bg-surface-container-lowest px-space-lg flex items-center justify-between shadow-sm z-20 shrink-0">
+<div class="flex items-center gap-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-code-compact text-code-compact">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Build completed • Ready
+      </span>
+<span class="font-caption text-caption text-outline">Claude 3.5 Sonnet + Vite 5.3 • Node 20.14 ESM</span>
+</div>
+<!-- Central Stage Segment Navigation -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-2 py-1 rounded-lg">
+<button class="flex items-center gap-1 px-2.5 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-colors">
+<span class="material-symbols-outlined text-[15px] text-emerald-600">check</span>
+        Plan
+      </button>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<button class="flex items-center gap-1 px-2.5 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-body-compact-medium text-body-compact-medium transition-colors">
+<span class="material-symbols-outlined text-[15px] text-emerald-600">check</span>
+        Agents
+      </button>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<button class="flex items-center gap-1.5 px-3 py-0.5 rounded bg-primary-container text-on-primary font-body-compact-medium text-body-compact-medium shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+        Build
+      </button>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<button class="flex items-center gap-1 px-2.5 py-0.5 rounded text-outline hover:text-on-surface-variant font-body-compact-medium text-body-compact-medium transition-colors">
+        Ship
+      </button>
+</div>
+<!-- Active Deploy Action Hub -->
+<div class="flex items-center gap-space-sm">
+<span class="font-caption text-caption text-outline hidden xl:inline">Ready to launch</span>
+<button class="h-7 px-space-base rounded bg-primary-container hover:bg-primary text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-1.5 shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>Deploy to Cloud</span>
+</button>
+</div>
+</div>
+<!-- Primary Workspace Content Split -->
+<div class="flex-1 flex overflow-hidden">
+<!-- LEFT PANEL: Chat, Context & Inspector (380px fixed) -->
+<aside class="w-[380px] shrink-0 bg-surface-container-lowest flex flex-col justify-between shadow-sm z-10 overflow-hidden">
+<!-- Top Scrollable Content: Build Receipt + Chat History -->
+<div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg">
+<!-- Minimized Build Summary Accordion / Card -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
+<span class="font-body-compact-medium text-body-compact-medium">All compilation checks passed</span>
+</div>
+<span class="font-code-compact text-code-compact text-outline">18.4s</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-1 text-on-surface-variant font-caption text-caption">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span>
+<span>Layout &amp; Token Theme</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span>
+<span>4 Route Handlers</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span>
+<span>18 React Components</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span>
+<span>TypeScript: 0 Errors</span>
+</div>
+</div>
+</div>
+<!-- Dialogue Thread -->
+<div class="space-y-space-md">
+<!-- Previous User Command -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container font-caption-medium text-caption-medium flex items-center justify-center shrink-0">
+              JD
+            </div>
+<div class="flex-1 rounded-xl bg-surface-container p-space-base text-on-surface text-body-compact font-body-compact">
+              Assemble the collaborative itinerary dashboard with real-time voting on trips and split costs.
+            </div>
+</div>
+<!-- Assistant Confirmation Message -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-caption-medium text-caption-medium flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+</div>
+<div class="flex-1 space-y-space-sm">
+<div class="rounded-xl bg-surface-container-low p-space-base text-on-surface font-body-compact text-body-compact shadow-sm">
+                Your application is ready! Test interactions directly on the live canvas, or toggle the element inspector to refactor specific UI modules instantly.
+              </div>
+<!-- Quick Prompt Action Chips -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface-variant hover:text-on-surface font-code-compact text-code-compact transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">key</span>
+                  Add Supabase Auth
+                </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface-variant hover:text-on-surface font-code-compact text-code-compact transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">dark_mode</span>
+                  Make it dark
+                </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface-variant hover:text-on-surface font-code-compact text-code-compact transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">cloud_upload</span>
+                  Deploy to Vercel
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Interactive Composer Panel -->
+<div class="p-space-lg bg-surface-container-lowest shadow-sm space-y-space-sm shrink-0">
+<!-- Inspection Context Banner -->
+<div class="flex items-center justify-between px-2.5 py-1 rounded bg-primary-fixed/40 text-on-primary-fixed font-code-compact text-code-compact">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[15px] text-primary-container shrink-0">ads_click</span>
+<span class="font-medium text-primary-container truncate">Inspecting: SearchBar.tsx</span>
+</div>
+<button class="text-outline hover:text-on-surface text-[14px] flex items-center" title="Deselect">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+<!-- Input Box -->
+<div class="rounded-xl bg-surface-container-low p-2 focus-within:ring-2 focus-within:ring-primary-container transition-all">
+<textarea class="w-full bg-transparent resize-none font-body-compact text-body-compact text-on-surface placeholder:text-outline focus:outline-none" placeholder="Ask Architect to tweak this component..." rows="3">In SearchBar: make the button full width on mobile and rename it to Plan my trip</textarea>
+<div class="flex items-center justify-between pt-1 text-outline">
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center transition-colors text-on-surface-variant" title="Attach file or mockup">
+<span class="material-symbols-outlined text-[16px]">attach_file</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center transition-colors text-on-surface-variant" title="Voice dictation">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+</button>
+</div>
+<button class="h-7 px-3 rounded bg-primary-container hover:bg-primary text-on-primary flex items-center gap-1 font-body-compact-medium text-body-compact-medium shadow-sm transition-all active:scale-95">
+<span>Update</span>
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- RIGHT WORKSPACE CANVAS: Live Sandbox & Browser Shell -->
+<main class="flex-1 flex flex-col bg-surface-container-low overflow-hidden">
+<!-- Canvas Tabs Ribbon -->
+<div class="h-10 bg-surface-container-lowest px-space-lg flex items-center justify-between shrink-0 shadow-sm">
+<div class="flex items-center gap-space-xs h-full">
+<button class="h-full px-3 flex items-center gap-1.5 font-body-compact-medium text-body-compact-medium text-primary-container relative">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Preview</span>
+<span class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container"></span>
+</button>
+<button class="h-full px-3 flex items-center gap-1.5 font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+<span>Agents Graph</span>
+</button>
+<button class="h-full px-3 flex items-center gap-1.5 font-body-compact-medium text-body-compact-medium text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>Code &amp; Files</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-outline text-caption font-code-compact">18</span>
+</button>
+</div>
+<!-- Canvas Device & Utility Toolbar -->
+<div class="flex items-center gap-space-sm">
+<!-- Responsive Device Viewport Switcher -->
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container">
+<button class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary-container shadow-sm flex items-center" title="Desktop view">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span>
+</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface flex items-center transition-colors" title="Tablet view">
+<span class="material-symbols-outlined text-[16px]">tablet</span>
+</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface flex items-center transition-colors" title="Mobile view">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+</button>
+</div>
+<!-- Element Inspector Trigger (ACTIVE) -->
+<button class="h-7 px-2.5 rounded bg-primary text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-1 shadow-sm ring-2 ring-primary-fixed" title="Interactive Click to Inspect">
+<span class="material-symbols-outlined text-[16px]">ads_click</span>
+<span class="text-caption">Inspect ON</span>
+</button>
+<!-- Refresh & External -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center transition-colors" title="Reload Frame">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+</button>
+<span class="font-code-compact text-code-compact text-outline px-1">100%</span>
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center transition-colors" title="Open in dedicated tab">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+<button class="h-6 px-2 rounded bg-surface-container flex items-center gap-1 text-on-surface-variant text-caption font-code-compact" title="Console status">
+<span class="material-symbols-outlined text-[13px] text-emerald-600">terminal</span>
+<span>0 err</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Real Preview Canvas Frame Container -->
+<div class="flex-1 p-space-lg overflow-y-auto flex items-start justify-center">
+<!-- Simulated High-Fidelity Browser Shell -->
+<div class="w-full max-w-[1040px] rounded-xl bg-surface-container-lowest shadow-md flex flex-col overflow-hidden">
+<!-- Realistic Browser Title & Navigation Bar -->
+<div class="h-10 bg-surface-container px-3 flex items-center gap-3 shrink-0 select-none">
+<!-- Window Traffic Light Controls -->
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
+</div>
+<!-- Browser Controls -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] opacity-40">arrow_back</span>
+<span class="material-symbols-outlined text-[15px] opacity-40">arrow_forward</span>
+<span class="material-symbols-outlined text-[15px]">refresh</span>
+</div>
+<!-- Address Bar with Padlock -->
+<div class="flex-1 max-w-lg mx-auto h-6 bg-surface-container-lowest rounded-md px-2.5 flex items-center justify-between text-outline font-code-compact text-code-compact">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[13px] text-emerald-600">lock</span>
+<span class="text-on-surface">http://localhost:3000</span>
+<span class="text-outline">/trips/summer-tokyo-2025</span>
+</div>
+<span class="material-symbols-outlined text-[13px] cursor-pointer hover:text-on-surface">share</span>
+</div>
+<div class="w-12"></div>
+</div>
+<!-- Rendered Web Application Inside Frame: WanderShare Tokyo -->
+<div class="w-full bg-[#FCFDFE] text-[#1D212F] p-space-xl space-y-space-xl min-h-[640px]">
+<!-- App Header Navigation Bar -->
+<div class="flex items-center justify-between pb-space-md border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">flight_takeoff</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md tracking-tight text-on-surface">WanderShare</h1>
+<p class="font-caption text-caption text-secondary">Tokyo Collective &amp; Beyond</p>
+</div>
+</div>
+<!-- Main Menu -->
+<div class="flex items-center gap-space-lg text-body-compact-medium font-body-compact-medium text-secondary">
+<a class="text-primary font-medium" href="#">Explore Trips</a>
+<a class="hover:text-on-surface" href="#">My Itineraries</a>
+<a class="hover:text-on-surface flex items-center gap-1" href="#">
+<span>Split Ledger</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[10px]">Active</span>
+</a>
+</div>
+<!-- User Actions -->
+<div class="flex items-center gap-space-md">
+<div class="px-2.5 py-1 rounded bg-surface-container text-body-compact font-body-compact text-secondary">
+                  $ USD
+                </div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium flex items-center justify-center">
+                  TK
+                </div>
+</div>
+</div>
+<!-- Search & Filter Form with INSPECTION HIGHLIGHT ON SEARCH BUTTON -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex flex-col md:flex-row items-center gap-3">
+<!-- Destination -->
+<div class="flex-1 w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary">pin_drop</span>
+<div class="flex-1">
+<span class="block text-[10px] uppercase font-caption-medium text-secondary tracking-wider">Destination</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Tokyo, Japan</span>
+</div>
+</div>
+<!-- Dates -->
+<div class="flex-1 w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary">calendar_month</span>
+<div class="flex-1">
+<span class="block text-[10px] uppercase font-caption-medium text-secondary tracking-wider">Dates</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Oct 12 - Oct 20, 2025</span>
+</div>
+</div>
+<!-- Travelers Split -->
+<div class="flex-1 w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-primary">group</span>
+<div class="flex-1">
+<span class="block text-[10px] uppercase font-caption-medium text-secondary tracking-wider">Party</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">4 Guests • Shared Ledger</span>
+</div>
+</div>
+<!-- THE INSPECTED BUTTON COMPONENT: SearchBar.tsx -->
+<div class="relative shrink-0">
+<!-- Inspection Overlay Tag -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-primary text-white font-code-compact text-[10px] shadow-sm flex items-center gap-1 z-30 whitespace-nowrap">
+<span class="material-symbols-outlined text-[10px]">crop_free</span>
+<span>src/components/SearchBar.tsx</span>
+</div>
+<!-- Actual Button Element with Target Glow/Halo -->
+<button class="h-12 px-6 rounded-xl bg-primary text-white font-body-medium text-body-medium flex items-center justify-center gap-2 shadow-sm ring-4 ring-primary/20 hover:bg-primary/90 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Search trips</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Group Consensus & Split Estimation Banner -->
+<div class="p-space-base rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-caption-medium flex items-center justify-center ring-2 ring-white">JD</div>
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-caption-medium flex items-center justify-center ring-2 ring-white">SK</div>
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-caption-medium flex items-center justify-center ring-2 ring-white">AM</div>
+<div class="w-7 h-7 rounded-full bg-surface-variant text-on-surface text-[11px] font-caption-medium flex items-center justify-center ring-2 ring-white">RL</div>
+</div>
+<div>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Group Consensus: 3 of 4 agreed</span>
+<span class="block font-caption text-caption text-secondary">1 vote pending on Day 3 photo expedition</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg">
+<div class="text-right">
+<span class="block text-caption font-caption text-secondary">Estimated Split</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary">$560 total</span>
+<span class="font-code-compact text-code-compact text-secondary">($140/person)</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-variant font-body-compact-medium text-body-compact-medium text-on-surface transition-colors">
+                  View Split Ledger
+                </button>
+</div>
+</div>
+<!-- Curated Trip Options Grid (3 bespoke cards) -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Consensus Itinerary Shortlist</h2>
+<span class="font-caption text-caption text-secondary">Filtered by 4 Travelers' preferences</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- CARD 1: Shinjuku Food Crawl -->
+<div class="rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="relative h-36 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A vivid evening view of Shinjuku's neon-lit alleyways with traditional red lanterns glowing warmly over small izakaya bars in Tokyo, captured in a modern cinematic aesthetic with sharp contrast and rich indigo tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiw8Rbec4cLQIyJ6De_ZjiX_-l-dPDquclmdNBgmc6Hqf2buLPzN7R2fz26xcurVFyQn12CULJrd7K8_Y2LMol1wDtxwQg81P2LvSH-2rZNPXIzHZcpt6fAtxBG8-GlU_ZD3sS1MRyinqbhELoQwTzfbhRwswEwVi76Djz0c3wL9FsAcesRlo43u_-NaBzQ4a2tNew00NyBykB3H4tGa6ktY8bPJAXZrMXCFFa9wMDi5gaG7HU98Mm"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-code-compact text-[11px]">
+                      Culinary
+                    </span>
+<span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-code-compact text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-amber-500 fill-1">star</span>
+                      4.9
+                    </span>
+</div>
+<div class="p-space-md space-y-space-xs flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-body-compact-medium text-body-compact-medium text-on-surface font-semibold leading-snug">
+                        Shinjuku Neon &amp; Omoide Yokocho Food Crawl
+                      </h3>
+<p class="font-caption text-caption text-secondary mt-1">
+                        Evening guided tour through historic yakitori stalls and hidden alley bars.
+                      </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between">
+<div>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">$65</span>
+<span class="text-caption font-caption text-secondary">/person</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-caption-medium text-caption-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check</span>
+                        4 voted yes
+                      </span>
+</div>
+</div>
+</div>
+<!-- CARD 2: Hakone Onsen & Mt Fuji -->
+<div class="rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow ring-2 ring-primary/30">
+<div class="relative h-36 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Scenic landscape of Mount Fuji in morning light reflected over Lake Ashi in Hakone with a traditional red torii gate by the water, calm minimalist Japanese aesthetic with cool blue and white mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsmn_ZP8Fwhc0zbaMznPh69LkfBR3uYl3_lxVN8tY9AjJyXeMLXFB9Eyh12FSLyENO2CCo_t7LektpEQZ6wOMJdOa_Uob-CpL59ihX77UocWQP9nxG_jVlo9rxhDvFL3045ddBZ_2lYtNCLXY80zC_9Q92KVbgBPdUitT5lfL1lJ-tCnPS219JximEDLvWfIFPNXDHC3aDICoS0wFxJNdC1QDTvJ5QMfzKiqYd1gjr2f26x9EJASRH"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-code-compact text-[11px]">
+                      Nature
+                    </span>
+<span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-code-compact text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-amber-500 fill-1">star</span>
+                      4.8
+                    </span>
+</div>
+<div class="p-space-md space-y-space-xs flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-body-compact-medium text-body-compact-medium text-on-surface font-semibold leading-snug">
+                        Hakone Onsen &amp; Mt. Fuji Day Expedition
+                      </h3>
+<p class="font-caption text-caption text-secondary mt-1">
+                        Bullet train transit, Lake Ashi pirate boat cruise, and private hot spring retreat.
+                      </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between">
+<div>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">$180</span>
+<span class="text-caption font-caption text-secondary">/person</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-medium text-caption-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">how_to_reg</span>
+                        100% agreed
+                      </span>
+</div>
+</div>
+</div>
+<!-- CARD 3: Akihabara & Shibuya Photography -->
+<div class="rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="relative h-36 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Dynamic street photography of Shibuya Crossing at twilight with pedestrian crowds crossing illuminated intersection, captured with sharp focus, modern architectural balance, and vibrant city energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiey3muJUJhgvD0daH5nfo7Q549X9bXy5gUJyg-iVPyr1xLZctGAN7ub-eT5ATRe2nYEl7i-UItHM87uKAyQorreZwbckew6_UrU7KXsvGTvy9ufEXxfvCdI0smkzDY9WxcJHny9GVa7StdLL2kFPcFbeeakjulbxqU7yhKyFkUB2xZLP0tHvKOLF9NkQoAi-N15v-s_EO3S8HkPUH3RLeqGIOo0gRSEG5RUP0r2YEmbRZPJ1SCTSI"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-primary font-code-compact text-[11px]">
+                      Culture
+                    </span>
+<span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-code-compact text-[11px] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-amber-500 fill-1">star</span>
+                      4.95
+                    </span>
+</div>
+<div class="p-space-md space-y-space-xs flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-body-compact-medium text-body-compact-medium text-on-surface font-semibold leading-snug">
+                        Akihabara Tech &amp; Shibuya Crossing Walk
+                      </h3>
+<p class="font-caption text-caption text-secondary mt-1">
+                        Early morning golden hour photography spots and retro gaming circuit tour.
+                      </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between">
+<div>
+<span class="font-body-compact-medium text-body-compact-medium font-semibold text-on-surface">$35</span>
+<span class="text-caption font-caption text-secondary">/person</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-secondary font-caption-medium text-caption-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                        3 voted • 1 wait
+                      </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Global Workspace Bottom Status Strip -->
+<div class="h-8 bg-surface-container-lowest px-space-lg flex items-center justify-between shrink-0 font-code-compact text-code-compact text-outline select-none shadow-inner">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-emerald-700">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-medium">App ready (HMR active)</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span>Snapshot v8</span>
+<span class="text-outline-variant">|</span>
+<span>Port: 3000</span>
+<span class="text-outline-variant">|</span>
+<span>1,480 tokens ($0.029)</span>
+<span class="text-outline-variant">|</span>
+<span>Total build: 18.2s</span>
+</div>
+<div class="flex items-center gap-space-lg">
+<button class="hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Build logs</span>
+</button>
+<button class="hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Sandbox settings</span>
+</button>
+<button class="hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+<span>Terminal ⌥T</span>
+</button>
+</div>
+</div>
+</div></main><footer class="w-full border-t border-[#E3E6EC] bg-surface-container-low py-space-base"><div class="max-w-[1440px] mx-auto px-space-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-base"><span class="font-code-compact text-code-compact text-on-surface-variant">Architect 2.0 Engine • Travel Planner</span><span class="h-3 w-px bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant">Workspace Synced</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-caption text-caption"><a class="hover:text-on-surface transition-colors" href="#">Docs</a><a class="hover:text-on-surface transition-colors" href="#">API Spec</a><a class="hover:text-on-surface transition-colors" href="#">Feedback</a></div></div></footer></body></html>

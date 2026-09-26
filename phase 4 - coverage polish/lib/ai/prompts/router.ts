@@ -1,0 +1,1 @@
+../../../../common/lib/ai/prompts/router.ts

@@ -1,0 +1,1 @@
+../../../../common/app/(app)/templates/page.tsx

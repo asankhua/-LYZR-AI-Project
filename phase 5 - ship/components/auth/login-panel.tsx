@@ -1,0 +1,1 @@
+../../../common/components/auth/login-panel.tsx

@@ -1,0 +1,1 @@
+../../../common/components/workspace/agent-board.tsx

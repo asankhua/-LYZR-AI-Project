@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-fixed-dim":"#c4c7ca","outline-variant":"#c7c4d8","inverse-surface":"#2c303d","on-tertiary-fixed":"#191c1e","surface-container-low":"#f2f3ff","on-surface":"#171b28","on-primary-fixed":"#0f0069","on-background":"#171b28","tertiary":"#45484b","inverse-on-surface":"#eef0ff","on-primary-container":"#dad7ff","primary-fixed":"#e2dfff","inverse-primary":"#c3c0ff","on-tertiary":"#ffffff","on-error-container":"#93000a","background":"#faf8ff","error":"#ba1a1a","secondary-fixed-dim":"#c3c6d4","surface-container-highest":"#dfe2f4","surface-bright":"#faf8ff","secondary":"#5b5e6a","surface-dim":"#d6d9eb","primary-fixed-dim":"#c3c0ff","on-error":"#ffffff","primary-container":"#4f46e5","on-surface-variant":"#464555","secondary-container":"#dddfee","surface-variant":"#dfe2f4","surface":"#faf8ff","tertiary-container":"#5d6063","on-secondary-fixed":"#181b26","surface-tint":"#4d44e3","outline":"#777587","error-container":"#ffdad6","on-secondary":"#ffffff","on-secondary-container":"#5f626f","surface-container-high":"#e5e7f9","primary":"#3525cd","tertiary-fixed":"#e0e3e6","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-tertiary-fixed-variant":"#44474a","on-secondary-fixed-variant":"#434652","secondary-fixed":"#e0e2f0","on-tertiary-container":"#d9dbde","on-primary-fixed-variant":"#3323cc","surface-container":"#eaedff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","margin":"1.5rem","space-2xs":"0.125rem","space-xl":"1.5rem","space-md":"0.5rem","space-base":"0.75rem","margin-mobile":"1rem","space-xs":"0.25rem","gutter-expanded":"1.5rem","space-sm":"0.375rem","space-lg":"1rem","space-2xl":"2rem","gutter-compact":"0.75rem","space-3xl":"3rem"},"fontFamily":{"code-compact":["JetBrains Mono"],"body-medium":["Inter"],"title-sm":["Inter"],"headline-lg-mobile":["Inter"],"display":["Inter"],"body-compact-medium":["Inter"],"headline-md":["Inter"],"headline-lg":["Inter"],"body-default":["Inter"],"display-mobile":["Inter"],"caption":["Inter"],"body-compact":["Inter"],"caption-medium":["Inter"],"code-default":["JetBrains Mono"]},"fontSize":{"code-compact":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"title-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"display":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"500"}],"body-compact-medium":["13px",{"lineHeight":"18px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"500"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"500"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-compact":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption-medium":["12px",{"lineHeight":"16px","fontWeight":"500"}],"code-default":["13px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-default text-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-surface-container-highest"><div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-2xl"><a class="flex items-center gap-space-sm text-on-surface hover:text-primary transition-colors" data-path="product" href="#"><span class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-code-compact text-code-compact font-medium">A2</span><span class="font-title-sm text-title-sm tracking-tight">Architect</span></a><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-on-surface font-body-medium"><a aria-current="page" class="transition-colors text-on-surface font-body-medium" data-path="product" href="#">Product</a><a class="font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors" data-path="templates" href="#">Templates</a><a class="font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">Docs</a><a class="font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a></nav></div><div class="flex items-center gap-space-base"><a class="hidden sm:inline-flex items-center justify-center h-9 px-space-base rounded-xl font-body-medium text-body-medium text-on-surface hover:bg-surface-container-high transition-colors" data-path="login" href="#">Sign in</a><a class="inline-flex items-center justify-center h-9 px-space-base rounded-xl font-body-medium text-body-medium bg-primary-container text-on-primary hover:bg-primary transition-colors" data-path="signup" href="#">Start building</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]"><div class="flex flex-col w-full">
+<!-- Subtle ambient top gradient backdrop -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-primary-fixed/25 via-surface-container-low/40 to-transparent pointer-events-none rounded-full blur-3xl -z-10"></div>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-margin pt-space-3xl pb-space-2xl text-center">
+<!-- Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-base py-space-2xs rounded-full bg-surface-container border border-surface-container-highest text-on-surface mb-space-xl">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-caption-medium text-caption-medium text-on-surface">Architect 2.0 is generally available</span>
+<span class="text-outline-variant font-caption text-caption">•</span>
+<span class="font-caption text-caption text-on-surface-variant font-code-compact">v2.4 Engine</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display text-display text-on-surface max-w-4xl mx-auto tracking-tight font-medium">
+        From idea to a live AI app in minutes
+      </h1>
+<!-- Subline -->
+<p class="font-title-sm text-title-sm text-secondary max-w-2xl mx-auto mt-space-md font-normal leading-relaxed">
+        Plan it, design the agents, watch it build, and ship — with or without code.
+      </p>
+<!-- Large Interactive Prompt Box -->
+<div class="max-w-3xl mx-auto mt-space-2xl bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-xs shadow-sm focus-within:border-primary-container focus-within:ring-2 focus-within:ring-surface-container transition-all">
+<div class="flex items-center gap-space-sm pl-space-sm pr-space-2xs py-space-2xs">
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0 select-none">auto_awesome</span>
+<input class="w-full bg-transparent border-0 outline-none font-body-default text-body-default text-on-surface placeholder:text-outline focus:ring-0 py-space-xs px-space-xs" id="hero-app-prompt" placeholder="Describe the app you want to build…" type="text" value=""/>
+<button class="shrink-0 h-9 px-space-xl rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-medium text-body-medium flex items-center gap-space-xs transition-colors shadow-sm" id="hero-build-btn" type="button">
+<span>Build</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Example Chips -->
+<div class="mt-space-lg flex flex-wrap items-center justify-center gap-space-sm">
+<span class="font-caption text-caption text-secondary mr-space-xs select-none">Quick start:</span>
+<button class="prompt-pill rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface border border-surface-container-highest px-space-base py-space-2xs font-code-compact text-code-compact transition-colors flex items-center gap-space-xs" data-prompt="Lead research assistant that scrapes domains, enriches via Clearbit and logs founders to Notion" type="button">
+<span class="material-symbols-outlined text-primary-container text-[14px]">search_insights</span>
+<span>Lead research assistant</span>
+</button>
+<button class="prompt-pill rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface border border-surface-container-highest px-space-base py-space-2xs font-code-compact text-code-compact transition-colors flex items-center gap-space-xs" data-prompt="HR policy chatbot indexing company handbooks and generating signed onboarding waivers" type="button">
+<span class="material-symbols-outlined text-primary-container text-[14px]">psychology</span>
+<span>HR policy chatbot</span>
+</button>
+<button class="prompt-pill rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface border border-surface-container-highest px-space-base py-space-2xs font-code-compact text-code-compact transition-colors flex items-center gap-space-xs" data-prompt="Multi-day travel planner with live weather constraints, flight aggregators, and budget tracking" type="button">
+<span class="material-symbols-outlined text-primary-container text-[14px]">flight_takeoff</span>
+<span>Travel planner</span>
+</button>
+<button class="prompt-pill rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface border border-surface-container-highest px-space-base py-space-2xs font-code-compact text-code-compact transition-colors flex items-center gap-space-xs" data-prompt="Invoice analyzer parsing PDF receipts, validating tax rates, and syncing ledger to QuickBooks" type="button">
+<span class="material-symbols-outlined text-primary-container text-[14px]">receipt_long</span>
+<span>Invoice analyzer</span>
+</button>
+</div>
+<!-- Secondary Link -->
+<div class="mt-space-md">
+<a class="font-body-compact-medium text-body-compact-medium text-secondary hover:text-primary-container transition-colors inline-flex items-center gap-space-xs" data-path="sandbox" href="#">
+<span>Try without an account</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Product Workspace Screenshot Frame -->
+<section class="max-w-6xl mx-auto px-margin mt-space-lg mb-space-3xl">
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl overflow-hidden shadow-md">
+<!-- Top Frame Bar -->
+<div class="h-10 bg-surface-container-low border-b border-surface-container-highest px-space-base flex items-center justify-between select-none">
+<!-- Window Dots -->
+<div class="flex items-center gap-1.5 w-24">
+<span class="w-3 h-3 rounded-full bg-surface-dim border border-outline-variant"></span>
+<span class="w-3 h-3 rounded-full bg-surface-dim border border-outline-variant"></span>
+<span class="w-3 h-3 rounded-full bg-surface-dim border border-outline-variant"></span>
+</div>
+<!-- Step Progression Navigator -->
+<div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-lowest rounded-md border border-surface-container-highest text-secondary font-code-compact text-code-compact">
+<span class="text-on-surface-variant flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>1. Plan</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface-variant flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>2. Agents</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary-container font-medium flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>3. Build</span>
+<span class="text-outline-variant">/</span>
+<span class="text-outline flex items-center gap-1">4. Ship</span>
+</div>
+<!-- Window Status -->
+<div class="flex items-center justify-end gap-space-xs w-48 text-right font-code-compact text-code-compact text-secondary">
+<span class="truncate">lead-research-agent</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+</div>
+</div>
+<!-- Inner Split Workbench -->
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+<!-- Left Column: Agent Builder / Pipeline Telemetry (5 cols = ~42%) -->
+<div class="lg:col-span-5 bg-surface-container-low border-b lg:border-b-0 lg:border-r border-surface-container-highest p-space-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-base mb-space-base border-b border-surface-container-highest">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px]">hub</span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Synthesis Pipeline</span>
+</div>
+<span class="font-code-compact text-code-compact text-secondary px-space-xs py-0.5 rounded bg-surface-container border border-surface-container-highest">v0.4.1</span>
+</div>
+<!-- Flow Steps -->
+<div class="flex flex-col gap-space-base">
+<!-- Step 1 Complete -->
+<div class="p-space-base rounded-lg bg-surface-container-lowest border border-surface-container-highest">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<div class="font-body-compact-medium text-body-compact-medium text-on-surface flex items-center justify-between">
+<span>Requirements mapped</span>
+<span class="font-code-compact text-caption text-secondary">0.8s</span>
+</div>
+<p class="font-caption text-caption text-secondary mt-0.5">Defined 3 search tools &amp; structured JSON schema for founder discovery.</p>
+</div>
+</div>
+</div>
+<!-- Step 2 Complete -->
+<div class="p-space-base rounded-lg bg-surface-container-lowest border border-surface-container-highest">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<div class="font-body-compact-medium text-body-compact-medium text-on-surface flex items-center justify-between">
+<span>Agent architecture drafted</span>
+<span class="font-code-compact text-caption text-secondary">1.4s</span>
+</div>
+<p class="font-caption text-caption text-secondary mt-0.5">Orchestrator + WebScraper agent linked via LangGraph state machine.</p>
+</div>
+</div>
+</div>
+<!-- Step 3 Active Building -->
+<div class="p-space-base rounded-lg bg-surface-container-lowest border-2 border-primary-container/40 relative">
+<div class="flex items-start gap-space-sm">
+<div class="w-4 h-4 rounded-full border-2 border-primary-container border-t-transparent animate-spin shrink-0 mt-1"></div>
+<div class="min-w-0 flex-1">
+<div class="font-body-compact-medium text-body-compact-medium text-on-surface flex items-center justify-between">
+<span class="text-primary-container font-medium">Synthesizing components</span>
+<span class="font-code-compact text-caption text-primary-container">7/11 files</span>
+</div>
+<p class="font-caption text-caption text-secondary mt-0.5">Generating Next.js client UI &amp; FastAPI async sandboxed worker...</p>
+<!-- Micro File Terminal Feed -->
+<div class="mt-space-base p-space-sm rounded bg-surface-container font-code-compact text-code-compact text-on-surface-variant flex flex-col gap-1 border border-surface-container-highest">
+<div class="flex items-center justify-between text-caption">
+<span class="text-emerald-700 font-medium">✓ app/page.tsx</span>
+<span class="text-outline">compiled</span>
+</div>
+<div class="flex items-center justify-between text-caption">
+<span class="text-emerald-700 font-medium">✓ api/enrich/route.py</span>
+<span class="text-outline">200 OK</span>
+</div>
+<div class="flex items-center justify-between text-caption text-primary-container font-medium">
+<span>→ components/data-table.tsx</span>
+<span class="animate-pulse">writing</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4 Pending -->
+<div class="p-space-base rounded-lg bg-surface-container-lowest/60 border border-surface-container-highest opacity-75">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0 mt-0.5">radio_button_unchecked</span>
+<div class="min-w-0">
+<div class="font-body-compact-medium text-body-compact-medium text-secondary">Deploy to edge worker</div>
+<p class="font-caption text-caption text-outline mt-0.5">Cloudflare Pages + distributed vector index provisioning queued.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Console Prompt Strip -->
+<div class="mt-space-xl pt-space-base border-t border-surface-container-highest flex items-center justify-between text-secondary font-code-compact text-code-compact">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>LLM Stream active</span>
+<span class="text-outline">Latency: 48ms</span>
+</div>
+</div>
+<!-- Right Column: Live App Preview (7 cols = ~58%) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-xl flex flex-col justify-between">
+<div>
+<!-- Live Preview Header Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-base mb-space-xl border-b border-surface-container-highest">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-body-compact-medium text-body-compact-medium text-on-surface">Preview: Lead Intelligence v0.4</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-code-compact text-caption">Sandbox Live</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-container-high border border-surface-container-highest text-secondary text-caption font-medium flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span>Reset</span>
+</button>
+<button class="h-7 px-space-sm rounded bg-primary-container text-on-primary text-caption font-medium flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+<span>Popout</span>
+</button>
+</div>
+</div>
+<!-- Rendered Mock App Inside Preview Canvas -->
+<div class="bg-surface rounded-lg border border-surface-container-highest p-space-base">
+<!-- Mock App Search Toolbar -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm mb-space-base">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">search</span>
+<input class="h-8 w-full pl-8 pr-3 text-caption rounded border border-surface-container-highest bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none" placeholder="Company domain or name (e.g. stripe.com)" readonly="" type="text" value="linear.app"/>
+</div>
+<div class="flex items-center gap-space-xs w-full sm:w-auto shrink-0">
+<span class="px-space-sm py-1 rounded bg-surface-container text-caption font-code-compact text-on-surface">Series A+</span>
+<button class="h-8 px-space-base rounded bg-primary-container text-on-primary font-body-compact-medium text-body-compact-medium flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Enrich</span>
+</button>
+</div>
+</div>
+<!-- Mock Table -->
+<div class="border border-surface-container-highest rounded-lg overflow-hidden bg-surface-container-lowest">
+<table class="w-full text-left font-body-compact text-body-compact">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container-highest text-secondary font-code-compact text-caption">
+<th class="py-space-xs px-space-base font-medium">COMPANY</th>
+<th class="py-space-xs px-space-base font-medium">STATUS</th>
+<th class="py-space-xs px-space-base font-medium">DECISION MAKER</th>
+<th class="py-space-xs px-space-base font-medium text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest">
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-base">
+<div class="font-medium text-on-surface">Linear Orbit, Inc.</div>
+<div class="font-code-compact text-caption text-secondary">linear.app</div>
+</td>
+<td class="py-space-sm px-space-base">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-code-compact text-caption">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Enriched
+                          </span>
+</td>
+<td class="py-space-sm px-space-base">
+<div class="text-on-surface">Karri Saarinen</div>
+<div class="font-code-compact text-caption text-secondary">karri@linear.app</div>
+</td>
+<td class="py-space-sm px-space-base text-right">
+<span class="material-symbols-outlined text-outline hover:text-primary-container cursor-pointer text-[18px]">mail</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-base">
+<div class="font-medium text-on-surface">Vercel Inc.</div>
+<div class="font-code-compact text-caption text-secondary">vercel.com</div>
+</td>
+<td class="py-space-sm px-space-base">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-code-compact text-caption">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Enriched
+                          </span>
+</td>
+<td class="py-space-sm px-space-base">
+<div class="text-on-surface">Guillermo Rauch</div>
+<div class="font-code-compact text-caption text-secondary">rauchg@vercel.com</div>
+</td>
+<td class="py-space-sm px-space-base text-right">
+<span class="material-symbols-outlined text-outline hover:text-primary-container cursor-pointer text-[18px]">mail</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-base">
+<div class="font-medium text-on-surface">Supabase Inc.</div>
+<div class="font-code-compact text-caption text-secondary">supabase.com</div>
+</td>
+<td class="py-space-sm px-space-base">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-code-compact text-caption">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>Crawling...
+                          </span>
+</td>
+<td class="py-space-sm px-space-base">
+<div class="text-secondary italic">Extracting leads...</div>
+</td>
+<td class="py-space-sm px-space-base text-right">
+<span class="material-symbols-outlined text-outline-variant text-[18px]">hourglass_top</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Summary Strip in Mock UI -->
+<div class="mt-space-base pt-space-sm flex items-center justify-between text-caption font-code-compact text-secondary">
+<span>3 records synchronized with CRM</span>
+<button class="text-primary-container hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Preview Diagnostics Footnote -->
+<div class="mt-space-lg pt-space-base border-t border-surface-container-highest flex items-center justify-between text-caption font-code-compact text-secondary">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary-container">terminal</span>
+<span>Hot Module Replacement connected (Port 3000)</span>
+</span>
+<span class="text-on-surface font-medium">Next.js 15.1 + Tailwind v4</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section: How it works -->
+<section class="max-w-7xl mx-auto px-margin py-space-3xl border-t border-surface-container-highest w-full">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-base">
+<div>
+<div class="font-code-compact text-code-compact text-primary-container uppercase tracking-wider mb-space-xs font-medium">METHODOLOGY</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-medium tracking-tight">How it works</h2>
+</div>
+<p class="font-body-default text-body-default text-secondary max-w-md">
+        Four clear steps from conception to production. No black box unpredictability; every phase is observable and editable.
+      </p>
+</div>
+<!-- 4 Step Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Step 1: Plan -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-xl flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="w-10 h-10 rounded-lg bg-surface-container-low border border-surface-container-highest flex items-center justify-center text-primary-container group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+</span>
+<span class="font-code-compact text-caption text-secondary font-medium px-space-xs py-0.5 rounded bg-surface-container border border-surface-container-highest">01</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-medium mb-space-xs">1. Plan</h3>
+<p class="font-body-compact text-body-compact text-secondary leading-relaxed">
+            Turn your natural language prompt into functional architecture and data schemas instantly.
+          </p>
+</div>
+<div class="mt-space-xl pt-space-base border-t border-surface-container-highest font-code-compact text-caption text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check</span>
+<span>Schema validation included</span>
+</div>
+</div>
+<!-- Step 2: Agents -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-xl flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="w-10 h-10 rounded-lg bg-surface-container-low border border-surface-container-highest flex items-center justify-center text-primary-container group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">schema</span>
+</span>
+<span class="font-code-compact text-caption text-secondary font-medium px-space-xs py-0.5 rounded bg-surface-container border border-surface-container-highest">02</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-medium mb-space-xs">2. Agents</h3>
+<p class="font-body-compact text-body-compact text-secondary leading-relaxed">
+            Configure multi-agent roles, tool calls, and API permissions visually or in code.
+          </p>
+</div>
+<div class="mt-space-xl pt-space-base border-t border-surface-container-highest font-code-compact text-caption text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check</span>
+<span>LangGraph &amp; CrewAI support</span>
+</div>
+</div>
+<!-- Step 3: Build -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-xl flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="w-10 h-10 rounded-lg bg-surface-container-low border border-surface-container-highest flex items-center justify-center text-primary-container group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">construction</span>
+</span>
+<span class="font-code-compact text-caption text-secondary font-medium px-space-xs py-0.5 rounded bg-surface-container border border-surface-container-highest">03</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-medium mb-space-xs">3. Build</h3>
+<p class="font-body-compact text-body-compact text-secondary leading-relaxed">
+            Watch agents synthesize frontend interfaces and sandboxed backend execution environments.
+          </p>
+</div>
+<div class="mt-space-xl pt-space-base border-t border-surface-container-highest font-code-compact text-caption text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check</span>
+<span>Dual sandboxed runtime</span>
+</div>
+</div>
+<!-- Step 4: Ship -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-xl flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="w-10 h-10 rounded-lg bg-surface-container-low border border-surface-container-highest flex items-center justify-center text-primary-container group-hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+</span>
+<span class="font-code-compact text-caption text-secondary font-medium px-space-xs py-0.5 rounded bg-surface-container border border-surface-container-highest">04</span>
+</div>
+<h3 class="font-title-sm text-title-sm text-on-surface font-medium mb-space-xs">4. Ship</h3>
+<p class="font-body-compact text-body-compact text-secondary leading-relaxed">
+            Deploy with a single click to edge infrastructure with instant custom domain routing.
+          </p>
+</div>
+<div class="mt-space-xl pt-space-base border-t border-surface-container-highest font-code-compact text-caption text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">check</span>
+<span>Zero cloud configuration</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Built for both -->
+<section class="max-w-7xl mx-auto px-margin py-space-3xl border-t border-surface-container-highest w-full">
+<!-- Header -->
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<div class="font-code-compact text-code-compact text-primary-container uppercase tracking-wider mb-space-xs font-medium">BIMODAL WORKFLOW</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-medium tracking-tight">Built for both</h2>
+<p class="font-body-default text-body-default text-secondary mt-space-sm font-normal">
+        Designed for seamless collaboration between non-technical visionaries and software engineers.
+      </p>
+</div>
+<!-- 2 Column Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
+<!-- Card 1: For Builders Without Code -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-2xl flex flex-col justify-between shadow-sm">
+<div>
+<!-- Header Badge -->
+<div class="flex items-center justify-between mb-space-lg">
+<span class="px-space-base py-space-2xs rounded-full bg-surface-container text-on-surface border border-surface-container-highest font-code-compact text-caption font-medium">
+              Simple Mode
+            </span>
+<span class="material-symbols-outlined text-outline text-[22px]">draw</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium mb-space-xs">For builders without code</h3>
+<p class="font-body-default text-body-default text-secondary mb-space-xl">
+            Empower founders, product operators, and subject matter experts to construct operational software purely through intent.
+          </p>
+<!-- Feature List -->
+<ul class="flex flex-col gap-space-base">
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Conversational AI consultant to scope requirements</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Visual plan editor and drag-and-drop workflow adjustments</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">One-click deployment with zero DevOps overhead</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Shareable staging previews and instant stakeholder feedback</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-2xl pt-space-lg border-t border-surface-container-highest">
+<a class="w-full h-9 rounded-lg bg-surface-container hover:bg-surface-container-high border border-surface-container-highest text-on-surface font-body-medium text-body-medium flex items-center justify-center gap-space-xs transition-colors" data-path="signup" href="#">
+<span>Explore Visual Canvas</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: For Developers -->
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-space-2xl flex flex-col justify-between shadow-sm">
+<div>
+<!-- Header Badge -->
+<div class="flex items-center justify-between mb-space-lg">
+<span class="px-space-base py-space-2xs rounded-full bg-primary-container text-on-primary font-code-compact text-caption font-medium">
+              Developer Mode
+            </span>
+<span class="material-symbols-outlined text-outline text-[22px]">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium mb-space-xs">For developers</h3>
+<p class="font-body-default text-body-default text-secondary mb-space-xl">
+            Never hit a ceiling. Eject into clean code anytime, debug distributed traces, and wire existing backend repositories.
+          </p>
+<!-- Feature List -->
+<ul class="flex flex-col gap-space-base">
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Full monorepo code editor with syntax highlighting</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Embedded live terminal, package manager, and git integration</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Direct GitHub synchronization and bi-directional PRs</span>
+</li>
+<li class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-600 text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-default text-body-default text-on-surface">Compatibility with LangChain, LlamaIndex, CrewAI or custom SDKs</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-2xl pt-space-lg border-t border-surface-container-highest">
+<a class="w-full h-9 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-medium text-body-medium flex items-center justify-center gap-space-xs transition-colors shadow-sm" data-path="signup" href="#">
+<span>Read Developer Documentation</span>
+<span class="material-symbols-outlined text-[16px]">code</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Script for Prompt Pills & Micro-interactions -->
+<script>
+    (function initLandingInteractions() {
+      const input = document.getElementById('hero-app-prompt');
+      const pills = document.querySelectorAll('.prompt-pill');
+      const buildBtn = document.getElementById('hero-build-btn');
+
+      if (!input || !pills.length) return;
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const promptText = pill.getAttribute('data-prompt') || '';
+          input.value = promptText;
+          input.focus();
+          
+          // Flash effect on input border
+          input.parentElement.classList.add('ring-2', 'ring-primary-container');
+          setTimeout(() => {
+            input.parentElement.classList.remove('ring-2', 'ring-primary-container');
+          }, 350);
+        });
+      });
+
+      if (buildBtn) {
+        buildBtn.addEventListener('click', () => {
+          if (!input.value.trim()) {
+            input.placeholder = "Please enter an app description first...";
+            input.focus();
+          } else {
+            buildBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span><span>Provisioning...</span>';
+            setTimeout(() => {
+              buildBtn.innerHTML = '<span>Build</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>';
+            }, 1800);
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest"><div class="max-w-7xl mx-auto px-margin py-space-3xl"><div class="grid grid-cols-2 md:grid-cols-5 gap-space-2xl mb-space-3xl"><div class="col-span-2"><div class="flex items-center gap-space-sm mb-space-base"><span class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-code-compact text-code-compact">A2</span><span class="font-title-sm text-title-sm text-on-surface">Architect 2.0</span></div><p class="font-body-compact text-body-compact text-on-surface-variant max-w-sm mb-space-lg">The precision-engineered workbench for systems architects, frontend engineers, and technical teams.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container border border-surface-container-highest"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span class="font-caption text-caption text-on-surface-variant font-code-compact">v2.4.0 • production</span></div></div><div><div class="font-body-compact-medium text-body-compact-medium text-on-surface mb-space-base">Product</div><ul class="flex flex-col gap-space-sm"><li data-active-classes="text-on-surface font-body-compact-medium"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="product" href="#">Overview</a></li><li data-active-classes="text-on-surface font-body-compact-medium"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="templates" href="#">Templates</a></li><li data-active-classes="text-on-surface font-body-compact-medium"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a></li><li data-active-classes="text-on-surface font-body-compact-medium"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="changelog" href="#">Changelog</a></li></ul></div><div><div class="font-body-compact-medium text-body-compact-medium text-on-surface mb-space-base">Resources</div><ul class="flex flex-col gap-space-sm"><li data-active-classes="text-on-surface font-body-compact-medium"><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="docs" href="#">Documentation</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-reference" href="#">API Reference</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="guides" href="#">Guides</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="community" href="#">Community</a></li></ul></div><div><div class="font-body-compact-medium text-body-compact-medium text-on-surface mb-space-base">Company</div><ul class="flex flex-col gap-space-sm"><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="blog" href="#">Engineering Blog</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy" href="#">Privacy Policy</a></li><li><a class="font-body-compact text-body-compact text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms" href="#">Terms of Service</a></li></ul></div></div><div class="pt-space-lg border-t border-surface-container-highest flex flex-col sm:flex-row items-center justify-between gap-space-base"><div class="font-caption text-caption text-on-surface-variant">© 2025 Architect 2.0. All rights reserved.</div><div class="flex items-center gap-space-base font-caption text-caption text-on-surface-variant"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary-container">bolt</span>Powered by Groq</span><span class="w-1 h-1 rounded-full bg-outline-variant"></span><span>Precision UI System</span></div></div></div></footer></body></html>

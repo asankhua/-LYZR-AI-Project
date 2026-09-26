@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/components/workspace/code-pane": ["./components/workspace/code-pane"],
+      "@/components/workspace/history-view": ["./components/workspace/history-view"],
+      "@/components/workspace/preview-pane": ["./components/workspace/preview-pane"],
+      "@/components/workspace/terminal-pane": ["./components/workspace/terminal-pane"],
+      "@/components/workspace/workspace-shell": ["./components/workspace/workspace-shell"],
+      "@/lib/ai/draft": ["./lib/ai/draft"],
+      "@/lib/ai/repair": ["./lib/ai/repair"],
+      "@/lib/runtime/*": ["./lib/runtime/*"],
+      "@/lib/templates/*": ["./lib/templates/*"],
+      "@/lib/records": ["./lib/records"],
+      "@/lib/types": ["./lib/types"],
+      "@/lib/demo/*": ["./lib/demo/*"],
+      "@/stores/runtime": ["./stores/runtime"],
+      "@/*": ["../common/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}

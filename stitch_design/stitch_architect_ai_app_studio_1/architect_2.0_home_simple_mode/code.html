@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#e0e2f0","secondary-container":"#dddfee","inverse-on-surface":"#eef0ff","surface-tint":"#4d44e3","on-error":"#ffffff","surface":"#faf8ff","surface-container-highest":"#dfe2f4","inverse-surface":"#2c303d","on-secondary":"#ffffff","primary":"#3525cd","on-tertiary-fixed-variant":"#44474a","surface-variant":"#dfe2f4","inverse-primary":"#c3c0ff","on-surface":"#171b28","primary-container":"#4f46e5","on-primary":"#ffffff","tertiary-fixed-dim":"#c4c7ca","on-primary-container":"#dad7ff","surface-container-low":"#f2f3ff","surface-bright":"#faf8ff","on-surface-variant":"#464555","error-container":"#ffdad6","primary-fixed-dim":"#c3c0ff","tertiary-container":"#5d6063","error":"#ba1a1a","tertiary-fixed":"#e0e3e6","primary-fixed":"#e2dfff","on-tertiary":"#ffffff","on-secondary-fixed":"#181b26","on-primary-fixed-variant":"#3323cc","outline-variant":"#c7c4d8","surface-container-high":"#e5e7f9","surface-container-lowest":"#ffffff","on-secondary-fixed-variant":"#434652","background":"#faf8ff","on-error-container":"#93000a","on-tertiary-container":"#d9dbde","on-background":"#171b28","on-tertiary-fixed":"#191c1e","secondary":"#5b5e6a","on-primary-fixed":"#0f0069","surface-container":"#eaedff","on-secondary-container":"#5f626f","secondary-fixed-dim":"#c3c6d4","outline":"#777587","tertiary":"#45484b","surface-dim":"#d6d9eb"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"1rem","space-lg":"1rem","margin":"1.5rem","margin-mobile":"1rem","gutter-compact":"0.75rem","space-2xs":"0.125rem","space-3xl":"3rem","space-sm":"0.375rem","space-base":"0.75rem","gutter-expanded":"1.5rem","space-md":"0.5rem","space-xl":"1.5rem","space-xs":"0.25rem","space-2xl":"2rem"},fontFamily:{"code-compact":["JetBrains Mono"],"headline-lg-mobile":["Inter"],"caption":["Inter"],"title-sm":["Inter"],"display":["Inter"],"body-compact":["Inter"],"headline-md":["Inter"],"body-default":["Inter"],"body-medium":["Inter"],"body-compact-medium":["Inter"],"headline-lg":["Inter"],"code-default":["JetBrains Mono"],"caption-medium":["Inter"],"display-mobile":["Inter"]},fontSize:{"code-compact":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"title-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"500"}],"display":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"500"}],"body-compact":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"body-compact-medium":["13px",{"lineHeight":"18px","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"500"}],"code-default":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption-medium":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"500"}]}}}};</script></head><body class="bg-background font-body-default text-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 bottom-0 w-16 bg-surface-container-lowest z-50 flex flex-col justify-between items-center py-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col items-center w-full gap-space-base"><div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-headline-md tracking-tight font-bold select-none cursor-pointer">A2</div><nav class="flex flex-col items-center w-full gap-space-xs px-space-xs" data-active-classes="bg-surface-container-high text-primary rounded-xl"><a aria-current="page" class="w-11 h-11 flex items-center justify-center transition-colors bg-surface-container-high text-primary rounded-xl" data-path="home" href="#" title="Home"><span class="material-symbols-outlined text-[20px]">home</span></a><a class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="templates" href="#" title="Templates"><span class="material-symbols-outlined text-[20px]">dashboard_customize</span></a><a class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="marketplace" href="#" title="Marketplace"><span class="material-symbols-outlined text-[20px]">storefront</span></a><a class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="import" href="#" title="Import"><span class="material-symbols-outlined text-[20px]">file_upload</span></a><a class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="usage" href="#" title="Usage"><span class="material-symbols-outlined text-[20px]">bar_chart</span></a><a class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings" href="#" title="Settings"><span class="material-symbols-outlined text-[20px]">settings</span></a></nav></div><div class="flex flex-col items-center w-full gap-space-md pb-space-xs"><button class="w-11 h-6 rounded-full bg-surface-container-low px-space-2xs flex items-center justify-start cursor-pointer transition-colors" title="Mode Toggle: Simple" type="button"><span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-bold">S</span></button><div class="relative group cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute left-14 bottom-1/2 translate-y-1/2 whitespace-nowrap bg-inverse-surface text-inverse-on-surface font-caption text-caption px-space-sm py-space-2xs rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity shadow-[0_1px_8px_rgba(0,0,0,0.04)]">Asha</span></div></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-space-xl flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 max-w-xl mx-auto"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-space-base text-on-surface-variant text-[18px]">search</span><input class="w-full h-9 pl-9 pr-space-base bg-surface-container-lowest rounded-xl font-body-compact text-body-compact text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary-container bg-surface-container-low/40" placeholder="Search projects, templates, commands ⌘K" type="text"/></div></div><div class="flex items-center gap-space-md ml-space-xl"><button class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full min-h-screen bg-background px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<div class="w-full max-w-[880px] mx-auto py-10 px-4 flex flex-col gap-9">
+<!-- 1. Header & Greeting -->
+<header class="flex flex-col gap-1.5">
+<span class="font-body-medium text-body-medium text-secondary tracking-normal">Good evening, Asha</span>
+<h1 class="font-display text-display text-on-surface tracking-tight font-medium">What do you want to build?</h1>
+</header>
+<!-- 2. Large Prompt Box -->
+<section class="flex flex-col">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm transition-all focus-within:shadow-md flex flex-col p-3.5 gap-3" style="border: 1px solid #E3E6EC;">
+<label class="sr-only" for="prompt-input">Describe your app</label>
+<textarea class="w-full bg-transparent font-body-default text-body-default text-on-surface placeholder:text-secondary resize-none outline-none min-h-[76px] leading-relaxed selection:bg-primary-fixed" id="prompt-input" placeholder="Describe your app, who it's for, and what a good result looks like…" rows="3"></textarea>
+<!-- Bottom Action Row -->
+<div class="flex items-center justify-between pt-3" style="border-top: 1px solid #F3F5F8;">
+<!-- Left Controls -->
+<div class="flex items-center gap-2 relative">
+<!-- Add Button with Micro Dropdown Trigger -->
+<div class="relative">
+<button aria-label="Add context or options" class="h-8 w-8 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors" id="prompt-options-btn" style="border: 1px solid #E3E6EC;" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<div class="hidden absolute left-0 bottom-10 w-52 bg-surface-container-lowest rounded-xl py-1 z-30 shadow-lg text-on-surface" id="prompt-menu" style="border: 1px solid #E3E6EC;">
+<button class="w-full px-3 py-1.5 text-left font-body-compact text-body-compact hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">attach_file</span> Attach files
+                </button>
+<button class="w-full px-3 py-1.5 text-left font-body-compact text-body-compact hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">palette</span> Theme
+                </button>
+<button class="w-full px-3 py-1.5 text-left font-body-compact text-body-compact hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">smart_toy</span> Add existing agents
+                </button>
+<button class="w-full px-3 py-1.5 text-left font-body-compact text-body-compact hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">auto_stories</span> Prompt library
+                </button>
+</div>
+</div>
+<!-- Dictate Prompt -->
+<button class="h-8 w-8 rounded-lg flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Dictate prompt" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<!-- Theme Chip -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-caption-medium text-caption text-on-surface select-none" style="background-color: #F3F5F8; border: 1px solid #E3E6EC;">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Theme: Minimal</span>
+</div>
+</div>
+<!-- Right Action: Build -->
+<button class="h-8 px-4 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-compact-medium text-body-compact flex items-center gap-2 transition-colors shadow-sm" type="button">
+<span>Build</span>
+<kbd class="font-code-compact text-code-compact px-1.5 py-0.5 rounded text-on-primary-container" style="background-color: rgba(30, 27, 75, 0.35);">⌘↵</kbd>
+</button>
+</div>
+</div>
+<!-- 3. Below Box Links -->
+<div class="flex items-center justify-between mt-2.5 px-1 font-caption text-caption text-secondary">
+<div class="flex items-center gap-4">
+<a class="inline-flex items-center gap-1.5 hover:text-on-surface transition-colors" href="#">
+<svg class="w-3.5 h-3.5 fill-current opacity-80" viewbox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 14.42 22 12A10 10 0 0 0 12 2z"></path></svg>
+<span>Import from GitHub</span>
+</a>
+<span class="text-outline-variant font-code-compact">/</span>
+<a class="inline-flex items-center gap-1.5 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px]">add_box</span>
+<span>Start blank project</span>
+</a>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Simple Mode active</span>
+<span class="text-outline-variant">·</span>
+<a class="hover:text-on-surface underline decoration-outline-variant underline-offset-2" href="#">Tips & Guide</a>
+</div>
+</div>
+</section>
+<!-- 4. Row "Suggested for you" -->
+<section class="flex flex-col gap-3">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-title-sm text-title-sm text-on-surface font-medium">Suggested for you</h2>
+<span class="font-caption text-caption text-secondary">From your AI Consultant diagnostic</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Idea Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col justify-between transition-all hover:shadow-sm group cursor-pointer" style="border: 1px solid #E3E6EC;">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Lead Nurturing Agent</span>
+<span class="inline-flex items-center text-[10px] font-caption-medium px-2 py-0.5 rounded-full bg-green-50 text-emerald-700" style="border: 1px solid #A7F3D0;">Saves ~15 hrs/wk</span>
+</div>
+<p class="font-caption text-caption text-secondary line-clamp-2">Enriches inbound leads from forms, researches company profiles, drafts bespoke follow-ups.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3" style="border-top: 1px solid #F3F5F8;">
+<div class="flex items-center gap-1">
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Researcher</span>
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Writer</span>
+</div>
+<span class="font-caption-medium text-caption text-primary flex items-center group-hover:translate-x-0.5 transition-transform">Use template ↗</span>
+</div>
+</div>
+<!-- Idea Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col justify-between transition-all hover:shadow-sm group cursor-pointer" style="border: 1px solid #E3E6EC;">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Smart Knowledge Base Triage</span>
+<span class="inline-flex items-center text-[10px] font-caption-medium px-2 py-0.5 rounded-full bg-green-50 text-emerald-700" style="border: 1px solid #A7F3D0;">Saves ~18 hrs/wk</span>
+</div>
+<p class="font-caption text-caption text-secondary line-clamp-2">Resolves repetitive tier-1 customer inquiries against Notion & Zendesk documentation.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3" style="border-top: 1px solid #F3F5F8;">
+<div class="flex items-center gap-1">
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Doc Crawler</span>
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Synthesizer</span>
+</div>
+<span class="font-caption-medium text-caption text-primary flex items-center group-hover:translate-x-0.5 transition-transform">Use template ↗</span>
+</div>
+</div>
+<!-- Idea Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col justify-between transition-all hover:shadow-sm group cursor-pointer" style="border: 1px solid #E3E6EC;">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Autonomous Market Digest</span>
+<span class="inline-flex items-center text-[10px] font-caption-medium px-2 py-0.5 rounded-full bg-green-50 text-emerald-700" style="border: 1px solid #A7F3D0;">Saves ~10 hrs/wk</span>
+</div>
+<p class="font-caption text-caption text-secondary line-clamp-2">Monitors competitor product launches, SEC filings & newsletters; delivers weekly executive briefs.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3" style="border-top: 1px solid #F3F5F8;">
+<div class="flex items-center gap-1">
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Web Scraper</span>
+<span class="font-code-compact text-[11px] px-1.5 py-0.5 rounded text-secondary" style="background-color: #F3F5F8;">Summarizer</span>
+</div>
+<span class="font-caption-medium text-caption text-primary flex items-center group-hover:translate-x-0.5 transition-transform">Use template ↗</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Row "Start from a template" -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="font-title-sm text-title-sm text-on-surface font-medium">Start from a template</h2>
+<a class="font-caption-medium text-caption text-primary hover:underline" href="#">View all 24 templates →</a>
+</div>
+<!-- Horizontal Strip of 5 Templates -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+<!-- Template 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 flex flex-col gap-2 cursor-pointer group transition-all hover:shadow-sm" style="border: 1px solid #E3E6EC;">
+<div class="h-[68px] rounded-lg p-2 flex flex-col justify-between overflow-hidden relative" style="background-color: #F3F5F8;">
+<!-- Wireframe Support Bot -->
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="h-1.5 w-12 bg-secondary/30 rounded"></div>
+</div>
+<div class="space-y-1">
+<div class="h-2 w-3/4 bg-secondary/20 rounded"></div>
+<div class="h-2 w-1/2 bg-primary-container/30 rounded"></div>
+</div>
+<div class="h-1 w-full bg-secondary/20 rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact text-on-surface truncate group-hover:text-primary transition-colors">Customer Support Bot</span>
+<span class="font-code-compact text-[11px] text-secondary">3 agents</span>
+</div>
+</div>
+<!-- Template 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 flex flex-col gap-2 cursor-pointer group transition-all hover:shadow-sm" style="border: 1px solid #E3E6EC;">
+<div class="h-[68px] rounded-lg p-2 flex flex-col justify-between overflow-hidden relative" style="background-color: #F3F5F8;">
+<!-- Wireframe Sales Pipeline -->
+<div class="flex items-end justify-between h-8 px-1 pt-2 gap-1">
+<div class="w-full bg-secondary/25 h-3 rounded-t"></div>
+<div class="w-full bg-secondary/30 h-5 rounded-t"></div>
+<div class="w-full bg-primary-container/70 h-7 rounded-t"></div>
+<div class="w-full bg-secondary/25 h-4 rounded-t"></div>
+</div>
+<div class="flex justify-between items-center pt-1 border-t border-secondary/10">
+<div class="h-1 w-6 bg-secondary/40 rounded"></div>
+<div class="h-1 w-4 bg-primary-container rounded"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact text-on-surface truncate group-hover:text-primary transition-colors">Sales Outreach Pipeline</span>
+<span class="font-code-compact text-[11px] text-secondary">4 agents</span>
+</div>
+</div>
+<!-- Template 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 flex flex-col gap-2 cursor-pointer group transition-all hover:shadow-sm" style="border: 1px solid #E3E6EC;">
+<div class="h-[68px] rounded-lg p-2 flex flex-col justify-between overflow-hidden relative" style="background-color: #F3F5F8;">
+<!-- Wireframe Invoice Analyzer -->
+<div class="flex items-center justify-between pb-1 border-b border-secondary/15">
+<div class="h-1.5 w-7 bg-secondary/40 rounded"></div>
+<div class="h-1.5 w-4 bg-secondary/30 rounded"></div>
+</div>
+<div class="space-y-1 py-0.5">
+<div class="flex justify-between"><div class="h-1.5 w-10 bg-secondary/25 rounded"></div><div class="h-1.5 w-5 bg-secondary/25 rounded"></div></div>
+<div class="flex justify-between"><div class="h-1.5 w-8 bg-secondary/20 rounded"></div><div class="h-1.5 w-4 bg-secondary/20 rounded"></div></div>
+</div>
+<div class="h-1.5 w-12 bg-primary-container/40 rounded"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact text-on-surface truncate group-hover:text-primary transition-colors">Invoice Analyzer & OCR</span>
+<span class="font-code-compact text-[11px] text-secondary">2 agents</span>
+</div>
+</div>
+<!-- Template 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 flex flex-col gap-2 cursor-pointer group transition-all hover:shadow-sm" style="border: 1px solid #E3E6EC;">
+<div class="h-[68px] rounded-lg p-2 flex flex-col justify-between overflow-hidden relative" style="background-color: #F3F5F8;">
+<!-- Wireframe Candidate Screening -->
+<div class="flex items-center gap-1.5">
+<div class="w-3 h-3 rounded-full bg-secondary/30"></div>
+<div class="h-1.5 w-10 bg-secondary/40 rounded"></div>
+</div>
+<div class="grid grid-cols-3 gap-1 my-auto">
+<div class="h-4 bg-surface-container-lowest rounded border border-secondary/20"></div>
+<div class="h-4 bg-surface-container-lowest rounded border border-secondary/20"></div>
+<div class="h-4 bg-primary-container/20 rounded border border-primary-container/30"></div>
+</div>
+<div class="h-1 w-full bg-secondary/20 rounded"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact text-on-surface truncate group-hover:text-primary transition-colors">Candidate Screening Hub</span>
+<span class="font-code-compact text-[11px] text-secondary">3 agents</span>
+</div>
+</div>
+<!-- Template 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-2.5 flex flex-col gap-2 cursor-pointer group transition-all hover:shadow-sm" style="border: 1px solid #E3E6EC;">
+<div class="h-[68px] rounded-lg p-2 flex flex-col justify-between overflow-hidden relative" style="background-color: #F3F5F8;">
+<!-- Wireframe Content Calendar -->
+<div class="flex justify-between items-center">
+<div class="h-1.5 w-8 bg-secondary/40 rounded"></div>
+<div class="w-2 h-2 rounded bg-primary-container/50"></div>
+</div>
+<div class="grid grid-cols-4 gap-1">
+<div class="h-3 rounded bg-secondary/15"></div>
+<div class="h-3 rounded bg-primary-container/30"></div>
+<div class="h-3 rounded bg-secondary/15"></div>
+<div class="h-3 rounded bg-secondary/25"></div>
+</div>
+<div class="h-1 w-6 bg-secondary/30 rounded"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-compact-medium text-body-compact text-on-surface truncate group-hover:text-primary transition-colors">Content Calendar Engine</span>
+<span class="font-code-compact text-[11px] text-secondary">2 agents</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Section "Recent projects" -->
+<section class="flex flex-col gap-3">
+<!-- Header bar with filter and sorting -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<h2 class="font-title-sm text-title-sm text-on-surface font-medium">Recent projects</h2>
+<div class="flex items-center gap-2">
+<!-- Filter Search -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2 text-[15px] text-secondary pointer-events-none">search</span>
+<input class="h-7 pl-6 pr-2.5 bg-surface-container-lowest rounded-lg font-caption text-caption text-on-surface placeholder:text-secondary outline-none focus:ring-1 focus:ring-primary-container" id="project-filter" placeholder="Filter projects…" style="border: 1px solid #E3E6EC; width: 140px;" type="text"/>
+</div>
+<!-- Sort Dropdown -->
+<div class="flex items-center gap-1 px-2.5 h-7 bg-surface-container-lowest rounded-lg font-caption text-caption text-secondary cursor-pointer" style="border: 1px solid #E3E6EC;">
+<span>Last edited</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Projects 2-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="projects-grid">
+<!-- Project 1: SupportDesk v1.0 (Live) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="SupportDesk v1.0" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<span class="h-2 w-16 bg-secondary/30 rounded"></span>
+</div>
+<div class="h-3 w-12 bg-secondary/15 rounded"></div>
+</div>
+<div class="space-y-1.5 my-auto">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-container/15 flex items-center justify-center text-[10px] text-primary">#1</div>
+<div class="flex-1 space-y-1">
+<div class="h-2 w-32 bg-secondary/35 rounded"></div>
+<div class="h-1.5 w-20 bg-secondary/20 rounded"></div>
+</div>
+<div class="h-4 w-10 bg-emerald-100 rounded"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-12 bg-secondary/30 rounded"></div>
+<div class="h-1.5 w-8 bg-secondary/20 rounded"></div>
+</div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">SupportDesk v1.0</h3>
+<span class="inline-flex items-center gap-1.5 font-code-compact text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" style="border: 1px solid #A7F3D0;">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Live</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 4 of 4 · Last build passed · Edited 42m ago</p>
+</div>
+</article>
+<!-- Project 2: SaaS Churn Predictor (Agents) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="SaaS Churn Predictor" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="h-2 w-20 bg-secondary/30 rounded"></span>
+</div>
+<span class="h-2 w-8 bg-secondary/20 rounded"></span>
+</div>
+<div class="grid grid-cols-3 gap-2 my-auto">
+<div class="p-1.5 bg-surface-container-lowest rounded border border-secondary/15 flex flex-col gap-1">
+<div class="h-1.5 w-8 bg-secondary/30 rounded"></div>
+<div class="h-2 w-5 bg-primary-container/40 rounded"></div>
+</div>
+<div class="p-1.5 bg-surface-container-lowest rounded border border-secondary/15 flex flex-col gap-1">
+<div class="h-1.5 w-7 bg-secondary/30 rounded"></div>
+<div class="h-2 w-4 bg-secondary/30 rounded"></div>
+</div>
+<div class="p-1.5 bg-surface-container-lowest rounded border border-secondary/15 flex flex-col gap-1">
+<div class="h-1.5 w-9 bg-secondary/30 rounded"></div>
+<div class="h-2 w-6 bg-secondary/30 rounded"></div>
+</div>
+</div>
+<div class="h-1 w-full bg-secondary/15 rounded"></div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">SaaS Churn Predictor</h3>
+<span class="inline-flex items-center gap-1 font-code-compact text-[11px] px-2 py-0.5 rounded-full text-on-surface" style="background-color: #F3F5F8; border: 1px solid #E3E6EC;">
+<span class="material-symbols-outlined text-[13px] text-secondary">smart_toy</span>
+<span>Agents</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 2 of 4 · Last build passed · Edited 2h ago</p>
+</div>
+</article>
+<!-- Project 3: Hiring Pipeline Copilot (Build) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="Hiring Pipeline Copilot" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex items-center justify-between">
+<span class="h-2 w-14 bg-secondary/35 rounded"></span>
+<span class="h-2 w-6 bg-secondary/20 rounded"></span>
+</div>
+<div class="space-y-1.5 my-auto">
+<div class="h-5 bg-surface-container-lowest rounded border border-secondary/15 px-2 flex items-center justify-between">
+<div class="h-1.5 w-24 bg-secondary/30 rounded"></div>
+<div class="h-1.5 w-6 bg-primary-container rounded"></div>
+</div>
+<div class="h-5 bg-surface-container-lowest rounded border border-secondary/15 px-2 flex items-center justify-between">
+<div class="h-1.5 w-20 bg-secondary/30 rounded"></div>
+<div class="h-1.5 w-8 bg-secondary/20 rounded"></div>
+</div>
+</div>
+<div class="h-1 w-3/5 bg-primary-container/40 rounded"></div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Hiring Pipeline Copilot</h3>
+<span class="inline-flex items-center gap-1 font-code-compact text-[11px] px-2 py-0.5 rounded-full text-on-surface" style="background-color: #F3F5F8; border: 1px solid #E3E6EC;">
+<span class="material-symbols-outlined text-[13px] text-secondary">build</span>
+<span>Build</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 3 of 4 · Synthesis in progress · Edited 4h ago</p>
+</div>
+</article>
+<!-- Project 4: Quarterly Financial Audit (Plan) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="Quarterly Financial Audit" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex justify-between items-center">
+<div class="h-2 w-16 bg-secondary/35 rounded"></div>
+<div class="h-2 w-10 bg-secondary/20 rounded"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 my-auto">
+<div class="h-9 bg-surface-container-lowest rounded border border-secondary/15 p-1.5 flex flex-col justify-between">
+<div class="h-1 w-6 bg-secondary/30 rounded"></div>
+<div class="h-2 w-12 bg-secondary/40 rounded"></div>
+</div>
+<div class="h-9 bg-surface-container-lowest rounded border border-secondary/15 p-1.5 flex flex-col justify-between">
+<div class="h-1 w-8 bg-secondary/30 rounded"></div>
+<div class="h-2 w-10 bg-secondary/40 rounded"></div>
+</div>
+</div>
+<div class="h-1.5 w-16 bg-secondary/25 rounded"></div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Quarterly Financial Audit</h3>
+<span class="inline-flex items-center gap-1 font-code-compact text-[11px] px-2 py-0.5 rounded-full text-on-surface" style="background-color: #F3F5F8; border: 1px solid #E3E6EC;">
+<span class="material-symbols-outlined text-[13px] text-secondary">architecture</span>
+<span>Plan</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 1 of 4 · Schema drafted · Edited yesterday</p>
+</div>
+</article>
+<!-- Project 5: Competitive Pulse Radar (Live) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="Competitive Pulse Radar" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<span class="h-2 w-14 bg-secondary/35 rounded"></span>
+</div>
+<div class="h-2 w-8 bg-secondary/20 rounded"></div>
+</div>
+<div class="flex items-center justify-center gap-3 my-auto">
+<div class="w-8 h-8 rounded-full border-2 border-emerald-400 flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+</div>
+<div class="space-y-1">
+<div class="h-2 w-16 bg-secondary/35 rounded"></div>
+<div class="h-1.5 w-12 bg-secondary/20 rounded"></div>
+</div>
+</div>
+<div class="h-1 w-full bg-emerald-100 rounded"></div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Competitive Pulse Radar</h3>
+<span class="inline-flex items-center gap-1.5 font-code-compact text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" style="border: 1px solid #A7F3D0;">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Live</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 4 of 4 · Last build passed · Edited 2d ago</p>
+</div>
+</article>
+<!-- Project 6: Shopify Inventory Sync (Build) -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col overflow-hidden transition-all hover:shadow-sm cursor-pointer group" data-title="Shopify Inventory Sync" style="border: 1px solid #E3E6EC;">
+<!-- Flat UI Wireframe Thumbnail -->
+<div class="h-28 p-3 flex flex-col justify-between" style="background-color: #F8FAFC; border-bottom: 1px solid #F3F5F8;">
+<div class="flex items-center justify-between">
+<span class="h-2 w-16 bg-secondary/35 rounded"></span>
+<span class="h-2 w-6 bg-secondary/20 rounded"></span>
+</div>
+<div class="flex items-center justify-between my-auto px-2">
+<div class="w-6 h-6 rounded bg-secondary/20"></div>
+<span class="material-symbols-outlined text-[16px] text-primary">sync_alt</span>
+<div class="w-6 h-6 rounded bg-primary-container/20"></div>
+</div>
+<div class="flex justify-between items-center">
+<div class="h-1.5 w-10 bg-secondary/25 rounded"></div>
+<div class="h-1.5 w-14 bg-secondary/20 rounded"></div>
+</div>
+</div>
+<!-- Card Info -->
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-body-compact-medium text-body-compact text-on-surface group-hover:text-primary transition-colors">Shopify Inventory Sync</h3>
+<span class="inline-flex items-center gap-1 font-code-compact text-[11px] px-2 py-0.5 rounded-full text-on-surface" style="background-color: #F3F5F8; border: 1px solid #E3E6EC;">
+<span class="material-symbols-outlined text-[13px] text-secondary">build</span>
+<span>Build</span>
+</span>
+</div>
+<p class="font-code-compact text-code-compact text-secondary">Stage 3 of 4 · Last build passed · Edited 3d ago</p>
+</div>
+</article>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Prompt Options dropdown toggle
+  const promptOptionsBtn = document.getElementById('prompt-options-btn');
+  const promptMenu = document.getElementById('prompt-menu');
+
+  if (promptOptionsBtn && promptMenu) {
+    promptOptionsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      promptMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      if (!promptMenu.classList.contains('hidden')) {
+        promptMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  // Live filter for recent projects
+  const filterInput = document.getElementById('project-filter');
+  const projectsGrid = document.getElementById('projects-grid');
+
+  if (filterInput && projectsGrid) {
+    filterInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const articles = projectsGrid.querySelectorAll('article');
+
+      articles.forEach((article) => {
+        const title = article.getAttribute('data-title')?.toLowerCase() || '';
+        if (title.includes(query)) {
+          article.classList.remove('hidden');
+        } else {
+          article.classList.add('hidden');
+        }
+      });
+    });
+  }
+</script></main></div></body></html>

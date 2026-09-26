@@ -1,0 +1,1 @@
+../../common/lib/schema.test.ts

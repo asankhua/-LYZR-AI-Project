@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#c3c6d4", "primary-container": "#4f46e5", "primary-fixed-dim": "#c3c0ff", "tertiary-fixed-dim": "#c4c7ca", "inverse-primary": "#c3c0ff", "on-tertiary-container": "#d9dbde", "on-secondary-container": "#5f626f", "on-background": "#171b28", "inverse-on-surface": "#eef0ff", "on-error": "#ffffff", "on-tertiary": "#ffffff", "surface-container": "#eaedff", "on-primary-fixed-variant": "#3323cc", "on-secondary-fixed-variant": "#434652", "tertiary-fixed": "#e0e3e6", "on-primary-container": "#dad7ff", "primary-fixed": "#e2dfff", "surface": "#faf8ff", "background": "#faf8ff", "tertiary-container": "#5d6063", "on-secondary": "#ffffff", "inverse-surface": "#2c303d", "surface-container-low": "#f2f3ff", "primary": "#3525cd", "on-secondary-fixed": "#181b26", "surface-dim": "#d6d9eb", "on-tertiary-fixed-variant": "#44474a", "surface-container-high": "#e5e7f9", "surface-variant": "#dfe2f4", "surface-bright": "#faf8ff", "outline": "#777587", "outline-variant": "#c7c4d8", "on-surface": "#171b28", "error": "#ba1a1a", "tertiary": "#45484b", "on-error-container": "#93000a", "on-surface-variant": "#464555", "on-primary": "#ffffff", "on-tertiary-fixed": "#191c1e", "secondary": "#5b5e6a", "on-primary-fixed": "#0f0069", "surface-tint": "#4d44e3", "surface-container-highest": "#dfe2f4", "secondary-fixed": "#e0e2f0", "error-container": "#ffdad6", "secondary-container": "#dddfee", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xl": "2rem", "space-sm": "0.375rem", "space-md": "0.5rem", "gutter-expanded": "1.5rem", "space-base": "0.75rem", "space-xs": "0.25rem", "space-3xl": "3rem", "gutter": "1rem", "space-2xs": "0.125rem", "gutter-compact": "0.75rem", "margin": "1.5rem", "space-xl": "1.5rem", "space-lg": "1rem", "margin-mobile": "1rem" }, "fontFamily": { "headline-md": ["Inter"], "title-sm": ["Inter"], "code-compact": ["JetBrains Mono"], "body-default": ["Inter"], "caption-medium": ["Inter"], "body-compact-medium": ["Inter"], "headline-lg-mobile": ["Inter"], "body-compact": ["Inter"], "display": ["Inter"], "headline-lg": ["Inter"], "display-mobile": ["Inter"], "caption": ["Inter"], "code-default": ["JetBrains Mono"], "body-medium": ["Inter"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "500" }], "code-compact": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-default": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "caption-medium": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "body-compact-medium": ["13px", { "lineHeight": "18px", "fontWeight": "500" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "body-compact": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "500" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "code-default": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }] } } } };</script></head><body class="bg-background font-body-default text-body-default text-on-surface antialiased"><main class="min-h-screen w-full bg-background flex flex-col justify-center items-center p-0"><div class="flex flex-col w-full">
+<div class="w-full min-h-screen bg-[#FAFBFD] text-[#1F2330] font-sans antialiased flex flex-col justify-center items-center">
+<div class="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2">
+<!-- LEFT COLUMN: Accent-Soft Workbench & Pipeline Visualizer -->
+<section class="bg-[#EEF0FF] border-r border-[#E3E6EC] p-8 lg:p-14 flex flex-col justify-between relative overflow-hidden">
+<!-- Ambient grid texture overlay -->
+<div class="absolute inset-0 opacity-[0.035] pointer-events-none" style="background-image: radial-gradient(#1F2330 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Top: Brand Header -->
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-[6px] bg-[#4F46E5] flex items-center justify-center text-white font-mono text-xs font-semibold tracking-wider shadow-sm">
+              A2
+            </div>
+<span class="text-base font-semibold text-[#1F2330] tracking-tight">Architect 2.0</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-[#E3E6EC] text-[11px] font-mono font-medium text-[#4F46E5] shadow-sm backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#4F46E5] animate-pulse"></span>
+            v2.4 Engine
+          </div>
+</div>
+<!-- Center: Value Prop & Live Interactive Pipeline Preview -->
+<div class="relative z-10 my-10 max-w-lg">
+<div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#4F46E5]/10 text-[#4F46E5] font-mono text-xs mb-3 font-medium">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Autonomous Synthesis
+          </div>
+<h1 class="text-2xl lg:text-3xl font-medium text-[#1F2330] tracking-tight leading-snug mb-3">
+            Build and ship agentic apps from a prompt
+          </h1>
+<p class="text-sm text-[#6B7280] leading-relaxed">
+            The precision-engineered workbench for autonomous agents and live fullstack applications.
+          </p>
+<!-- Generation Pipeline Mockup Card -->
+<div class="bg-white/95 backdrop-blur border border-[#E3E6EC] rounded-[10px] p-5 shadow-sm max-w-md w-full mt-7">
+<!-- Window Titlebar -->
+<div class="flex items-center justify-between border-b border-[#E3E6EC] pb-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E3E6EC]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E3E6EC]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E3E6EC]"></span>
+<span class="text-xs font-medium text-[#6B7280] ml-1.5 font-mono">Generation Pipeline</span>
+</div>
+<span class="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                Running
+              </span>
+</div>
+<!-- Pipeline Execution Steps -->
+<div class="space-y-3.5">
+<!-- Step 1 -->
+<div class="p-2.5 rounded-[6px] bg-[#F3F5F8] border border-[#E3E6EC]">
+<div class="text-[11px] uppercase tracking-wider font-mono text-[#6B7280] mb-1">Intent / Prompt</div>
+<div class="text-xs font-mono text-[#1F2330] flex items-center gap-1.5">
+<span class="text-[#4F46E5] font-semibold">❯</span>
+<span>Build customer support triage agent with Zendesk sync</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center justify-between text-xs px-1">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+<span class="font-medium text-[#1F2330]">Plan &amp; Schema generated</span>
+</div>
+<span class="font-mono text-[11px] text-[#6B7280]">0.4s</span>
+</div>
+<!-- Step 3 -->
+<div class="px-1 space-y-1.5">
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-[#EEF0FF] text-[#4F46E5] flex items-center justify-center animate-spin">
+<span class="material-symbols-outlined text-[13px]">progress_activity</span>
+</span>
+<span class="font-medium text-[#1F2330]">Synthesizing 4 agents &amp; Next.js UI</span>
+</div>
+<span class="font-mono text-[11px] font-medium text-[#4F46E5]">85%</span>
+</div>
+<div class="w-full h-1.5 bg-[#EEF0FF] rounded-full overflow-hidden">
+<div class="h-full bg-[#4F46E5] rounded-full transition-all duration-700 w-[85%]"></div>
+</div>
+</div>
+<!-- Mini wireframe live preview container -->
+<div class="p-3 bg-[#FAFBFD] border border-[#E3E6EC] rounded-[6px] mt-2">
+<div class="flex items-center justify-between pb-2 border-b border-[#E3E6EC] mb-2">
+<span class="text-[11px] font-mono text-[#1F2330] font-medium flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    SupportDesk v1.0 • Live sandbox
+                  </span>
+<span class="text-[10px] font-mono text-[#6B7280]">port 3000</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-2">
+<div class="h-6 rounded bg-[#F3F5F8] border border-[#E3E6EC] flex items-center px-2">
+<span class="w-2 h-2 rounded-full bg-indigo-200 mr-1.5"></span>
+<span class="text-[9px] font-mono text-[#6B7280]">Triage</span>
+</div>
+<div class="h-6 rounded bg-[#F3F5F8] border border-[#E3E6EC] flex items-center px-2">
+<span class="w-2 h-2 rounded-full bg-emerald-200 mr-1.5"></span>
+<span class="text-[9px] font-mono text-[#6B7280]">Route</span>
+</div>
+<div class="h-6 rounded bg-[#F3F5F8] border border-[#E3E6EC] flex items-center px-2">
+<span class="w-2 h-2 rounded-full bg-amber-200 mr-1.5"></span>
+<span class="text-[9px] font-mono text-[#6B7280]">Sync</span>
+</div>
+</div>
+<div class="h-10 bg-white border border-[#E3E6EC] rounded p-1.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3.5 h-3.5 rounded-full bg-[#EEF0FF] text-[#4F46E5] flex items-center justify-center text-[8px] font-bold">#</div>
+<span class="text-[10px] font-mono text-[#1F2330]">ticket_3892.dispatch()</span>
+</div>
+<span class="text-[9px] font-mono text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">200 OK</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom: Security & Enterprise Trust Proof -->
+<div class="relative z-10 pt-4 border-t border-[#4F46E5]/10 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-[#6B7280]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#4F46E5]">verified_user</span>
+<span>Encrypted &amp; enterprise isolated environments</span>
+</div>
+<span class="text-[#c7c4d8]">•</span>
+<div class="flex items-center gap-1">
+<span class="font-medium text-[#1F2330]">SOC2 Type II Certified</span>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Authentication Form & Magic Link States -->
+<section class="bg-[#FAFBFD] flex flex-col items-center justify-center p-6 lg:p-12 relative min-h-full">
+<!-- Top Return Link -->
+<div class="absolute top-6 right-6 lg:top-10 lg:right-10">
+<a class="inline-flex items-center gap-1.5 text-xs font-medium text-[#6B7280] hover:text-[#1F2330] transition-colors py-1 px-2.5 rounded hover:bg-[#F3F5F8]" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to home
+          </a>
+</div>
+<!-- State Switcher Toggle (Interactive preview controller) -->
+<div class="w-full max-w-[400px] mb-4 flex items-center justify-between bg-[#F3F5F8] p-1 rounded-lg border border-[#E3E6EC]">
+<span class="text-[11px] font-medium text-[#6B7280] px-2 font-mono">View State:</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 text-xs font-medium rounded-[5px] bg-white text-[#1F2330] shadow-sm transition-all" id="toggle-state-1" onclick="showState(1)" type="button">
+              1. Sign in
+            </button>
+<button class="px-2.5 py-1 text-xs font-medium rounded-[5px] text-[#6B7280] hover:text-[#1F2330] transition-all" id="toggle-state-2" onclick="showState(2)" type="button">
+              2. Email sent
+            </button>
+</div>
+</div>
+<!-- Card Container (Standard max-w-[400px]) -->
+<div class="w-full max-w-[400px] bg-white border border-[#E3E6EC] rounded-[10px] p-8 shadow-sm">
+<!-- STATE 1: Sign in Form -->
+<div class="transition-opacity duration-200" id="auth-state-1">
+<h2 class="text-xl font-medium text-[#1F2330] mb-1 tracking-tight">Sign in to Architect</h2>
+<p class="text-xs text-[#6B7280] mb-6">Welcome back. Enter your details to access your workbench.</p>
+<!-- Social Providers Stack -->
+<div class="space-y-2.5">
+<!-- Google Button -->
+<button class="w-full h-10 rounded-[6px] border border-[#E3E6EC] bg-white text-sm font-medium text-[#1F2330] hover:bg-[#F3F5F8] transition-colors flex items-center justify-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-[#EEF0FF]" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+                Continue with Google
+              </button>
+<!-- GitHub Button -->
+<button class="w-full h-10 rounded-[6px] border border-[#E3E6EC] bg-white text-sm font-medium text-[#1F2330] hover:bg-[#F3F5F8] transition-colors flex items-center justify-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-[#EEF0FF]" type="button">
+<svg class="w-4 h-4 fill-[#1F2330]" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+                Continue with GitHub
+              </button>
+</div>
+<!-- Divider with 'or' -->
+<div class="relative my-5">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-[#E3E6EC]"></div>
+</div>
+<div class="relative flex justify-center text-xs">
+<span class="bg-white px-2 text-[#6B7280]">or</span>
+</div>
+</div>
+<!-- Work Email Form -->
+<form class="space-y-3" onsubmit="handleFormSubmit(event)">
+<div>
+<label class="text-xs font-medium text-[#1F2330] mb-1.5 block" for="work-email">Work email</label>
+<input class="w-full h-10 px-3 text-sm rounded-[6px] border border-[#E3E6EC] bg-white text-[#1F2330] placeholder:text-[#6B7280] focus:outline-none focus:ring-1 focus:ring-[#4F46E5] focus:border-[#4F46E5] transition-all" id="work-email" placeholder="name@company.com" required="" type="email" value="alex@acme-corp.com"/>
+</div>
+<!-- Primary Magic Link Button -->
+<button class="w-full h-10 rounded-[6px] bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-medium transition-colors shadow-none flex items-center justify-center gap-1.5 cursor-pointer" type="submit">
+                Send magic link
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</form>
+<!-- Try without account link -->
+<div class="text-center mt-4">
+<button class="text-xs font-medium text-[#4F46E5] hover:underline cursor-pointer inline-flex items-center gap-1" onclick="showState(2)" type="button">
+                Try without an account
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<!-- Terms & Privacy Footnote -->
+<p class="text-[11px] text-[#6B7280] text-center mt-6 leading-relaxed">
+              By clicking continue, you agree to our
+              <a class="underline hover:text-[#1F2330]" href="#">Terms of Service</a>
+              and
+              <a class="underline hover:text-[#1F2330]" href="#">Privacy Policy</a>.
+            </p>
+</div>
+<!-- STATE 2: Check Your Email (Magic Link Sent) -->
+<div class="hidden transition-opacity duration-200" id="auth-state-2">
+<!-- Icon -->
+<div class="w-12 h-12 rounded-full bg-[#EEF0FF] text-[#4F46E5] flex items-center justify-center mx-auto mb-4 border border-[#4F46E5]/10">
+<span class="material-symbols-outlined text-[24px]">mark_email_unread</span>
+</div>
+<h2 class="text-xl font-medium text-[#1F2330] text-center mb-1.5 tracking-tight">Check your email</h2>
+<p class="text-xs text-[#6B7280] text-center leading-relaxed mb-1">
+              We sent a magic sign-in link to
+            </p>
+<div class="text-center mb-2">
+<span class="font-mono text-xs px-2.5 py-1 rounded bg-[#F3F5F8] text-[#1F2330] border border-[#E3E6EC] font-medium inline-block" id="target-email-display">
+                alex@acme-corp.com
+              </span>
+</div>
+<p class="text-xs text-[#6B7280] text-center leading-relaxed mb-5">
+              Click the link inside to instantly sign in.
+            </p>
+<!-- Open Mail App Primary Action -->
+<a class="w-full h-10 rounded-[6px] bg-[#4F46E5] hover:bg-[#4338CA] text-white text-sm font-medium transition-colors flex items-center justify-center gap-2" href="mailto:">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+              Open mail app
+            </a>
+<!-- Disabled Timer / Resend Action -->
+<div class="text-center mt-4">
+<span class="text-xs text-[#6B7280] flex items-center justify-center gap-1.5 cursor-not-allowed opacity-75 font-mono" id="countdown-btn">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span id="countdown-text">Resend in 30s</span>
+</span>
+</div>
+<!-- Return back to Form -->
+<div class="mt-6 pt-5 border-t border-[#E3E6EC] text-center">
+<button class="text-xs font-medium text-[#6B7280] hover:text-[#1F2330] transition-colors inline-flex items-center gap-1 cursor-pointer" onclick="showState(1)" type="button">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+                Use a different email address
+              </button>
+</div>
+</div>
+</div>
+<!-- Footer Workbench System Info -->
+<div class="mt-8 flex items-center gap-2 text-[11px] text-[#6B7280] font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>All cloud systems operational</span>
+<span class="text-[#E3E6EC]">•</span>
+<span>Cluster us-east-1</span>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  let countdownTimer = null;
+  let remainingSeconds = 30;
+
+  function showState(state) {
+    const s1 = document.getElementById('auth-state-1');
+    const s2 = document.getElementById('auth-state-2');
+    const btn1 = document.getElementById('toggle-state-1');
+    const btn2 = document.getElementById('toggle-state-2');
+
+    if (state === 1) {
+      s1.classList.remove('hidden');
+      s2.classList.add('hidden');
+      btn1.classList.add('bg-white', 'text-[#1F2330]', 'shadow-sm');
+      btn1.classList.remove('text-[#6B7280]');
+      btn2.classList.remove('bg-white', 'text-[#1F2330]', 'shadow-sm');
+      btn2.classList.add('text-[#6B7280]');
+      clearInterval(countdownTimer);
+    } else {
+      s1.classList.add('hidden');
+      s2.classList.remove('hidden');
+      btn2.classList.add('bg-white', 'text-[#1F2330]', 'shadow-sm');
+      btn2.classList.remove('text-[#6B7280]');
+      btn1.classList.remove('bg-white', 'text-[#1F2330]', 'shadow-sm');
+      btn1.classList.add('text-[#6B7280]');
+      startCountdown();
+    }
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const input = document.getElementById('work-email');
+    const display = document.getElementById('target-email-display');
+    if (input && input.value) {
+      display.textContent = input.value;
+    }
+    showState(2);
+  }
+
+  function startCountdown() {
+    clearInterval(countdownTimer);
+    remainingSeconds = 30;
+    const txt = document.getElementById('countdown-text');
+    const container = document.getElementById('countdown-btn');
+    if (!txt || !container) return;
+
+    txt.textContent = `Resend in ${remainingSeconds}s`;
+    container.classList.add('cursor-not-allowed', 'opacity-75');
+    container.classList.remove('cursor-pointer', 'text-[#4F46E5]', 'hover:underline');
+
+    countdownTimer = setInterval(() => {
+      remainingSeconds--;
+      if (remainingSeconds > 0) {
+        txt.textContent = `Resend in ${remainingSeconds}s`;
+      } else {
+        clearInterval(countdownTimer);
+        txt.textContent = 'Resend magic link';
+        container.classList.remove('cursor-not-allowed', 'opacity-75');
+        container.classList.add('cursor-pointer', 'text-[#4F46E5]', 'hover:underline');
+      }
+    }, 1000);
+  }
+</script></main></body></html>
