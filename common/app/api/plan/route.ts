@@ -49,10 +49,10 @@ export async function POST(request: Request) {
     if (parsed.data.kind === "change") {
       send({ type: "step", label: "Drafting a change plan", status: "running" });
       const files = await listFiles(project.id);
-      const change = (await modelChange(prompt)) ?? draftChangePlan(parsed.data.instruction ?? prompt, files.map((file) => file.path));
+      const change = (await modelChange(prompt, signal)) ?? draftChangePlan(parsed.data.instruction ?? prompt, files.map((file) => file.path));
       if (signal.aborted) return;
       send({ type: "change-plan", plan: change });
-      send({ type: "step", label: "Change plan ready", status: "done" });
+      send({ type: "step", label: "Drafting a change plan", status: "done" });
       const tokens = estimateTokens(prompt);
       await addUsage({ userId: session.id, projectId: project.id, stage: "plan", model: MODELS.reasoning, inputTokens: tokens, outputTokens: tokens });
       send({ type: "usage", stage: "plan", inputTokens: tokens, outputTokens: tokens });
@@ -60,8 +60,9 @@ export async function POST(request: Request) {
     }
 
     send({ type: "step", label: "Drafting the plan", status: "running" });
-    const plan = (await modelPlan(prompt)) ?? draftPlan(prompt);
+    const plan = (await modelPlan(prompt, signal)) ?? draftPlan(prompt);
     if (signal.aborted) return;
+    send({ type: "step", label: "Drafting the plan", status: "done" });
     for (const key of PLAN_SECTIONS) {
       if (signal.aborted) return;
       send({ type: "plan-section", key, title: sectionTitle(key), body: sectionBody(plan, key) });

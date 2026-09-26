@@ -183,7 +183,9 @@ export function WorkspaceShell({
     setStreaming(true);
     try {
       await postEvents(url, body, onEvent, controller.signal);
+      useChatStore.getState().settleRunning("done");
     } catch (error) {
+      useChatStore.getState().settleRunning("error");
       if (!controller.signal.aborted) push({ type: "error", message: "The stream stopped." });
       else push({ type: "step", label: "Stopped", status: "done" });
       void error;

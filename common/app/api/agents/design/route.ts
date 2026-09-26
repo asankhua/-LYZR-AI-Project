@@ -46,6 +46,6 @@ export async function POST(request: Request) {
     const tokens = estimateTokens(JSON.stringify(agents));
     await addUsage({ userId: session.id, projectId: project.id, stage: "agents", model: MODELS.reasoning, inputTokens: tokens, outputTokens: tokens });
     send({ type: "usage", stage: "agents", inputTokens: tokens, outputTokens: tokens });
-    send({ type: "step", label: "Agents ready for review", status: "done" });
+    send({ type: "step", label: "Designing agents", status: "done" });
   }, request.signal);
 }
