@@ -27,8 +27,69 @@ export function PlanView({
     );
   }
 
+  const manager = plan.agents.find((agent) => agent.name === "Manager") ?? plan.agents[0];
+  const helpers = plan.agents.filter((agent) => agent !== manager);
+
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-4">
+    <div className="mx-auto flex max-w-3xl flex-col gap-6">
+      <section aria-label="Architecture">
+        <h2 className="text-base font-medium">Architecture</h2>
+        <p className="mt-2 text-sm text-text-muted">
+          {plan.title} is for {plan.audience}. The interface is {plan.screens.length} screen{plan.screens.length === 1 ? "" : "s"}.
+          {manager ? ` ${manager.name} coordinates ${helpers.length ? helpers.map((agent) => agent.name).join(", ") : "the work"}.` : ""}
+          {plan.dataModel.length ? ` Records live in ${plan.dataModel.map((row) => row.collection).join(", ")}.` : ""}
+          {plan.integrations.length ? ` It connects to ${plan.integrations.join(", ")}.` : " It runs without an outside integration."}
+        </p>
+        <div className="mt-4 flex flex-col gap-2" aria-label="Architecture diagram">
+          <DiagramNode kicker="User" title={plan.audience} />
+          <DiagramArrow />
+          <div className="grid gap-2 sm:grid-cols-2">
+            {plan.screens.map((screen) => (
+              <DiagramNode key={screen.name} kicker="Screen" title={screen.name} detail={screen.purpose} />
+            ))}
+          </div>
+          <DiagramArrow />
+          <div className="grid gap-2 sm:grid-cols-2">
+            {plan.agents.map((agent) => (
+              <DiagramNode key={agent.name} kicker={agent === manager ? "Manager" : "Agent"} title={agent.name} detail={agent.role} />
+            ))}
+          </div>
+          <DiagramArrow />
+          <div className="grid gap-2 sm:grid-cols-2">
+            {plan.dataModel.map((row) => (
+              <DiagramNode key={row.collection} kicker="Data" title={row.collection} detail={row.fields.join(", ")} />
+            ))}
+          </div>
+        </div>
+        <ol className="mt-4 flex flex-wrap gap-2" aria-label="User journey">
+          {plan.userJourney.map((step, index) => (
+            <li key={`${index}-${step}`} className="rounded-full border border-border bg-surface-2 px-3 py-1 text-sm">
+              {index + 1}. {step}
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section aria-label="Features">
+        <h2 className="text-base font-medium">Features</h2>
+        <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+          {plan.screens.map((screen) => (
+            <li key={screen.name} className="rounded-md border border-border bg-surface p-3">
+              <h3 className="font-medium">{screen.name}</h3>
+              <p className="mt-1 text-sm text-text-muted">{screen.purpose}</p>
+              {screen.components.length ? (
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {screen.components.map((component) => (
+                    <li key={component} className="rounded-full bg-accent-soft px-2 py-1 text-xs text-accent">
+                      {component}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <div className="flex flex-col gap-4">
       <Field label="Summary">
         <textarea
           className="mt-1 w-full rounded-sm border border-border px-3 py-2"
@@ -127,8 +188,23 @@ export function PlanView({
           onBlur={(event) => onCommit({ ...plan, openQuestions: lines(event.target.value) })}
         />
       </Field>
+      </div>
     </div>
   );
+}
+
+function DiagramNode({ kicker, title, detail }: { kicker: string; title: string; detail?: string }) {
+  return (
+    <div className="rounded-md border border-border bg-surface px-3 py-2">
+      <p className="text-xs font-medium text-accent">{kicker}</p>
+      <p className="mt-1 text-sm font-medium">{title}</p>
+      {detail ? <p className="mt-1 text-sm text-text-muted">{detail}</p> : null}
+    </div>
+  );
+}
+
+function DiagramArrow() {
+  return <p className="text-center text-sm text-text-muted" aria-hidden>↓</p>;
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
