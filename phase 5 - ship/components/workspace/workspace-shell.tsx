@@ -275,6 +275,33 @@ export function WorkspaceShell({
                 },
               };
 
+  const regenerateLabel = stage === "plan" ? "Regenerate plan" : stage === "agents" ? "Regenerate design" : "Regenerate build";
+
+  async function regenerate() {
+    if (streaming) return;
+    if (stage === "plan") {
+      planJobs.delete(project.id);
+      setTab("plan");
+      await run("/api/plan", { projectId: project.id, kind: "draft" });
+      const response = await fetch(`/api/projects/${project.id}/plan`);
+      if (!response.ok) return;
+      const body = (await response.json()) as { doc: PlanDoc | null };
+      if (body.doc) setPlan(body.doc);
+      return;
+    }
+    if (stage === "agents") {
+      designed.current = true;
+      setAgents([]);
+      setTab("agents");
+      await run("/api/agents/design", { projectId: project.id });
+      return;
+    }
+    setFiles([]);
+    setTab("preview");
+    setMobilePane("canvas");
+    await run("/api/generate", { projectId: project.id, mode: "build" });
+  }
+
   async function approve(url: string, next: Stage) {
     const response = await fetch(url, {
       method: "POST",
@@ -347,6 +374,9 @@ export function WorkspaceShell({
         </a>
         <Button type="button" variant="outline" size="sm" onClick={() => setShareOpen(true)}>
           <Share className="size-4" /> Share
+        </Button>
+        <Button type="button" variant="outline" size="sm" disabled={streaming} onClick={() => void regenerate()}>
+          {regenerateLabel}
         </Button>
         <Button type="button" size="sm" disabled={primary.disabled} onClick={primary.action}>
           {primary.label}
