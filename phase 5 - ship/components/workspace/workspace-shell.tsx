@@ -597,7 +597,9 @@ export function WorkspaceShell({
             : runtimeStatus === "ready"
               ? "Preview ready"
               : runtimeStatus === "installing"
-                ? "Installing packages"
+                ? files.length > 0
+                  ? "Preview ready"
+                  : "Installing packages"
                 : runtimeStatus === "error"
                   ? "Preview error"
                   : stage === "plan"

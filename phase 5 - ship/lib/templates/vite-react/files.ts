@@ -24,15 +24,25 @@ declare namespace JSX {
 }
 `;
 
-function blockKind(name: string): "hero" | "grid" | "products" | "quotes" | "footer" | "section" | "skip" {
-  const value = name.toLowerCase();
-  if (value === "header") return "skip";
-  if (value.includes("hero") || value.includes("banner") || value.includes("prompt")) return "hero";
-  if (value.includes("categor") || value.includes("grid") || value.includes("list")) return "grid";
-  if (value.includes("product") || value.includes("feature") || value.includes("carousel") || value.includes("deal")) return "products";
-  if (value.includes("testimonial") || value.includes("quote") || value.includes("review")) return "quotes";
-  if (value.includes("footer")) return "footer";
-  return "section";
+function humanize(name: string) {
+  return name.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[-_]/g, " ");
+}
+
+function appModel(plan: PlanDoc) {
+  const names = plan.screens.flatMap((screen) => screen.components);
+  const searchName = names.find((name) => /search|query|prompt|ask|input|bar/i.test(name)) ?? "Search";
+  const listName = names.find((name) => /list|question|card|result|feed|recent|grid|product/i.test(name)) ?? "Results";
+  const tags = ["Recent", "Popular", "Saved", "Pinned"];
+  const journey = plan.userJourney.filter((step) => step.trim());
+  const items = [
+    ...journey.map((step, index) => ({ title: step, detail: plan.summary, tag: tags[index % tags.length] })),
+    ...plan.agents.map((agent) => ({ title: agent.name, detail: agent.role, tag: "Agent" })),
+    ...plan.screens.map((screen) => ({ title: screen.name, detail: screen.purpose, tag: "Screen" })),
+  ].slice(0, 8);
+  return {
+    search: { label: humanize(searchName), placeholder: `Search ${plan.title}` },
+    sections: [{ title: humanize(listName), items }],
+  };
 }
 
 export function templateFiles(plan: PlanDoc): GeneratedFile[] {
@@ -40,14 +50,7 @@ export function templateFiles(plan: PlanDoc): GeneratedFile[] {
   const agentLines = plan.agents
     .map((agent) => `  { name: ${JSON.stringify(agent.name)}, role: ${JSON.stringify(agent.role)} },`)
     .join("\n");
-  const blocks = plan.screens.flatMap((screen) =>
-    screen.components
-      .map((name) => ({ name, purpose: screen.purpose, kind: blockKind(name) }))
-      .filter((block) => block.kind !== "skip"),
-  );
-  if (blocks.length === 0) {
-    for (const screen of plan.screens) blocks.push({ name: screen.name, purpose: screen.purpose, kind: "section" });
-  }
+  const model = appModel(plan);
   return [
     {
       path: "package.json",
@@ -214,85 +217,56 @@ export function collection(name: string) {
     },
     {
       path: "src/pages/Home.tsx",
-      content: `const blocks: { name: string; purpose: string; kind: "hero" | "grid" | "products" | "quotes" | "footer" | "section" }[] = ${JSON.stringify(blocks)};
+      content: `import { useState } from "react";
 
-function label(name: string) {
-  return name.replace(/([a-z])([A-Z])/g, "$1 $2");
-}
-
-const card = { border: "1px solid #e4e7ee", borderRadius: 8, padding: "0.9rem 1rem", background: "#fff" };
+const model = ${JSON.stringify(model)} as {
+  search: { label: string; placeholder: string };
+  sections: { title: string; items: { title: string; detail: string; tag: string }[] }[];
+};
 
 export function Home({ summary }: { summary: string }) {
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState(model.sections[0]?.items[0]?.title ?? "");
+  const [reply, setReply] = useState("");
+  const needle = query.trim().toLowerCase();
+  const active = model.sections.flatMap((section) => section.items).find((item) => item.title === selected);
   return (
     <div data-arch-src="src/pages/Home.tsx:1">
-      {blocks.map((block) => {
-        const title = label(block.name);
-        if (block.kind === "hero") {
+      <form onSubmit={(event: { preventDefault(): void }) => event.preventDefault()} style={{ margin: "0.5rem 0 1rem" }}>
+        <label htmlFor="search" style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, marginBottom: 6 }}>{model.search.label}</label>
+        <div style={{ display: "flex", gap: 8 }}>
+          <input id="search" type="search" value={query} placeholder={model.search.placeholder} onChange={(event: { target: { value: string } }) => setQuery(event.target.value)} style={{ flex: 1, border: "1px solid #d5d9e4", borderRadius: 12, padding: "0.75rem 0.9rem", fontSize: "1rem" }} />
+          <button type="submit" style={{ borderRadius: 12, padding: "0.75rem 1rem" }}>Search</button>
+        </div>
+      </form>
+      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(220px, 0.8fr)", gap: 16, alignItems: "start" }}>
+        {model.sections.map((section) => {
+          const items = section.items.filter((item) => !needle || (item.title + " " + item.detail + " " + item.tag).toLowerCase().includes(needle));
           return (
-            <section key={block.name} style={{ padding: "2rem 0 1.25rem" }}>
-              <p style={{ margin: 0, color: "var(--app-accent)", fontSize: "0.75rem", letterSpacing: "0.14em", textTransform: "uppercase" }}>{title}</p>
-              <h2 style={{ fontSize: "2.25rem", lineHeight: 1.15, margin: "0.45rem 0" }}>{title}</h2>
-              <p style={{ margin: "0 0 1rem", maxWidth: "40rem", fontSize: "1.05rem" }}>{summary}</p>
-              <a href="#featured" style={{ display: "inline-block", background: "var(--app-accent)", color: "white", textDecoration: "none", borderRadius: 6, padding: "0.55rem 0.9rem" }}>Get started</a>
-            </section>
-          );
-        }
-        if (block.kind === "grid") {
-          const items = ["For you", "Top rated", "New today", "Staff picks"];
-          return (
-            <section key={block.name} style={{ padding: "1.25rem 0", borderTop: "1px solid #e4e7ee" }}>
-              <h2 style={{ margin: "0 0 0.75rem" }}>{title}</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <section key={section.title}>
+              <h2 style={{ margin: "0 0 0.75rem", fontSize: "1.15rem" }}>{section.title}</h2>
+              <div style={{ maxHeight: 440, overflow: "auto", display: "grid", gap: 10, paddingRight: 4 }}>
                 {items.map((item) => (
-                  <article key={item} style={card}>
-                    <h3 style={{ margin: "0 0 0.25rem", fontSize: "1rem" }}>{item}</h3>
-                    <p style={{ margin: 0 }}>{block.purpose}</p>
-                  </article>
+                  <button key={item.title} type="button" onClick={() => { setSelected(item.title); setReply(""); }} style={{ textAlign: "left", background: selected === item.title ? "#eef0ff" : "#fff", color: "inherit", border: "1px solid #e3e6ee", borderLeft: "4px solid var(--app-accent)", borderRadius: 12, padding: "0.85rem 1rem" }}>
+                    <span style={{ color: "var(--app-accent)", fontSize: "0.72rem", fontWeight: 700 }}>{item.tag}</span>
+                    <strong style={{ display: "block", marginTop: 4 }}>{item.title}</strong>
+                    <span style={{ display: "block", marginTop: 4, color: "#5c6578", fontSize: "0.92rem" }}>{item.detail}</span>
+                  </button>
                 ))}
+                {items.length === 0 ? <p>No matches for “{query}”.</p> : null}
               </div>
             </section>
           );
-        }
-        if (block.kind === "products") {
-          const items = ["Highlight", "Best seller", "Just in"];
-          return (
-            <section id="featured" key={block.name} style={{ padding: "1.25rem 0", borderTop: "1px solid #e4e7ee" }}>
-              <h2 style={{ margin: "0 0 0.75rem" }}>{title}</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
-                {items.map((item) => (
-                  <article key={item} style={card}>
-                    <div style={{ height: 72, borderRadius: 6, background: "#eef0f6", marginBottom: 8 }} />
-                    <h3 style={{ margin: 0, fontSize: "1rem" }}>{item}</h3>
-                  </article>
-                ))}
-              </div>
-            </section>
-          );
-        }
-        if (block.kind === "quotes") {
-          return (
-            <section key={block.name} style={{ padding: "1.25rem 0", borderTop: "1px solid #e4e7ee" }}>
-              <h2 style={{ margin: "0 0 0.75rem" }}>{title}</h2>
-              <blockquote style={{ margin: 0, ...card }}>
-                <p style={{ margin: 0 }}>{block.purpose}</p>
-              </blockquote>
-            </section>
-          );
-        }
-        if (block.kind === "footer") {
-          return (
-            <footer key={block.name} style={{ padding: "1.5rem 0 0.25rem", borderTop: "1px solid #e4e7ee" }}>
-              <p style={{ margin: 0 }}>{title}</p>
-            </footer>
-          );
-        }
-        return (
-          <section key={block.name} style={{ padding: "1.25rem 0", borderTop: "1px solid #e4e7ee" }}>
-            <h2 style={{ margin: "0 0 0.35rem" }}>{title}</h2>
-            <p style={{ margin: 0 }}>{block.purpose}</p>
-          </section>
-        );
-      })}
+        })}
+        <aside style={{ position: "sticky", top: 12, background: "#f4f6fb", borderRadius: 16, padding: "1rem 1.1rem" }}>
+          <p style={{ margin: 0, color: "var(--app-accent)", fontSize: "0.75rem", fontWeight: 700 }}>Selected</p>
+          <h2 style={{ margin: "0.35rem 0", fontSize: "1.2rem" }}>{active?.title ?? "Choose a card"}</h2>
+          <p style={{ color: "#5c6578" }}>{active?.detail ?? summary}</p>
+          <p data-arch-note="summary">{summary}</p>
+          {reply ? <p style={{ background: "#fff", borderRadius: 10, padding: "0.75rem" }}>{reply}</p> : null}
+          <button type="button" onClick={() => setReply("Answer drafted for " + (active?.title ?? "this item") + ".")}>Ask the agent</button>
+        </aside>
+      </div>
     </div>
   );
 }
