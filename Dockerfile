@@ -31,7 +31,9 @@ RUN pnpm --filter architect-2 build
 
 FROM node:22-bookworm-slim AS runner
 
-RUN useradd -m -u 1000 user
+# The Node image already owns uid 1000 as `node`. Hugging Face requires the name `user`.
+RUN usermod -l user -d /home/user -m node \
+ && groupmod -n user node
 
 WORKDIR /app
 ENV NODE_ENV=production \
