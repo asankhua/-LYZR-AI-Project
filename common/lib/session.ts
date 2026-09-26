@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { ensureDemoProfile, getDemoProfile, setDemoMode } from "@/lib/demo/store";
+import { ensureDemoProfile, setDemoMode } from "@/lib/demo/store";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
 import type { Mode, SessionUser } from "@/lib/types";
@@ -11,7 +11,7 @@ export async function getSession(): Promise<SessionUser | null> {
   const cookieStore = await cookies();
   const id = cookieStore.get(DEMO_COOKIE)?.value;
   if (!id) return null;
-  return getDemoProfile(id);
+  return ensureDemoProfile(id);
 }
 
 export async function startDemoSession(): Promise<string> {

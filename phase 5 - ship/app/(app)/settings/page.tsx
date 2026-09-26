@@ -1,9 +1,7 @@
 import { SettingsScreen } from "@/components/settings/settings-screen";
-import { getSession } from "@/lib/session";
-import { redirect } from "next/navigation";
+import { requireUser } from "@/lib/login-redirect";
 
 export default async function SettingsPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
+  const session = await requireUser();
   return <SettingsScreen name={session.fullName} mode={session.mode} />;
 }

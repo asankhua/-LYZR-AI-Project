@@ -1,14 +1,22 @@
 import { redirect } from "next/navigation";
 import { seedGuestProject } from "@/lib/projects";
 import { getSession, startDemoSession } from "@/lib/session";
+import { safeNext } from "@/lib/ship/guard";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
 
-export async function GET() {
+function afterTry(request: Request) {
+  const next = safeNext(new URL(request.url).searchParams.get("next"));
+  if (!next || next === "/try" || next.startsWith("/try?") || next.startsWith("/login") || next.startsWith("/auth")) return "/home";
+  return next;
+}
+
+export async function GET(request: Request) {
+  const destination = afterTry(request);
   if (!isSupabaseConfigured()) {
     const id = await startDemoSession();
     await seedGuestProject(id);
-    redirect("/home");
+    redirect(destination);
   }
 
   const supabase = await createClient();
@@ -20,5 +28,5 @@ export async function GET() {
   const session = await getSession();
   if (!session) redirect("/login?error=guest");
   await seedGuestProject(session.id);
-  redirect("/home");
+  redirect(destination);
 }

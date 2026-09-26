@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { QRCodeSVG } from "qrcode.react";
 import { toast } from "sonner";
 import { runProductionBuild } from "@/lib/runtime/webcontainer";
@@ -17,6 +17,7 @@ const steps = ["Address", "Options", "Confirm"];
 
 export function DeployWizard({ project, guest, initialKey }: { project: Project; guest: boolean; initialKey: string }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [step, setStep] = useState(0);
   const [subdomain, setSubdomain] = useState("");
   const [available, setAvailable] = useState<boolean | null>(null);
@@ -280,7 +281,7 @@ export function DeployWizard({ project, guest, initialKey }: { project: Project;
                 </Button>
               ) : guest ? (
                 <Button asChild>
-                  <a href="/login">Sign up to connect</a>
+                  <a href={`/login?next=${encodeURIComponent(pathname || `/p/${project.id}/deploy`)}`}>Sign up to connect</a>
                 </Button>
               ) : (
                 <Button type="button" disabled={busy || available === false} onClick={() => void deploy()}>

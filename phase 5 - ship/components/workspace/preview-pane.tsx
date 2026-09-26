@@ -146,7 +146,17 @@ export function PreviewPane({
             {item}
           </button>
         ))}
-        <button type="button" className="rounded-full px-2 py-1 text-text-muted" onClick={() => iframeRef.current?.contentWindow?.location.reload()}>
+        <button
+          type="button"
+          className="rounded-full px-2 py-1 text-text-muted"
+          onClick={() => {
+            const frame = iframeRef.current;
+            if (!frame) return;
+            const doc = frame.srcdoc;
+            frame.srcdoc = "";
+            frame.srcdoc = doc;
+          }}
+        >
           Refresh
         </button>
         <button
@@ -181,6 +191,7 @@ export function PreviewPane({
             ref={iframeRef}
             title="App preview"
             srcDoc={prototype}
+            sandbox="allow-scripts"
             className="h-full border-0 bg-surface"
             style={{ width: widths[device] }}
           />

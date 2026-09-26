@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ type GitState = {
 };
 
 export function GitPanel({ projectId, guest }: { projectId: string; guest: boolean }) {
+  const pathname = usePathname();
   const [state, setState] = useState<GitState | null>(null);
   const [branches, setBranches] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -110,7 +112,7 @@ export function GitPanel({ projectId, guest }: { projectId: string; guest: boole
           <div className="mt-4">
             {guest ? (
               <Button asChild variant="outline">
-                <a href="/login">Sign up to connect</a>
+                <a href={`/login?next=${encodeURIComponent(pathname || `/p/${projectId}`)}`}>Sign up to connect</a>
               </Button>
             ) : (
               <Button type="button" variant="outline" disabled={busy} onClick={() => void connect()}>

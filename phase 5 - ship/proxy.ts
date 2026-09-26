@@ -5,14 +5,20 @@ const PUBLIC_PATHS = ["/", "/login", "/try", "/auth/callback"];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (isPublic(pathname) || isAsset(pathname)) return NextResponse.next();
+  request.headers.set("x-architect-path", `${pathname}${request.nextUrl.search}`);
+  if (isPublic(pathname) || isAsset(pathname)) return NextResponse.next({ request });
 
   const configured =
     process.env.ARCHITECT_AUTH !== "off" &&
     Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
 
   if (!configured) {
-    if (request.cookies.get("architect_demo_user")?.value) return isolate(NextResponse.next(), pathname);
+    if (request.cookies.get("architect_demo_user")?.value) return isolate(NextResponse.next({ request }), pathname);
+    if (process.env.ARCHITECT_AUTH === "off") {
+      const dest = new URL("/try", request.url);
+      dest.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
+      return NextResponse.redirect(dest);
+    }
     return NextResponse.redirect(new URL("/login", request.url));
   }
 

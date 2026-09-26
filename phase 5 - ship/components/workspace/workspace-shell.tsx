@@ -264,7 +264,7 @@ export function WorkspaceShell({
         : stage === "agents"
           ? { label: "Approve agents", disabled: agents.length === 0, action: () => void approve("/api/agents/approve", "build") }
           : files.length > 0
-            ? { label: "Deploy", disabled: false, action: () => router.push(`/p/${project.id}/deploy`) }
+            ? { label: "Deploy", disabled: false, action: () => window.location.assign(`/p/${project.id}/deploy`) }
             : {
                 label: "Build app",
                 disabled: false,

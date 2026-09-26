@@ -28,9 +28,11 @@ export function Button({
   variant,
   size,
   asChild = false,
+  type,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "button";
-  return <Comp className={cn(buttonVariants({ variant, size }), className)} {...props} />;
+  const classNames = cn(buttonVariants({ variant, size }), className);
+  if (asChild) return <Slot className={classNames} {...props} />;
+  return <button type={type ?? "button"} className={classNames} {...props} />;
 }

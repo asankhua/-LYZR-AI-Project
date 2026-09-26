@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { requireUser } from "@/lib/login-redirect";
 import { HistoryView } from "@/components/workspace/history-view";
 import { getProject } from "@/lib/projects";
 import { listFiles, listSnapshots } from "@/lib/records";
-import { getSession } from "@/lib/session";
 
 export default async function HistoryPage({ params }: { params: Promise<{ id: string }> }) {
-  const session = await getSession();
-  if (!session) redirect("/login");
+  const session = await requireUser();
   const { id } = await params;
   const project = await getProject(session.id, id);
   if (!project) notFound();

@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,6 @@ import { templates } from "@/lib/home/seed";
 const categories = ["All", "Support", "Sales", "Ops"];
 
 export default function TemplatesPage() {
-  const router = useRouter();
   const [category, setCategory] = useState("All");
   const [pending, setPending] = useState("");
   const visible = templates.filter((template) => category === "All" || template.name.toLowerCase().includes(category.toLowerCase()) || category === "Ops");
@@ -27,7 +25,7 @@ export default function TemplatesPage() {
       return;
     }
     const body = (await response.json()) as { id: string };
-    router.push(`/p/${body.id}`);
+    window.location.assign(`/p/${body.id}`);
   }
 
   return (

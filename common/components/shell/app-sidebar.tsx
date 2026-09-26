@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { setMode, signOut } from "@/lib/actions";
 import type { Mode } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,7 @@ const links = [
 
 export function AppSidebar({ mode, name }: { mode: Mode; name: string | null }) {
   const pathname = usePathname();
+  const [accountOpen, setAccountOpen] = useState(false);
   return (
     <aside className="fixed inset-y-0 left-0 z-30 flex w-16 flex-col items-center justify-between border-r border-border bg-surface py-3 pb-14">
       <div className="flex flex-col items-center gap-3">
@@ -77,15 +79,28 @@ export function AppSidebar({ mode, name }: { mode: Mode; name: string | null }) 
             </span>
           </button>
         </form>
-        <form action={signOut}>
+        <div className="relative">
           <button
-            type="submit"
-            aria-label={`Account menu for ${name ?? "you"}. Sign out`}
+            type="button"
+            aria-expanded={accountOpen}
+            aria-label={`Account menu for ${name ?? "you"}`}
             className="flex size-8 items-center justify-center rounded-full border border-border bg-surface-2 text-xs font-medium text-text"
+            onClick={() => setAccountOpen((open) => !open)}
           >
             {(name ?? "G").slice(0, 1).toUpperCase()}
           </button>
-        </form>
+          {accountOpen ? (
+            <div className="absolute bottom-0 left-12 z-40 w-44 rounded-md border border-border bg-surface p-3 shadow-card">
+              <p className="text-sm font-medium">{name ?? "Guest"}</p>
+              <p className="mt-1 text-xs text-text-muted">Trying Architect</p>
+              <form action={signOut} className="mt-3">
+                <button type="submit" className="text-sm text-accent">
+                  Sign out
+                </button>
+              </form>
+            </div>
+          ) : null}
+        </div>
       </div>
     </aside>
   );

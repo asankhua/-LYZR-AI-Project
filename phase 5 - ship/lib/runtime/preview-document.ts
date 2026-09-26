@@ -149,7 +149,7 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
       <h1>${escapeHtml(title)}</h1>
       <div class="agents">${agentRow}</div>
     </div>
-    <form class="search" id="search-form">
+    <form class="search" id="search-form" action="#" onsubmit="event.preventDefault(); return false;">
       <label for="q">${escapeHtml(model.search.label)}</label>
       <div class="search-row">
         <input id="q" type="search" placeholder="${escapeHtml(model.search.placeholder)}" autocomplete="off" />

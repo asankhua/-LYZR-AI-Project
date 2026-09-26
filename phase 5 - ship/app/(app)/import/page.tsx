@@ -1,9 +1,7 @@
-import { redirect } from "next/navigation";
 import { ImportScreen } from "@/components/import/import-screen";
-import { getSession } from "@/lib/session";
+import { requireUser } from "@/lib/login-redirect";
 
 export default async function ImportPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
+  const session = await requireUser();
   return <ImportScreen guest={session.isAnonymous} />;
 }

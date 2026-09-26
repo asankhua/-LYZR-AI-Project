@@ -27,6 +27,10 @@ export function CommandPalette({
   const router = useRouter();
   function go(href: string) {
     onOpenChange(false);
+    if (href.startsWith("/p/")) {
+      window.location.assign(href);
+      return;
+    }
     router.push(href);
   }
   return (

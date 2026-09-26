@@ -1,13 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { marketplaceApps } from "@/lib/marketplace/catalog";
 
 export default function MarketplacePage() {
-  const router = useRouter();
   const [pending, setPending] = useState("");
 
   async function clone(id: string) {
@@ -19,7 +17,7 @@ export default function MarketplacePage() {
       return;
     }
     const body = (await response.json()) as { projectId: string };
-    router.push(`/p/${body.projectId}`);
+    window.location.assign(`/p/${body.projectId}`);
   }
 
   return (

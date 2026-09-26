@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { parseGithubRepo } from "@/lib/github/filter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,7 +12,7 @@ type Repo = { fullName: string; private: boolean; defaultBranch: string; descrip
 const steps = ["Fetching files", "Detecting framework", "Writing plan", "Starting preview"];
 
 export function ImportScreen({ guest }: { guest: boolean }) {
-  const router = useRouter();
+  const pathname = usePathname();
   const [source, setSource] = useState<"github" | "zip">("github");
   const [repos, setRepos] = useState<Repo[] | null>(null);
   const [repo, setRepo] = useState<Repo | null>(null);
@@ -73,7 +73,7 @@ export function ImportScreen({ guest }: { guest: boolean }) {
       setProgress(step);
       await new Promise((resolve) => setTimeout(resolve, 250));
     }
-    router.push(`/p/${body.projectId}`);
+    window.location.assign(`/p/${body.projectId}`);
   }
 
   const pasted = parseGithubRepo(manual);
@@ -130,7 +130,7 @@ export function ImportScreen({ guest }: { guest: boolean }) {
               <h2 className="text-base font-medium">Sign up to connect</h2>
               <p className="mt-1 text-sm text-text-muted">Connecting GitHub lists your private repositories. A public URL or a zip still imports while you are trying Architect.</p>
               <Button asChild variant="outline" className="mt-3">
-                <a href="/login">Sign up to connect</a>
+                <a href={`/login?next=${encodeURIComponent(pathname || "/import")}`}>Sign up to connect</a>
               </Button>
             </Card>
           ) : repos === null ? (

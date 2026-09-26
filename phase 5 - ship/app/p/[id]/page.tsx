@@ -1,13 +1,12 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { requireUser } from "@/lib/login-redirect";
 import { WorkspaceShell } from "@/components/workspace/workspace-shell";
 import { getProject, listMessages } from "@/lib/projects";
 import { getPlan, listAgents, listFiles } from "@/lib/records";
-import { getSession } from "@/lib/session";
 import { getShipMeta } from "@/lib/ship/data";
 
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
-  const session = await getSession();
-  if (!session) redirect("/login");
+  const session = await requireUser();
   const { id } = await params;
   const project = await getProject(session.id, id);
   if (!project) notFound();

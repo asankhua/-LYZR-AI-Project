@@ -1,15 +1,19 @@
 import { redirect } from "next/navigation";
 import { Logo } from "@/components/logo";
 import { LoginPanel } from "@/components/auth/login-panel";
+import { safeNext } from "@/lib/ship/guard";
 import { isAuthDisabled } from "@/lib/supabase/env";
 
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ sent?: string; error?: string; claim?: string }>;
+  searchParams: Promise<{ sent?: string; error?: string; claim?: string; next?: string }>;
 }) {
   const params = await searchParams;
-  if (isAuthDisabled()) redirect("/try");
+  if (isAuthDisabled()) {
+    const next = safeNext(params.next);
+    redirect(next ? `/try?next=${encodeURIComponent(next)}` : "/try");
+  }
   return (
     <main className="grid min-h-screen lg:grid-cols-2">
       <section className="hidden flex-col justify-between bg-accent-soft p-10 pb-16 lg:flex">
