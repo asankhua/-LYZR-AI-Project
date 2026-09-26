@@ -62,7 +62,7 @@ export function HomeScreen({ name, projects, mode }: { name: string | null; proj
     const response = await fetch("/api/projects", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ prompt: value }),
+      body: JSON.stringify({ prompt: value, theme }),
     });
     setPending(false);
     if (!response.ok) {

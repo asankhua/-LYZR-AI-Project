@@ -57,6 +57,15 @@ export type DemoStore = {
   publicHits: PublicHit[];
   env: { projectId: string; key: string; value: string }[];
   knowledge: { id: string; userId: string; name: string; text: string }[];
+  preferences: PreferenceRow[];
+  projectThemes: { projectId: string; theme: string }[];
+};
+
+type PreferenceRow = {
+  userId: string;
+  keys: { provider: "groq" | "openai" | "anthropic"; encrypted: string; last4: string }[];
+  integrations: string[];
+  mcp: { id: string; name: string; url: string }[];
 };
 
 const filePath = path.join(process.cwd(), ".data", "store.json");
@@ -78,6 +87,8 @@ const empty: DemoStore = {
   publicHits: [],
   env: [],
   knowledge: [],
+  preferences: [],
+  projectThemes: [],
 };
 
 let queue: Promise<unknown> = Promise.resolve();
@@ -107,6 +118,8 @@ function hydrate(raw: string): DemoStore {
     publicHits: parsed.publicHits ?? [],
     env: parsed.env ?? [],
     knowledge: parsed.knowledge ?? [],
+    preferences: parsed.preferences ?? [],
+    projectThemes: parsed.projectThemes ?? [],
     snapshots: (parsed.snapshots ?? []).map((snapshot) => ({
       ...snapshot,
       healthy: snapshot.healthy ?? false,
@@ -199,6 +212,37 @@ export function getDemoProfile(id: string): Promise<SessionUser | null> {
   });
 }
 
+export function setDemoName(id: string, fullName: string): Promise<void> {
+  return update((store) => {
+    const profile = store.profiles.find((row) => row.id === id);
+    if (profile) profile.fullName = fullName;
+  });
+}
+
+export function getDemoPreferences(userId: string): Promise<PreferenceRow> {
+  return update((store) => store.preferences.find((row) => row.userId === userId) ?? { userId, keys: [], integrations: [], mcp: [] });
+}
+
+export function saveDemoPreferences(row: PreferenceRow): Promise<void> {
+  return update((store) => {
+    const index = store.preferences.findIndex((item) => item.userId === row.userId);
+    if (index === -1) store.preferences.push(row);
+    else store.preferences[index] = row;
+  });
+}
+
+export function setDemoProjectTheme(projectId: string, theme: string): Promise<void> {
+  return update((store) => {
+    const index = store.projectThemes.findIndex((item) => item.projectId === projectId);
+    if (index === -1) store.projectThemes.push({ projectId, theme });
+    else store.projectThemes[index] = { projectId, theme };
+  });
+}
+
+export function getDemoProjectTheme(projectId: string): Promise<string | null> {
+  return update((store) => store.projectThemes.find((item) => item.projectId === projectId)?.theme ?? null);
+}
+
 export function setDemoMode(id: string, mode: Mode): Promise<void> {
   return update((store) => {
     const profile = store.profiles.find((row) => row.id === id);
@@ -218,6 +262,28 @@ export function getDemoProject(ownerId: string, id: string): Promise<Project | n
   return update((store) => {
     const project = store.projects.find((row) => row.id === id && row.ownerId === ownerId);
     return project ?? null;
+  });
+}
+
+export function deleteDemoProject(ownerId: string, projectId: string): Promise<boolean> {
+  return update((store) => {
+    const project = store.projects.find((row) => row.id === projectId && row.ownerId === ownerId);
+    if (!project) return false;
+    const keep = <T extends { projectId: string }>(rows: T[]) => rows.filter((row) => row.projectId !== projectId);
+    store.projects = store.projects.filter((row) => row.id !== projectId);
+    store.messages = keep(store.messages);
+    store.plans = keep(store.plans);
+    store.agents = keep(store.agents);
+    store.files = keep(store.files);
+    store.snapshots = keep(store.snapshots);
+    store.runs = keep(store.runs);
+    store.usage = store.usage.filter((row) => row.projectId !== projectId);
+    store.ship = keep(store.ship);
+    store.deployments = keep(store.deployments);
+    store.publicHits = keep(store.publicHits);
+    store.env = keep(store.env);
+    store.projectThemes = store.projectThemes.filter((row) => row.projectId !== projectId);
+    return true;
   });
 }
 

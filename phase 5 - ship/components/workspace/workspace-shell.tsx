@@ -372,6 +372,9 @@ export function WorkspaceShell({
         <a href={`/p/${project.id}/history`} className="text-sm text-text-muted">
           History
         </a>
+        <a href={`/p/${project.id}/settings`} className="text-sm text-text-muted">
+          Settings
+        </a>
         <Button type="button" variant="outline" size="sm" onClick={() => setShareOpen(true)}>
           <Share className="size-4" /> Share
         </Button>

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { templateFiles } from "@/lib/templates/vite-react/files";
+import type { ThemePresetId } from "@/lib/templates/themes";
 import type { AgentSpec, ChangePlan, PlanDoc } from "@/lib/types";
 import { projectNameFromPrompt } from "@/lib/utils";
 
@@ -93,8 +94,8 @@ export function draftChangePlan(instruction: string, paths: string[]): ChangePla
   };
 }
 
-export function filesForPlan(plan: PlanDoc): { path: string; content: string }[] {
-  return templateFiles(plan);
+export function filesForPlan(plan: PlanDoc, theme?: ThemePresetId): { path: string; content: string }[] {
+  return templateFiles(plan, theme);
 }
 
 export function sha1(content: string): string {

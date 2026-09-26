@@ -11,6 +11,12 @@ export const themePresets = {
 
 export type ThemePresetId = keyof typeof themePresets;
 
+export function themeForTitle(title: string): ThemePresetId {
+  const ids = Object.keys(themePresets) as ThemePresetId[];
+  const index = [...title].reduce((sum, char) => sum + char.charCodeAt(0), 0) % ids.length;
+  return ids[index] ?? "minimal";
+}
+
 export function themeCss(preset: ThemePresetId = "minimal"): string {
   const theme = themePresets[preset];
   return `:root {

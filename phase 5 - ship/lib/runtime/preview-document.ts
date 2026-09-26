@@ -73,6 +73,45 @@ function readJsonValue(source: string, name: string): unknown {
   return null;
 }
 
+export function sampleRecords(title: string): Item[] {
+  const text = title.toLowerCase();
+  const packs: { test: RegExp; items: Item[] }[] = [
+    {
+      test: /book|read|library|store/,
+      items: [
+        { title: "Staff picks", detail: "Four titles the shop wants on the front table this week.", tag: "Shelf" },
+        { title: "New this week", detail: "Arrivals, with author, price, and a one-line reason to open it.", tag: "New" },
+        { title: "Reading list", detail: "A short list a customer can save and come back to.", tag: "Saved" },
+      ],
+    },
+    {
+      test: /travel|trip|itinerary|flight|hotel/,
+      items: [
+        { title: "Weekend in Lisbon", detail: "Flights, two neighborhoods, and a dinner that does not need a booking.", tag: "Trip" },
+        { title: "Split the hotel", detail: "Three people, one room rate, and who still owes what.", tag: "Cost" },
+        { title: "Rainy day swap", detail: "The outdoor stop replaced with a museum that is open late.", tag: "Change" },
+      ],
+    },
+    {
+      test: /receipt|invoice|shop|order|finance/,
+      items: [
+        { title: "Today's receipts", detail: "Eight photos, three missing a total, one that looks like a duplicate.", tag: "Inbox" },
+        { title: "Needs a category", detail: "Lunch, supplies, and a charge that does not match a vendor.", tag: "Review" },
+        { title: "Ready to export", detail: "The rows a bookkeeper can download without retyping.", tag: "Export" },
+      ],
+    },
+    {
+      test: /candidate|hire|recruit|resume/,
+      items: [
+        { title: "Screening queue", detail: "Twelve resumes, ranked by the role's must-have skills.", tag: "Queue" },
+        { title: "Interview notes", detail: "What each interviewer wrote, in one place.", tag: "Notes" },
+        { title: "Next conversation", detail: "Who to call, and the one question still unanswered.", tag: "Next" },
+      ],
+    },
+  ];
+  return packs.find((pack) => pack.test.test(text))?.items ?? [];
+}
+
 function label(name: string) {
   return name.replace(/([a-z])([A-Z])/g, "$1 $2");
 }
@@ -134,17 +173,19 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
   const agentRow = agents
     .map((agent) => `<span class="agent">${escapeHtml(agent.name)} · ${escapeHtml(agent.role)}</span>`)
     .join("");
-  const cards = model.sections.flatMap((section) =>
-    section.items.map(
-      (item, index) => `<button type="button" class="card tone-${index % 4}" data-card="${escapeHtml(`${item.title} ${item.detail} ${item.tag}`)}" data-title="${escapeHtml(item.title)}" data-detail="${escapeHtml(item.detail)}">
-        <span class="tag">${escapeHtml(item.tag)}</span>
-        <strong>${escapeHtml(item.title)}</strong>
-        <span class="muted">${escapeHtml(item.detail)}</span>
-      </button>`,
-    ),
-  );
-  const sectionTitle = escapeHtml(model.sections[0]?.title || "Results");
-  return `<header class="top">
+  const recordCount = model.sections.reduce((sum, section) => sum + section.items.length, 0);
+  return `<nav>
+    <button type="button" class="on" data-view="overview">Overview</button>
+    <button type="button" data-view="browse">Browse</button>
+    <button type="button" data-view="agents">Agents</button>
+  </nav>
+  <div class="stats">
+    <article class="stat"><span>Records</span><strong>${recordCount}</strong></article>
+    <article class="stat"><span>Agents</span><strong>${agents.length}</strong></article>
+    <article class="stat"><span>Sections</span><strong>${model.sections.length}</strong></article>
+  </div>
+  <div data-pane="overview">
+  <header class="top">
     <div>
       <h1>${escapeHtml(title)}</h1>
       <div class="agents">${agentRow}</div>
@@ -157,11 +198,27 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
       </div>
     </form>
   </header>
-  <div class="workspace">
-    <section>
-      <div class="section-head"><h2>${sectionTitle}</h2><span class="count" id="count"></span></div>
-      <div class="scroller" id="list">${cards.join("")}<p class="empty" id="empty" hidden>No matches.</p></div>
-    </section>
+  </div>
+  <div class="workspace" data-pane="browse">
+    <div>
+      ${model.sections
+        .map(
+          (section, sectionIndex) => `<section>
+        <div class="section-head"><h2>${escapeHtml(section.title)}</h2>${sectionIndex === 0 ? `<span class="count" id="count"></span>` : ""}</div>
+        <div class="scroller compact">${section.items
+          .map(
+            (item, index) => `<button type="button" class="card tone-${index % 4}" data-card="${escapeHtml(`${item.title} ${item.detail} ${item.tag}`)}" data-title="${escapeHtml(item.title)}" data-detail="${escapeHtml(item.detail)}">
+          <span class="tag">${escapeHtml(item.tag)}</span>
+          <strong>${escapeHtml(item.title)}</strong>
+          <span class="muted">${escapeHtml(item.detail)}</span>
+        </button>`,
+          )
+          .join("")}</div>
+      </section>`,
+        )
+        .join("")}
+      <p class="empty" id="empty" hidden>No matches.</p>
+    </div>
     <aside id="detail">
       <p class="kicker">Selected</p>
       <h2 id="detail-title"></h2>
@@ -170,6 +227,9 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
       <button type="button" id="ask">Ask the agent</button>
       <p data-arch-note="summary">${escapeHtml(summary)}</p>
     </aside>
+  </div>
+  <div data-pane="agents" hidden>
+    <div class="scroller">${agents.map((agent) => `<article class="card"><strong>${escapeHtml(agent.name)}</strong><span class="muted">${escapeHtml(agent.role)}</span></article>`).join("")}</div>
   </div>
   <script>
     const input = document.querySelector("#q");
@@ -191,12 +251,29 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
       cards.forEach((card) => { card.hidden = Boolean(query) && !String(card.dataset.card || "").toLowerCase().includes(query); });
       const shown = visibleCards();
       empty.hidden = shown.length > 0;
-      count.textContent = shown.length + " shown";
+      if (count) count.textContent = shown.length + " shown";
       if (shown.length && !shown.some((card) => card.classList.contains("on"))) select(shown[0]);
     }
     cards.forEach((card) => card.addEventListener("click", () => select(card)));
     input && input.addEventListener("input", applyFilter);
-    document.querySelector("#search-form")?.addEventListener("submit", (event) => event.preventDefault());
+    document.querySelector("#search-form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      show("browse");
+    });
+    function show(name) {
+      const agentsOn = name === "agents";
+      const overview = document.querySelector('[data-pane="overview"]');
+      const browse = document.querySelector('[data-pane="browse"]');
+      const agentsPane = document.querySelector('[data-pane="agents"]');
+      if (overview) overview.hidden = agentsOn;
+      if (browse) browse.hidden = agentsOn;
+      if (agentsPane) agentsPane.hidden = !agentsOn;
+      const stats = document.querySelector(".stats");
+      if (stats) stats.hidden = name !== "overview";
+      document.querySelectorAll('[data-pane="browse"] .scroller').forEach((node) => node.classList.toggle("compact", name === "overview"));
+      document.querySelectorAll("[data-view]").forEach((button) => button.classList.toggle("on", button.getAttribute("data-view") === name));
+    }
+    document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => show(button.getAttribute("data-view"))));
     document.querySelector("#ask")?.addEventListener("click", () => {
       reply.hidden = false;
       reply.textContent = "Answer drafted for " + (title.textContent || "this item") + ".";
@@ -214,7 +291,8 @@ function shell(theme: string, body: string) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     ${theme}
-    body { margin: 0; background: color-mix(in srgb, var(--app-bg, #fff) 82%, #e7eaf3); }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: color-mix(in srgb, var(--app-bg, #fff) 82%, #e7eaf3); color: var(--app-text, #1f2330); font-family: var(--app-font, Inter, sans-serif); }
     main { max-width: 72rem; margin: 0 auto; padding: 1.25rem; }
     h1, h2 { font-weight: 640; letter-spacing: -0.02em; }
     h1 { font-size: 1.45rem; margin: 0; }
@@ -225,12 +303,20 @@ function shell(theme: string, body: string) {
     .search label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
     .search-row { display: flex; gap: 8px; }
     .search input { flex: 1; border: 1px solid #d5d9e4; border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 1rem; background: #fff; }
+    nav { display: flex; gap: 8px; margin-bottom: 14px; }
+    nav button { background: #fff; color: inherit; border: 1px solid color-mix(in srgb, var(--app-accent, #4f46e5) 40%, white); border-radius: 999px; padding: 0.35rem 0.8rem; }
+    nav button.on { background: var(--app-accent, #4f46e5); color: #fff; }
+    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .stat { background: #fff; border: 1px solid #e3e6ee; border-radius: 12px; padding: 0.75rem 0.9rem; }
+    .stat span { display: block; color: #5c6578; font-size: 0.75rem; }
     .search button, #ask { border: 0; border-radius: 12px; background: var(--app-accent, #4f46e5); color: white; padding: 0.8rem 1rem; font-weight: 650; }
     .workspace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.85fr); gap: 16px; align-items: start; }
     .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
     .count { color: #6b7280; font-size: 0.8rem; }
     .scroller { max-height: 460px; overflow: auto; display: grid; gap: 10px; padding-right: 4px; }
-    .card { text-align: left; background: #fff; color: inherit; border: 1px solid #e3e6ee; border-left: 4px solid var(--app-accent, #4f46e5); border-radius: 12px; padding: 0.85rem 1rem; display: grid; gap: 4px; box-shadow: 0 1px 0 rgba(20, 24, 40, 0.04); }
+    .card, .stat, aside, .search input, nav button, .agent { color: #1c2130; }
+    .scroller.compact { max-height: 220px; }
+    .card { text-align: left; background: #fff; border: 1px solid #e3e6ee; border-left: 4px solid var(--app-accent, #4f46e5); border-radius: 12px; padding: 0.85rem 1rem; display: grid; gap: 4px; box-shadow: 0 1px 0 rgba(20, 24, 40, 0.04); }
     .card.on { background: color-mix(in srgb, var(--app-accent, #4f46e5) 10%, white); }
     .tone-1 { border-left-color: #0f9f6e; }
     .tone-2 { border-left-color: #d97706; }
@@ -272,5 +358,9 @@ export function previewDocument(files: { path: string; content: string }[]) {
   }
 
   const view = model ?? legacyModel(blocks, summary, agents, title);
+  const extra = sampleRecords(title).filter((item) => !view.sections.some((section) => section.items.some((row) => row.title === item.title)));
+  if (extra.length > 0 && view.sections[0]) {
+    view.sections[0] = { ...view.sections[0], items: [...extra, ...view.sections[0].items].slice(0, 8) };
+  }
   return shell(theme, screenHtml(view, title, summary, agents));
 }

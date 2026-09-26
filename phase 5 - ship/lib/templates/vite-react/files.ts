@@ -1,5 +1,6 @@
 import type { PlanDoc } from "@/lib/types";
-import { themeCss } from "@/lib/templates/themes";
+import { sampleRecords } from "@/lib/runtime/preview-document";
+import { themeCss, themeForTitle, type ThemePresetId } from "@/lib/templates/themes";
 
 export type GeneratedFile = { path: string; content: string };
 
@@ -34,18 +35,20 @@ function appModel(plan: PlanDoc) {
   const listName = names.find((name) => /list|question|card|result|feed|recent|grid|product/i.test(name)) ?? "Results";
   const tags = ["Recent", "Popular", "Saved", "Pinned"];
   const journey = plan.userJourney.filter((step) => step.trim());
-  const items = [
-    ...journey.map((step, index) => ({ title: step, detail: plan.summary, tag: tags[index % tags.length] })),
-    ...plan.agents.map((agent) => ({ title: agent.name, detail: agent.role, tag: "Agent" })),
-    ...plan.screens.map((screen) => ({ title: screen.name, detail: screen.purpose, tag: "Screen" })),
-  ].slice(0, 8);
+  const journeyItems = journey.map((step, index) => ({ title: step, detail: plan.summary, tag: tags[index % tags.length] ?? "Recent" }));
+  const agentItems = plan.agents.map((agent) => ({ title: agent.name, detail: agent.role, tag: "Agent" }));
+  const screenItems = plan.screens.map((screen) => ({ title: screen.name, detail: screen.purpose, tag: "Screen" }));
+  const primary = [...sampleRecords(plan.title), ...journeyItems, ...agentItems].slice(0, 8);
+  if (primary.length === 0) primary.push({ title: plan.title, detail: plan.summary, tag: "Recent" });
+  const sections = [{ title: humanize(listName), items: primary }];
+  if (screenItems.length > 0) sections.push({ title: "Screens", items: screenItems });
   return {
     search: { label: humanize(searchName), placeholder: `Search ${plan.title}` },
-    sections: [{ title: humanize(listName), items }],
+    sections,
   };
 }
 
-export function templateFiles(plan: PlanDoc): GeneratedFile[] {
+export function templateFiles(plan: PlanDoc, theme?: ThemePresetId): GeneratedFile[] {
   const title = plan.title.replace(/[<>&]/g, "");
   const agentLines = plan.agents
     .map((agent) => `  { name: ${JSON.stringify(agent.name)}, role: ${JSON.stringify(agent.role)} },`)
@@ -156,7 +159,7 @@ export default defineConfig({
 });
 `,
     },
-    { path: "src/theme.css", content: themeCss("minimal") },
+    { path: "src/theme.css", content: themeCss(theme ?? themeForTitle(title)) },
     { path: "src/shims.d.ts", content: shims },
     {
       path: "src/lib/agents.ts",
@@ -218,55 +221,97 @@ export function collection(name: string) {
     {
       path: "src/pages/Home.tsx",
       content: `import { useState } from "react";
+import { agents } from "../lib/agents";
 
 const model = ${JSON.stringify(model)} as {
   search: { label: string; placeholder: string };
   sections: { title: string; items: { title: string; detail: string; tag: string }[] }[];
 };
 
+type View = "overview" | "browse" | "agents";
+
 export function Home({ summary }: { summary: string }) {
+  const [view, setView] = useState("overview" as View);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(model.sections[0]?.items[0]?.title ?? "");
   const [reply, setReply] = useState("");
   const needle = query.trim().toLowerCase();
-  const active = model.sections.flatMap((section) => section.items).find((item) => item.title === selected);
+  const items = model.sections.flatMap((section) => section.items);
+  const visible = items.filter((item) => !needle || (item.title + " " + item.detail + " " + item.tag).toLowerCase().includes(needle));
+  const active = items.find((item) => item.title === selected) ?? visible[0];
+  const nav = [
+    ["overview", "Overview"],
+    ["browse", "Browse"],
+    ["agents", "Agents"],
+  ] as const;
   return (
     <div data-arch-src="src/pages/Home.tsx:1">
-      <form onSubmit={(event: { preventDefault(): void }) => event.preventDefault()} style={{ margin: "0.5rem 0 1rem" }}>
-        <label htmlFor="search" style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, marginBottom: 6 }}>{model.search.label}</label>
-        <div style={{ display: "flex", gap: 8 }}>
-          <input id="search" type="search" value={query} placeholder={model.search.placeholder} onChange={(event: { target: { value: string } }) => setQuery(event.target.value)} style={{ flex: 1, border: "1px solid #d5d9e4", borderRadius: 12, padding: "0.75rem 0.9rem", fontSize: "1rem" }} />
-          <button type="submit" style={{ borderRadius: 12, padding: "0.75rem 1rem" }}>Search</button>
+      <nav style={{ display: "flex", gap: 8, marginBottom: 16 }}>
+        {nav.map(([id, label]) => (
+          <button key={id} type="button" onClick={() => setView(id)} style={{ background: view === id ? "var(--app-accent)" : "transparent", color: view === id ? "#fff" : "inherit", border: "1px solid var(--app-accent)", borderRadius: 999, padding: "0.35rem 0.8rem" }}>{label}</button>
+        ))}
+      </nav>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 10, marginBottom: 16 }}>
+        <article style={{ border: "1px solid #e3e6ee", borderRadius: 12, padding: "0.75rem 0.9rem", background: "#fff" }}><p style={{ margin: 0, fontSize: 12, color: "#5c6578" }}>Records</p><strong>{items.length}</strong></article>
+        <article style={{ border: "1px solid #e3e6ee", borderRadius: 12, padding: "0.75rem 0.9rem", background: "#fff" }}><p style={{ margin: 0, fontSize: 12, color: "#5c6578" }}>Agents</p><strong>{agents.length}</strong></article>
+        <article style={{ border: "1px solid #e3e6ee", borderRadius: 12, padding: "0.75rem 0.9rem", background: "#fff" }}><p style={{ margin: 0, fontSize: 12, color: "#5c6578" }}>Showing</p><strong>{visible.length}</strong></article>
+      </div>
+      {view === "overview" ? (
+        <div>
+          <form onSubmit={(event: { preventDefault(): void }) => { event.preventDefault(); setView("browse"); }} style={{ marginBottom: 16 }}>
+            <label htmlFor="search" style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, marginBottom: 6 }}>{model.search.label}</label>
+            <div style={{ display: "flex", gap: 8 }}>
+              <input id="search" type="search" value={query} placeholder={model.search.placeholder} onChange={(event: { target: { value: string } }) => setQuery(event.target.value)} style={{ flex: 1, border: "1px solid #d5d9e4", borderRadius: 12, padding: "0.8rem 0.95rem", fontSize: "1rem", color: "#1c2130" }} />
+              <button type="submit">Search</button>
+            </div>
+            <p data-arch-note="summary" style={{ color: "#5c6578" }}>{summary}</p>
+          </form>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
+            {visible.slice(0, 4).map((item, index) => (
+              <button key={item.title} type="button" onClick={() => { setSelected(item.title); setView("browse"); }} style={{ textAlign: "left", background: "#fff", color: "#1c2130", border: "1px solid #e3e6ee", borderLeft: "4px solid " + (["var(--app-accent)", "#0f9f6e", "#d97706", "#db2777"][index % 4] ?? "var(--app-accent)"), borderRadius: 12, padding: "0.85rem 1rem" }}>
+                <span style={{ color: "var(--app-accent)", fontSize: "0.72rem", fontWeight: 700 }}>{item.tag}</span>
+                <strong style={{ display: "block", marginTop: 4 }}>{item.title}</strong>
+              </button>
+            ))}
+          </div>
         </div>
-      </form>
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(220px, 0.8fr)", gap: 16, alignItems: "start" }}>
-        {model.sections.map((section) => {
-          const items = section.items.filter((item) => !needle || (item.title + " " + item.detail + " " + item.tag).toLowerCase().includes(needle));
-          return (
+      ) : null}
+      {view === "browse" ? (
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(220px, 0.8fr)", gap: 16, alignItems: "start" }}>
+          {model.sections.map((section) => (
             <section key={section.title}>
               <h2 style={{ margin: "0 0 0.75rem", fontSize: "1.15rem" }}>{section.title}</h2>
-              <div style={{ maxHeight: 440, overflow: "auto", display: "grid", gap: 10, paddingRight: 4 }}>
-                {items.map((item) => (
-                  <button key={item.title} type="button" onClick={() => { setSelected(item.title); setReply(""); }} style={{ textAlign: "left", background: selected === item.title ? "#eef0ff" : "#fff", color: "inherit", border: "1px solid #e3e6ee", borderLeft: "4px solid var(--app-accent)", borderRadius: 12, padding: "0.85rem 1rem" }}>
+              <div style={{ maxHeight: 460, overflow: "auto", display: "grid", gap: 10 }}>
+                {visible.filter((item) => section.items.some((row) => row.title === item.title)).map((item, index) => (
+                  <button key={item.title} type="button" onClick={() => { setSelected(item.title); setReply(""); }} style={{ textAlign: "left", background: selected === item.title ? "#eef0ff" : "#fff", color: "inherit", border: "1px solid #e3e6ee", borderLeft: "4px solid " + ["var(--app-accent)", "#0f9f6e", "#d97706", "#db2777"][index % 4], borderRadius: 12, padding: "0.85rem 1rem" }}>
                     <span style={{ color: "var(--app-accent)", fontSize: "0.72rem", fontWeight: 700 }}>{item.tag}</span>
                     <strong style={{ display: "block", marginTop: 4 }}>{item.title}</strong>
                     <span style={{ display: "block", marginTop: 4, color: "#5c6578", fontSize: "0.92rem" }}>{item.detail}</span>
                   </button>
                 ))}
-                {items.length === 0 ? <p>No matches for “{query}”.</p> : null}
+                {visible.length === 0 ? <p>No matches for “{query}”.</p> : null}
               </div>
             </section>
-          );
-        })}
-        <aside style={{ position: "sticky", top: 12, background: "#f4f6fb", borderRadius: 16, padding: "1rem 1.1rem" }}>
-          <p style={{ margin: 0, color: "var(--app-accent)", fontSize: "0.75rem", fontWeight: 700 }}>Selected</p>
-          <h2 style={{ margin: "0.35rem 0", fontSize: "1.2rem" }}>{active?.title ?? "Choose a card"}</h2>
-          <p style={{ color: "#5c6578" }}>{active?.detail ?? summary}</p>
-          <p data-arch-note="summary">{summary}</p>
-          {reply ? <p style={{ background: "#fff", borderRadius: 10, padding: "0.75rem" }}>{reply}</p> : null}
-          <button type="button" onClick={() => setReply("Answer drafted for " + (active?.title ?? "this item") + ".")}>Ask the agent</button>
-        </aside>
-      </div>
+          ))}
+          <aside style={{ position: "sticky", top: 12, background: "#fff", border: "1px solid #e3e6ee", borderRadius: 16, padding: "1rem 1.1rem" }}>
+            <p style={{ margin: 0, color: "var(--app-accent)", fontSize: "0.75rem", fontWeight: 700 }}>Selected</p>
+            <h2 style={{ margin: "0.35rem 0", fontSize: "1.2rem" }}>{active?.title ?? "Choose a card"}</h2>
+            <p style={{ color: "#5c6578" }}>{active?.detail ?? summary}</p>
+            {reply ? <p style={{ background: "#f4f6fb", borderRadius: 10, padding: "0.75rem" }}>{reply}</p> : null}
+            <button type="button" onClick={() => setReply("Answer drafted for " + (active?.title ?? "this item") + ".")}>Ask the agent</button>
+          </aside>
+        </div>
+      ) : null}
+      {view === "agents" ? (
+        <div style={{ display: "grid", gap: 10 }}>
+          {agents.map((agent) => (
+            <article key={agent.name} style={{ background: "#fff", border: "1px solid #e3e6ee", borderRadius: 12, padding: "0.9rem 1rem" }}>
+              <strong>{agent.name}</strong>
+              <p style={{ margin: "0.35rem 0 0", color: "#5c6578" }}>{agent.role}</p>
+            </article>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

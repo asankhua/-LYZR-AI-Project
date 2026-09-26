@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { filesForPlan } from "@/lib/ai/draft";
+import { getDemoProjectTheme } from "@/lib/demo/store";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { themePresets, type ThemePresetId } from "@/lib/templates/themes";
 import { estimateTokens } from "@/lib/ai/limits";
 import { checkModels, MODELS } from "@/lib/ai/models";
 import { applyChange, repairFiles } from "@/lib/ai/repair";
@@ -60,7 +63,9 @@ export async function POST(request: Request) {
   } else if (parsed.data.mode === "change") {
     batches = [{ label: "Applying the change", files: applyChange(existing, parsed.data.message ?? plan.doc.summary) }];
   } else {
-    const files = filesForPlan(plan.doc);
+    const savedTheme = isSupabaseConfigured() ? null : await getDemoProjectTheme(project.id);
+    const theme = savedTheme && savedTheme in themePresets ? (savedTheme as ThemePresetId) : undefined;
+    const files = filesForPlan(plan.doc, theme);
     batches = previewBatches.map((batch) => ({
       label: batch.label,
       files: files.filter((file) => batch.paths.includes(file.path)),

@@ -1,5 +1,6 @@
 import {
   createDemoProject,
+  deleteDemoProject,
   getDemoProject,
   listDemoMessages,
   listDemoProjects,
@@ -56,15 +57,21 @@ export async function createProject(input: {
   ownerId: string;
   prompt: string;
   template?: string;
+  theme?: string;
 }): Promise<Project> {
   const name = projectNameFromPrompt(input.prompt);
   if (!isSupabaseConfigured()) {
-    return createDemoProject({
+    const project = await createDemoProject({
       ownerId: input.ownerId,
       name,
       description: input.prompt,
       template: input.template,
     });
+    if (input.theme) {
+      const { setDemoProjectTheme } = await import("@/lib/demo/store");
+      await setDemoProjectTheme(project.id, input.theme);
+    }
+    return project;
   }
   const supabase = await createClient();
   const { data, error } = await supabase
@@ -87,6 +94,17 @@ export async function createProject(input: {
     created_by: input.ownerId,
   });
   return toProject(data);
+}
+
+export async function deleteProject(ownerId: string, id: string): Promise<void> {
+  if (!isSupabaseConfigured()) {
+    const removed = await deleteDemoProject(ownerId, id);
+    if (!removed) throw new Error("Project not found");
+    return;
+  }
+  const supabase = await createClient();
+  const { error } = await supabase.from("projects").delete().eq("id", id).eq("owner_id", ownerId);
+  if (error) throw new Error(error.message);
 }
 
 export async function seedGuestProject(ownerId: string): Promise<void> {
