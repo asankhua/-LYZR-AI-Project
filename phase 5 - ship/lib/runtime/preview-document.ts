@@ -170,66 +170,94 @@ function asModel(value: unknown): AppModel | null {
 }
 
 function screenHtml(model: AppModel, title: string, summary: string, agents: AgentCard[]) {
-  const agentRow = agents
-    .map((agent) => `<span class="agent">${escapeHtml(agent.name)} · ${escapeHtml(agent.role)}</span>`)
+  const items = model.sections.flatMap((section) => section.items);
+  const recordCount = items.length;
+  const statuses = ["Live", "In review", "Draft", "Ready"];
+  const row = (item: Item, index: number) => `<button type="button" class="row tone-${index % 4}" data-card="${escapeHtml(`${item.title} ${item.detail} ${item.tag}`)}" data-title="${escapeHtml(item.title)}" data-detail="${escapeHtml(item.detail)}">
+    <strong>${escapeHtml(item.title)}</strong>
+    <span class="pill">${statuses[index % statuses.length]}</span>
+    <span class="tag">${escapeHtml(item.tag)}</span>
+    <span class="muted">${escapeHtml(item.detail)}</span>
+  </button>`;
+  const bars = items
+    .slice(0, 5)
+    .map((item, index) => {
+      const width = 42 + ((index * 13) % 50);
+      return `<div class="bar-row"><span>${escapeHtml(item.title)}</span><span class="track"><span class="fill" style="width:${width}%"></span></span></div>`;
+    })
     .join("");
-  const recordCount = model.sections.reduce((sum, section) => sum + section.items.length, 0);
-  return `<nav>
-    <button type="button" class="on" data-view="overview">Overview</button>
-    <button type="button" data-view="browse">Browse</button>
-    <button type="button" data-view="agents">Agents</button>
-  </nav>
-  <div class="stats">
-    <article class="stat"><span>Records</span><strong>${recordCount}</strong></article>
-    <article class="stat"><span>Agents</span><strong>${agents.length}</strong></article>
-    <article class="stat"><span>Sections</span><strong>${model.sections.length}</strong></article>
-  </div>
-  <div data-pane="overview">
-  <header class="top">
-    <div>
-      <h1>${escapeHtml(title)}</h1>
-      <div class="agents">${agentRow}</div>
-    </div>
-    <form class="search" id="search-form" action="#" onsubmit="event.preventDefault(); return false;">
-      <label for="q">${escapeHtml(model.search.label)}</label>
-      <div class="search-row">
-        <input id="q" type="search" placeholder="${escapeHtml(model.search.placeholder)}" autocomplete="off" />
-        <button type="submit">Search</button>
-      </div>
-    </form>
-  </header>
-  </div>
-  <div class="workspace" data-pane="browse">
-    <div>
-      ${model.sections
+  const tags = [...new Set(items.map((item) => item.tag))].slice(0, 4);
+  const board = tags
+    .map(
+      (tag) => `<section class="col"><h2>${escapeHtml(tag)}</h2>${items
+        .filter((item) => item.tag === tag)
         .map(
-          (section, sectionIndex) => `<section>
-        <div class="section-head"><h2>${escapeHtml(section.title)}</h2>${sectionIndex === 0 ? `<span class="count" id="count"></span>` : ""}</div>
-        <div class="scroller compact">${section.items
-          .map(
-            (item, index) => `<button type="button" class="card tone-${index % 4}" data-card="${escapeHtml(`${item.title} ${item.detail} ${item.tag}`)}" data-title="${escapeHtml(item.title)}" data-detail="${escapeHtml(item.detail)}">
-          <span class="tag">${escapeHtml(item.tag)}</span>
-          <strong>${escapeHtml(item.title)}</strong>
-          <span class="muted">${escapeHtml(item.detail)}</span>
-        </button>`,
-          )
-          .join("")}</div>
-      </section>`,
+          (item, index) => `<button type="button" class="card tone-${index % 4}" data-card="${escapeHtml(`${item.title} ${item.detail} ${item.tag}`)}" data-title="${escapeHtml(item.title)}" data-detail="${escapeHtml(item.detail)}"><span class="tag">${escapeHtml(item.tag)}</span><strong>${escapeHtml(item.title)}</strong><span class="muted">${escapeHtml(item.detail)}</span></button>`,
         )
-        .join("")}
-      <p class="empty" id="empty" hidden>No matches.</p>
+        .join("")}</section>`,
+    )
+    .join("");
+  return `<div class="app">
+  <div class="rail">
+    <p class="brand">${escapeHtml(title)}</p>
+    <nav>
+      <button type="button" class="on" data-view="overview">Dashboard</button>
+      <button type="button" data-view="browse">Records</button>
+      <button type="button" data-view="board">Board</button>
+      <button type="button" data-view="agents">Agents</button>
+    </nav>
+    <p class="rail-note" data-arch-note="summary">${escapeHtml(summary)}</p>
+  </div>
+  <div class="canvas">
+  <header class="bar">
+    <form class="search" id="search-form" action="#" onsubmit="event.preventDefault(); return false;">
+      <label class="sr" for="q">${escapeHtml(model.search.label)}</label>
+      <input id="q" type="search" placeholder="${escapeHtml(model.search.placeholder)}" autocomplete="off" />
+    </form>
+    <span class="live">Preview</span>
+  </header>
+  <div data-pane="overview">
+    <h1>${escapeHtml(title)}</h1>
+    <p class="lede">${escapeHtml(summary)}</p>
+    <div class="stats">
+      <article class="stat"><span>Records</span><strong>${recordCount}</strong></article>
+      <article class="stat"><span>Agents</span><strong>${agents.length}</strong></article>
+      <article class="stat"><span>Screens</span><strong>${model.sections.length}</strong></article>
+      <article class="stat"><span>Ready</span><strong>${Math.max(1, Math.ceil(recordCount / 2))}</strong></article>
     </div>
+    <div class="split">
+      <section class="panel">
+        <div class="section-head"><h2>${escapeHtml(model.sections[0]?.title || "Records")}</h2><span class="count" id="count"></span></div>
+        <div class="table">${items.slice(0, 6).map(row).join("")}<p class="empty" id="empty" hidden>No matches.</p></div>
+      </section>
+      <section class="panel">
+        <h2>Activity</h2>
+        <div class="bars">${bars}</div>
+      </section>
+    </div>
+  </div>
+  <div class="workspace" data-pane="browse" hidden>
+    <section class="panel">
+      <div class="section-head"><h2>${escapeHtml(model.sections[0]?.title || "Records")}</h2></div>
+      <div class="table">${items.map(row).join("")}</div>
+    </section>
     <aside id="detail">
       <p class="kicker">Selected</p>
       <h2 id="detail-title"></h2>
       <p id="detail-body"></p>
       <p class="reply" id="reply" hidden></p>
       <button type="button" id="ask">Ask the agent</button>
-      <p data-arch-note="summary">${escapeHtml(summary)}</p>
     </aside>
   </div>
-  <div data-pane="agents" hidden>
-    <div class="scroller">${agents.map((agent) => `<article class="card"><strong>${escapeHtml(agent.name)}</strong><span class="muted">${escapeHtml(agent.role)}</span></article>`).join("")}</div>
+  <div class="board" data-pane="board" hidden>${board}</div>
+  <div class="team" data-pane="agents" hidden>
+    ${agents
+      .map(
+        (agent) => `<article class="card"><span class="pill">Ready</span><strong>${escapeHtml(agent.name)}</strong><span class="muted">${escapeHtml(agent.role)}</span></article>`,
+      )
+      .join("")}
+  </div>
+  </div>
   </div>
   <script>
     const input = document.querySelector("#q");
@@ -254,23 +282,14 @@ function screenHtml(model: AppModel, title: string, summary: string, agents: Age
       if (count) count.textContent = shown.length + " shown";
       if (shown.length && !shown.some((card) => card.classList.contains("on"))) select(shown[0]);
     }
-    cards.forEach((card) => card.addEventListener("click", () => select(card)));
+    cards.forEach((card) => card.addEventListener("click", () => { show("browse"); select(card); }));
     input && input.addEventListener("input", applyFilter);
     document.querySelector("#search-form")?.addEventListener("submit", (event) => {
       event.preventDefault();
       show("browse");
     });
     function show(name) {
-      const agentsOn = name === "agents";
-      const overview = document.querySelector('[data-pane="overview"]');
-      const browse = document.querySelector('[data-pane="browse"]');
-      const agentsPane = document.querySelector('[data-pane="agents"]');
-      if (overview) overview.hidden = agentsOn;
-      if (browse) browse.hidden = agentsOn;
-      if (agentsPane) agentsPane.hidden = !agentsOn;
-      const stats = document.querySelector(".stats");
-      if (stats) stats.hidden = name !== "overview";
-      document.querySelectorAll('[data-pane="browse"] .scroller').forEach((node) => node.classList.toggle("compact", name === "overview"));
+      document.querySelectorAll("[data-pane]").forEach((pane) => { pane.hidden = pane.getAttribute("data-pane") !== name; });
       document.querySelectorAll("[data-view]").forEach((button) => button.classList.toggle("on", button.getAttribute("data-view") === name));
     }
     document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => show(button.getAttribute("data-view"))));
@@ -293,7 +312,33 @@ function shell(theme: string, body: string) {
     ${theme}
     [hidden] { display: none !important; }
     body { margin: 0; background: color-mix(in srgb, var(--app-bg, #fff) 82%, #e7eaf3); color: var(--app-text, #1f2330); font-family: var(--app-font, Inter, sans-serif); }
-    main { max-width: 72rem; margin: 0 auto; padding: 1.25rem; }
+    main { max-width: none; margin: 0; padding: 0; }
+    .app { display: grid; grid-template-columns: 132px minmax(0, 1fr); min-height: 100vh; }
+    .rail { background: color-mix(in srgb, var(--app-accent, #4f46e5) 88%, #12141c); color: #fff; padding: 1rem 0.8rem; }
+    .brand { margin: 0 0.4rem 1rem; font-weight: 700; letter-spacing: -0.02em; }
+    .rail nav { display: grid; gap: 4px; margin: 0; }
+    .rail nav button { display: block; width: 100%; text-align: left; border: 0; border-radius: 8px; background: transparent; color: #fff; padding: 0.5rem 0.7rem; }
+    .rail nav button.on { background: rgba(255, 255, 255, 0.18); color: #fff; }
+    .rail-note { margin: 1.2rem 0.4rem 0; color: rgba(255, 255, 255, 0.78); font-size: 0.72rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .canvas { padding: 1rem 1.1rem 1.4rem; }
+    .bar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .bar .search { flex: 1; margin: 0; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .live { border-radius: 999px; background: #fff; color: var(--app-accent, #4f46e5); font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.6rem; }
+    .lede { color: #5c6578; max-width: 46rem; }
+    .split { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .panel, .col { background: #fff; border: 1px solid #e3e6ee; border-radius: 14px; padding: 0.85rem; color: #1c2130; }
+    .table, .bars, .board, .team { display: grid; gap: 8px; }
+    .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 8px; align-items: center; text-align: left; background: #fff; color: #1c2130; border: 1px solid #e7eaf1; border-radius: 10px; padding: 0.65rem 0.75rem; }
+    .row .muted { grid-column: 1 / -1; }
+    .row.on, .card.on { outline: 2px solid color-mix(in srgb, var(--app-accent, #4f46e5) 45%, white); }
+    .pill { justify-self: start; border-radius: 999px; background: #eef2ff; color: #3730a3; font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; }
+    .bar-row { display: grid; grid-template-columns: minmax(0, 1fr) 90px; gap: 8px; align-items: center; font-size: 0.78rem; }
+    .track { height: 8px; border-radius: 999px; background: #eef1f6; overflow: hidden; }
+    .fill { display: block; height: 100%; border-radius: 999px; background: var(--app-accent, #4f46e5); }
+    .board { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+    .col { display: grid; gap: 8px; }
+    .team { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     h1, h2 { font-weight: 640; letter-spacing: -0.02em; }
     h1 { font-size: 1.45rem; margin: 0; }
     h2 { font-size: 1.15rem; margin: 0; }
@@ -302,15 +347,15 @@ function shell(theme: string, body: string) {
     .agent { border-radius: 999px; padding: 0.28rem 0.65rem; background: #fff; color: var(--app-accent, #4f46e5); font-size: 0.8rem; border: 1px solid color-mix(in srgb, var(--app-accent, #4f46e5) 35%, white); }
     .search label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
     .search-row { display: flex; gap: 8px; }
-    .search input { flex: 1; border: 1px solid #d5d9e4; border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 1rem; background: #fff; }
+    .search input { flex: 1; min-width: 0; width: 100%; box-sizing: border-box; border: 1px solid #d5d9e4; border-radius: 12px; padding: 0.7rem 0.85rem; font-size: 0.95rem; background: #fff; }
     nav { display: flex; gap: 8px; margin-bottom: 14px; }
     nav button { background: #fff; color: inherit; border: 1px solid color-mix(in srgb, var(--app-accent, #4f46e5) 40%, white); border-radius: 999px; padding: 0.35rem 0.8rem; }
     nav button.on { background: var(--app-accent, #4f46e5); color: #fff; }
-    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 14px; }
     .stat { background: #fff; border: 1px solid #e3e6ee; border-radius: 12px; padding: 0.75rem 0.9rem; }
     .stat span { display: block; color: #5c6578; font-size: 0.75rem; }
     .search button, #ask { border: 0; border-radius: 12px; background: var(--app-accent, #4f46e5); color: white; padding: 0.8rem 1rem; font-weight: 650; }
-    .workspace { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.85fr); gap: 16px; align-items: start; }
+    .workspace { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: start; }
     .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
     .count { color: #6b7280; font-size: 0.8rem; }
     .scroller { max-height: 460px; overflow: auto; display: grid; gap: 10px; padding-right: 4px; }
@@ -327,7 +372,11 @@ function shell(theme: string, body: string) {
     .kicker { margin: 0; color: var(--app-accent, #4f46e5); font-size: 0.75rem; font-weight: 750; }
     .reply { background: #f4f6fb; border-radius: 10px; padding: 0.75rem; }
     .empty { color: #6b7280; }
-    @media (max-width: 800px) { .workspace, .search-row { grid-template-columns: 1fr; display: grid; } .search-row { display: flex; } }
+    @media (max-width: 460px) {
+      .app { grid-template-columns: 1fr; }
+      .rail nav { display: flex; flex-wrap: wrap; }
+      .board { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body><main>${body}</main></body>

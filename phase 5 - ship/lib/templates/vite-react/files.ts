@@ -228,7 +228,7 @@ const model = ${JSON.stringify(model)} as {
   sections: { title: string; items: { title: string; detail: string; tag: string }[] }[];
 };
 
-type View = "overview" | "browse" | "agents";
+type View = "overview" | "browse" | "board" | "agents";
 
 export function Home({ summary }: { summary: string }) {
   const [view, setView] = useState("overview" as View);
@@ -240,8 +240,9 @@ export function Home({ summary }: { summary: string }) {
   const visible = items.filter((item) => !needle || (item.title + " " + item.detail + " " + item.tag).toLowerCase().includes(needle));
   const active = items.find((item) => item.title === selected) ?? visible[0];
   const nav = [
-    ["overview", "Overview"],
-    ["browse", "Browse"],
+    ["overview", "Dashboard"],
+    ["browse", "Records"],
+    ["board", "Board"],
     ["agents", "Agents"],
   ] as const;
   return (
@@ -300,6 +301,17 @@ export function Home({ summary }: { summary: string }) {
             {reply ? <p style={{ background: "#f4f6fb", borderRadius: 10, padding: "0.75rem" }}>{reply}</p> : null}
             <button type="button" onClick={() => setReply("Answer drafted for " + (active?.title ?? "this item") + ".")}>Ask the agent</button>
           </aside>
+        </div>
+      ) : null}
+      {view === "board" ? (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
+          {visible.map((item) => (
+            <button key={item.title} type="button" onClick={() => { setSelected(item.title); setView("browse"); }} style={{ textAlign: "left", background: "#fff", color: "#1c2130", border: "1px solid #e3e6ee", borderRadius: 12, padding: "0.85rem 1rem" }}>
+              <span style={{ color: "var(--app-accent)", fontSize: "0.72rem", fontWeight: 700 }}>{item.tag}</span>
+              <strong style={{ display: "block", marginTop: 4 }}>{item.title}</strong>
+              <span style={{ display: "block", marginTop: 4, color: "#5c6578" }}>{item.detail}</span>
+            </button>
+          ))}
         </div>
       ) : null}
       {view === "agents" ? (

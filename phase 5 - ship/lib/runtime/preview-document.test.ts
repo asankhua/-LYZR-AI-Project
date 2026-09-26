@@ -11,7 +11,7 @@ describe("preview document", () => {
     expect(html).toContain("<h1>Landing Page For A Bookstore</h1>");
     expect(html).toContain('type="search"');
     expect(html).toContain("Recent list");
-    expect(html).toContain("Describe the job in plain language");
+    expect(html).toContain("Staff picks");
     expect(html).toContain("Manager");
     expect(html).toContain("data-arch-note=\"summary\"");
     expect(html).not.toContain("For you");
