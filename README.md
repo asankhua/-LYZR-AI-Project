@@ -59,6 +59,10 @@ In the Space settings, add `GROQ_API_KEY` and `ENCRYPTION_KEY` as secrets. Add `
 
 Details are in [architecture.md](architecture.md) section 14.1.
 
+### Render
+
+The live app is [https://lyzr-ai-project.onrender.com](https://lyzr-ai-project.onrender.com). [render.yaml](render.yaml) is the Blueprint for that web service. It builds the root [Dockerfile](Dockerfile). The container listens on Render's `PORT`. Sign-in stays off (`ARCHITECT_AUTH=off`) so **Try without an account** works. Set `NEXT_PUBLIC_APP_URL` to `https://lyzr-ai-project.onrender.com` on the service. Add `GROQ_API_KEY` and `ENCRYPTION_KEY` in the Render dashboard for live plans and saved tokens. Leave the Supabase variables empty while sign-in is off. `NEXT_PUBLIC_` names are read when the image is built, so change them and redeploy.
+
 ### Vercel
 
 Generated apps still go out through Vercel. For hosting this app on Vercel instead, the project root is `phase 5 - ship`. [vercel.json](<phase%205%20-%20ship/vercel.json>) pins functions to `bom1`. Set the variables from [architecture.md](architecture.md) section 14 on the Vercel project (Production and Preview). In the Supabase dashboard, add the production URL to the auth redirect allow list, and turn on Google, GitHub, and anonymous sign-in.
@@ -107,4 +111,4 @@ Status comes from [architecture.md](architecture.md) section 5. **Real** works e
 
 ## Submit
 
-When the Vercel URL is live, submit that URL and the GitHub repo on the Submit tab at [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space).
+Submit [https://lyzr-ai-project.onrender.com](https://lyzr-ai-project.onrender.com) and the GitHub repo on the Submit tab at [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space).

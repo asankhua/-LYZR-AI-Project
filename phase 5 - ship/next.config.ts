@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
   // CLAUDE.md is maintained by hand. Next would otherwise append its own rules on every dev start.
   agentRules: false,
   allowedDevOrigins: ["127.0.0.1"],
-  // Hugging Face builds a standalone server. The lockfile lives in the repo root, one folder up.
+  // Hugging Face and Render build a standalone server. The lockfile lives in the repo root, one folder up.
   output: "standalone",
   outputFileTracingRoot: path.join(__dirname, ".."),
   async headers() {

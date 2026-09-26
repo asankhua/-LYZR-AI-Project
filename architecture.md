@@ -1429,6 +1429,14 @@ Do not copy `.env` into the image. In the Space settings, add secrets before you
 
 The Space page on huggingface.co embeds the app. Workspace routes still send cross-origin isolation headers, so the full WebContainer preview needs the direct `*.hf.space` URL. The embedded page uses the fallback preview.
 
+### 14.2 Hosting this app on Render
+
+The public app is [https://lyzr-ai-project.onrender.com](https://lyzr-ai-project.onrender.com). [render.yaml](render.yaml) defines that web service as a Docker build of [Dockerfile](Dockerfile). A push to `main` redeploys when the service auto-deploys from this repository.
+
+The same image serves Hugging Face and Render. [docker-entrypoint.sh](docker-entrypoint.sh) listens on `PORT` when the host sets it, and on `7860` when it does not. `NEXT_PUBLIC_APP_URL` defaults to the Render URL at image build time. The image sets `ARCHITECT_AUTH=off`, so the public site uses the guest demo. Set that variable to any other value on the service, and set the Supabase `NEXT_PUBLIC_` variables before a rebuild, to turn accounts on.
+
+Add `GROQ_API_KEY` and `ENCRYPTION_KEY` in the Render dashboard. They are read when the container starts. Do not put those values in `render.yaml`.
+
 ---
 
 ## 15. Design system

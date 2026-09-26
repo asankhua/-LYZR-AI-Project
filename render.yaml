@@ -1,0 +1,28 @@
+# Render Blueprint for https://lyzr-ai-project.onrender.com
+# Secrets stay in the Render dashboard. Do not put values in this file.
+services:
+  - type: web
+    name: lyzr-ai-project
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: NEXT_PUBLIC_APP_URL
+        value: https://lyzr-ai-project.onrender.com
+      - key: ARCHITECT_AUTH
+        value: "off"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: VERCEL_TOKEN
+        sync: false
+      - key: VERCEL_TEAM_ID
+        sync: false

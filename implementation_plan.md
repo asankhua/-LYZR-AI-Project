@@ -434,7 +434,7 @@ Everything the feature matrix marks as Dummy needs no account: Gmail, Slack, Not
 
 ### 10.4 Keys and where they go
 
-Variable names follow §14. "Needed from" is the first phase that fails without the key. "Root `.env`" means `/Users/asankhua/Desktop/Lyzr AI/.env`, the only env file in the project. A Hugging Face Space uses the same names as Space secrets (§14.1). Server secrets are read when the container starts. `NEXT_PUBLIC_` values are read when the image is built.
+Variable names follow §14. "Needed from" is the first phase that fails without the key. "Root `.env`" means `/Users/asankhua/Desktop/Lyzr AI/.env`, the only env file in the project. A Hugging Face Space uses the same names as Space secrets (§14.1). Render uses the same names (§14.2). Server secrets are read when the container starts. `NEXT_PUBLIC_` values are read when the image is built.
 
 | Key | Get it from | Goes in | Needed from |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Variable names follow §14. "Needed from" is the first phase that fails without 
 | `SUPABASE_SECRET_KEY` | Supabase → Settings → API Keys → create secret key | root `.env`, Vercel env (server only) | P0 |
 | Google OAuth client ID and secret | Google Cloud Console → APIs & Services → Credentials → OAuth client (Web). Redirect URI: `https://<project-ref>.supabase.co/auth/v1/callback` | Supabase → Authentication → Providers → Google | P0 |
 | GitHub OAuth app client ID and secret | GitHub → Settings → Developer settings → OAuth Apps. Callback URL: `https://<project-ref>.supabase.co/auth/v1/callback`. The app requests the `repo` scope at sign-in so pushes work in P3 | Supabase → Authentication → Providers → GitHub | P0 |
-| `NEXT_PUBLIC_APP_URL` | Your local URL, then the public app URL (`https://<user>-<space>.hf.space` on Hugging Face, or the Vercel production URL). Also add it to Supabase → Authentication → URL Configuration | root `.env`, Space variable (rebuild after changing it), or Vercel env | P0 |
+| `NEXT_PUBLIC_APP_URL` | Your local URL, then the public app URL (`https://lyzr-ai-project.onrender.com` on Render, `https://<user>-<space>.hf.space` on Hugging Face, or the Vercel production URL). Also add it to Supabase → Authentication → URL Configuration | root `.env`, Render env, Space variable (rebuild after changing it), or Vercel env | P0 |
 | `ENCRYPTION_KEY` | Generate: `openssl rand -base64 32` | root `.env`, Vercel env (server only) | P0 (used from P3) |
 | `GROQ_API_KEY` | console.groq.com → API Keys (upgrade to the Developer plan, see 10.3) | root `.env`, Vercel env (server only) | P1 |
 | `VERCEL_TOKEN` (+ `VERCEL_TEAM_ID` if using a team) | vercel.com → Account Settings → Tokens | root `.env`, Vercel env (server only) | P3 |
