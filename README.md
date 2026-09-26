@@ -53,7 +53,7 @@ pnpm test:e2e
 
 ### Hugging Face Space
 
-The running Space is [Sankhua/project-ai](https://huggingface.co/spaces/Sankhua/project-ai). It uses the Docker SDK. The root [Dockerfile](Dockerfile) builds [phase 5 - ship](<phase%205%20-%20ship/>) and listens on `0.0.0.0:7860`. The metadata at the top of this file (`sdk: docker`, `app_port: 7860`) is what the Space reads. Set `NEXT_PUBLIC_APP_URL` to `https://sankhua-project-ai.hf.space` before a rebuild.
+The running Space is [Sankhua/project-ai](https://huggingface.co/spaces/Sankhua/project-ai). A push to `main` runs [Deploy to Hugging Face](.github/workflows/huggingface.yml), which uploads this repository to that Space and starts a rebuild. Add a Hugging Face write token as the `HF_TOKEN` repository secret first. The Space uses the Docker SDK. The root [Dockerfile](Dockerfile) builds [phase 5 - ship](<phase%205%20-%20ship/>) and listens on `0.0.0.0:7860`. The metadata at the top of this file (`sdk: docker`, `app_port: 7860`) is what the Space reads. Set `NEXT_PUBLIC_APP_URL` to `https://sankhua-project-ai.hf.space` before a rebuild.
 
 In the Space settings, add `GROQ_API_KEY` and `ENCRYPTION_KEY` as secrets. Add `VERCEL_TOKEN` only if generated apps should really deploy. Leave the Supabase variables empty to keep **Try without an account**. `NEXT_PUBLIC_` names are read when the image is built, so set those before a rebuild if you turn on accounts.
 

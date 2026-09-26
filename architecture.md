@@ -1413,7 +1413,7 @@ Commit a `.env.example` at the root with these names and no values; `.gitignore`
 
 The product itself can run as a Docker Space. Generated apps still deploy through the Vercel API in section 9.
 
-The Space repo is this repository. [Dockerfile](Dockerfile) builds `phase 5 - ship` with `output: "standalone"` and listens on `0.0.0.0:7860`. The root [README.md](README.md) starts with `sdk: docker` and `app_port: 7860`, which is what Spaces reads.
+The Space repo is this repository. A push to `main` runs `.github/workflows/huggingface.yml`, which uploads the tree to `Sankhua/project-ai` with a Hugging Face write token stored as the GitHub secret `HF_TOKEN`. The Space then rebuilds the Docker image. [Dockerfile](Dockerfile) builds `phase 5 - ship` with `output: "standalone"` and listens on `0.0.0.0:7860`. The root [README.md](README.md) starts with `sdk: docker` and `app_port: 7860`, which is what Spaces reads.
 
 Do not copy `.env` into the image. In the Space settings, add secrets before you expect them to work:
 

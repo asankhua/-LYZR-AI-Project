@@ -1,0 +1,32 @@
+name: Deploy to Hugging Face
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "Add a write token from https://huggingface.co/settings/tokens as the HF_TOKEN repository secret."
+            exit 1
+          fi
+          python -m pip install --quiet "huggingface_hub"
+          python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+
+          HfApi(token=os.environ["HF_TOKEN"]).upload_folder(
+              folder_path=".",
+              repo_id="Sankhua/project-ai",
+              repo_type="space",
+              commit_message="Sync from GitHub",
+              ignore_patterns=[".git", ".git/*"],
+          )
+          PY
