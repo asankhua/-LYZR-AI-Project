@@ -351,7 +351,7 @@ Exit: every row in §5 is reachable in the UI, and each screen passes the defini
   - Walk the whole demo path on the production URL in a fresh incognito window: once as a guest, once as a new Google user.
   - Check that the OAuth redirects, the Supabase keep-alive job and the README links all work.
   - Fix every S1 and S2 bug before submitting.
-- [ ] **Submit** the live URL and repo on [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space) (§16.3).
+- [ ] **Submit** the live URL and the GitHub repo (§16.3).
 
 ---
 

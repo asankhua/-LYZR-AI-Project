@@ -1,6 +1,6 @@
 # Architect 2.0 · Hiring Assignment
 
-**Source:** LinkedIn safety redirect → `https://lnkd.in/eQh-qwAC` → [https://hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space)
+**Source:** Local copy of the assignment brief.
 
 **Product to redesign:** [https://architect.new](https://architect.new)
 
@@ -59,7 +59,7 @@ Deploy it and share:
 - The **live URL** with all major features in place
 - The **GitHub repo**
 
-Submit both in the **Submit** tab on [https://hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space).
+Share the live URL and the GitHub repo.
 
 ---
 

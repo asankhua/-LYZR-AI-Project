@@ -27,7 +27,7 @@ export function SettingsScreen({ name, mode }: { name: string | null; mode: Mode
   const [savedName, setSavedName] = useState(name ?? "Guest");
   const [keys, setKeys] = useState<KeyState[]>([]);
   const [draftKeys, setDraftKeys] = useState<Record<string, string>>({});
-  const [connected, setConnected] = useState<string[]>([]);
+  const [blockedService, setBlockedService] = useState<string | null>(null);
   const [servers, setServers] = useState<McpServer[]>([]);
   const [mcpName, setMcpName] = useState("");
   const [mcpUrl, setMcpUrl] = useState("");
@@ -45,7 +45,6 @@ export function SettingsScreen({ name, mode }: { name: string | null; mode: Mode
         const body = (await response.json()) as {
           displayName: string | null;
           keys: KeyState[];
-          integrations: string[];
           mcp: McpServer[];
           github: { login: string | null; expired: boolean } | null;
         };
@@ -54,7 +53,6 @@ export function SettingsScreen({ name, mode }: { name: string | null; mode: Mode
           setSavedName(body.displayName);
         }
         setKeys(body.keys ?? []);
-        setConnected(body.integrations ?? []);
         setServers(body.mcp ?? []);
         setGithub(body.github);
       })
@@ -243,37 +241,36 @@ export function SettingsScreen({ name, mode }: { name: string | null; mode: Mode
         ) : null}
         {section === "Integrations" ? (
           <div className="mt-4">
-            <p className="max-w-xl text-sm text-text-muted">Connect marks a service for this workspace. Live calls stay previewed until an account is linked.</p>
+            <p className="max-w-xl text-sm text-text-muted">
+              These services stay disconnected. A real connection needs sign-in on that service, and this preview does not open it. GitHub is the account that can be connected, under Connected accounts.
+            </p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {integrations.map((item) => {
-                const on = connected.includes(item);
-                return (
-                  <li key={item} className="rounded-md border border-border p-4">
-                    <h2 className="text-sm font-medium">{item}</h2>
-                    <p className="mt-1 text-sm text-text-muted">{on ? "Marked connected for this guest session." : "Not connected."}</p>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="sm"
-                      className="mt-3"
-                      disabled={busy}
-                      onClick={() => {
-                        const next = on ? connected.filter((name) => name !== item) : [...connected, item];
-                        setConnected(next);
-                        void save({ integrations: next }, on ? `${item} disconnected.` : `${item} connected.`);
-                      }}
-                    >
-                      {on ? "Disconnect" : "Connect"}
-                    </Button>
-                  </li>
-                );
-              })}
+              {integrations.map((item) => (
+                <li key={item} className="rounded-md border border-border p-4">
+                  <h2 className="text-sm font-medium">{item}</h2>
+                  <p className="mt-1 text-sm text-text-muted">Not connected.</p>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="mt-3"
+                    onClick={() => setBlockedService(item)}
+                  >
+                    Connect
+                  </Button>
+                  {blockedService === item ? (
+                    <p className="mt-2 text-sm text-text-muted" role="status">
+                      {item} stays disconnected. This preview cannot sign in to {item}.
+                    </p>
+                  ) : null}
+                </li>
+              ))}
             </ul>
             <form
               className="mt-4 max-w-lg rounded-md border border-border p-4"
               onSubmit={(event) => {
                 event.preventDefault();
-                void save({ mcp: { name: mcpName, url: mcpUrl } }, "MCP server added.").then((ok) => {
+                void save({ mcp: { name: mcpName, url: mcpUrl } }, "Server saved. It is not called.").then((ok) => {
                   if (!ok) return;
                   setServers((current) => [...current, { id: "pending", name: mcpName, url: mcpUrl }]);
                   setMcpName("");
@@ -288,7 +285,7 @@ export function SettingsScreen({ name, mode }: { name: string | null; mode: Mode
               }}
             >
               <h2 className="text-sm font-medium">MCP servers</h2>
-              <p className="mt-1 text-sm text-text-muted">Add a server URL. Tool calls stay mocked.</p>
+              <p className="mt-1 text-sm text-text-muted">A saved URL is a note for this workspace. Architect does not call the server or load its tools.</p>
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 <label className="text-sm">
                   Name

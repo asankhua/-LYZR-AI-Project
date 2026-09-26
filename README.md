@@ -108,7 +108,3 @@ Status comes from [architecture.md](architecture.md) section 5. **Real** works e
 | Share, API and CLI, branch previews | Dummy |
 | Usage and credits | Partial |
 | Command palette, Simple / Developer mode | Real |
-
-## Submit
-
-Submit [https://lyzr-ai-project.onrender.com](https://lyzr-ai-project.onrender.com) and the GitHub repo on the Submit tab at [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space).

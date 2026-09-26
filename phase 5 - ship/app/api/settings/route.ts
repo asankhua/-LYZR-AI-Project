@@ -19,7 +19,6 @@ const bodySchema = z.object({
     })
     .optional(),
   clearKey: z.enum(providers).optional(),
-  integrations: z.array(z.string().trim().min(1).max(40)).max(20).optional(),
   mcp: z
     .object({
       name: z.string().trim().min(1).max(60),
@@ -45,7 +44,6 @@ export async function GET() {
       displayName: session.fullName,
       mode: session.mode,
       keys: masked([]),
-      integrations: [],
       mcp: [],
       github: github ? { login: github.login, expired: github.expired } : null,
     });
@@ -55,7 +53,6 @@ export async function GET() {
     displayName: session.fullName,
     mode: session.mode,
     keys: masked(prefs.keys),
-    integrations: prefs.integrations,
     mcp: prefs.mcp,
     github: github ? { login: github.login, expired: github.expired } : null,
   });
@@ -75,7 +72,7 @@ export async function PUT(request: Request) {
   }
   const prefs = await getDemoPreferences(session.id);
   if (parsed.data.displayName) await setDemoName(session.id, parsed.data.displayName);
-  if (parsed.data.integrations) prefs.integrations = parsed.data.integrations;
+  prefs.integrations = [];
   if (parsed.data.clearKey) prefs.keys = prefs.keys.filter((key) => key.provider !== parsed.data.clearKey);
   if (parsed.data.keys) {
     for (const provider of providers) {

@@ -1548,7 +1548,7 @@ Never demote below-the-line the flows themselves (plan → agents → build → 
 - [ ] Public GitHub repo with README (screenshots, feature matrix, architecture link, setup steps)
 - [ ] Demo account or guest mode so reviewers can enter without signing up
 - [ ] 2–3 minute walkthrough video (optional but useful)
-- [ ] Submitted in the Submit tab on [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space)
+- [ ] Live URL and GitHub repo shared
 
 ---
 
@@ -2076,7 +2076,7 @@ mindmap
 
 **Assignment and current product**
 
-- Assignment: [hiring.lyzrarchitect.space](https://hiring.lyzrarchitect.space) (local copy: [assignment.md](assignment.md))
+- Assignment: [assignment.md](assignment.md)
 - Current product: [architect.new](https://architect.new)
 - Architect docs index: [docs.architect.new/llms.txt](https://docs.architect.new/llms.txt)
 - Build guide: [docs.architect.new/build/build-guide](https://docs.architect.new/build/build-guide)
