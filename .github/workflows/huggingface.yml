@@ -22,7 +22,11 @@ jobs:
           import os
           from huggingface_hub import HfApi
 
-          HfApi(token=os.environ["HF_TOKEN"]).upload_folder(
+          token = "".join(ch for ch in os.environ["HF_TOKEN"] if ch.isascii() and not ch.isspace())
+          if not token.startswith("hf_"):
+              raise SystemExit("HF_TOKEN should be a write token that starts with hf_, with no extra characters pasted around it.")
+
+          HfApi(token=token).upload_folder(
               folder_path=".",
               repo_id="Sankhua/project-ai",
               repo_type="space",
