@@ -243,10 +243,10 @@ export function WorkspaceShell({
   }, [events.length, streaming, messages.length]);
 
   useEffect(() => {
-    if ((project.stage === "build" || project.stage === "ship") && initialFiles.length > 0) setTab("preview");
-    else if (project.stage === "agents") setTab("agents");
-    else setTab("plan");
-  }, [project.id, project.stage, initialFiles.length, setTab]);
+    if (project.stage === "agents") setTab("agents");
+    else if (project.stage === "plan") setTab("plan");
+    else setTab("preview");
+  }, [project.id, project.stage, setTab]);
 
   useEffect(() => {
     if (localStorage.getItem(`architect-tour-${project.id}`)) return;
@@ -265,7 +265,15 @@ export function WorkspaceShell({
           ? { label: "Approve agents", disabled: agents.length === 0, action: () => void approve("/api/agents/approve", "build") }
           : files.length > 0
             ? { label: "Deploy", disabled: false, action: () => router.push(`/p/${project.id}/deploy`) }
-            : { label: "Build app", disabled: false, action: () => void run("/api/generate", { projectId: project.id, mode: "build" }).then(() => setTab("preview")) };
+            : {
+                label: "Build app",
+                disabled: false,
+                action: () => {
+                  setTab("preview");
+                  setMobilePane("canvas");
+                  void run("/api/generate", { projectId: project.id, mode: "build" });
+                },
+              };
 
   async function approve(url: string, next: Stage) {
     const response = await fetch(url, {
@@ -533,25 +541,38 @@ export function WorkspaceShell({
                 }}
               />
             </TabsContent>
-            <TabsContent value="preview" className="min-h-0">
+            <TabsContent value="preview" className="flex min-h-0 flex-col">
               {files.length === 0 ? (
                 <div className="p-6">
-                  <EmptyCopy title="Preview starts after the build" body="The files are saved first. Then the app runs here." />
+                  <EmptyCopy title="The app shows up here" body="Build app writes the code on the left and the screen on the right." />
                 </div>
               ) : (
-                <PreviewPane
-                  files={files}
-                  plan={plan}
-                  active={activeTab === "preview"}
-                  autoFix={autoFix}
-                  onAutoFix={setAutoFix}
-                  onPick={(src) => {
-                    setComposerMode("build");
-                    setComposer(`In \`${src}\`: `);
-                  }}
-                  onError={scheduleFix}
-                  onReady={onPreviewReady}
-                />
+                <div className="flex h-full min-h-0 flex-col md:flex-row">
+                  <aside className="max-h-52 shrink-0 overflow-auto border-b border-border md:max-h-none md:w-80 md:border-b-0 md:border-r">
+                    <p className="sticky top-0 border-b border-border bg-surface px-3 py-2 text-xs font-medium">Generated code</p>
+                    {files.map((file) => (
+                      <article key={file.path} className="border-b border-border">
+                        <p className="px-3 py-2 font-mono text-xs">{file.path}</p>
+                        <pre className="max-h-40 overflow-auto px-3 pb-3 font-mono text-xs text-text-muted">{file.content}</pre>
+                      </article>
+                    ))}
+                  </aside>
+                  <div className="min-h-0 min-w-0 flex-1">
+                    <PreviewPane
+                      files={files}
+                      plan={plan}
+                      active={activeTab === "preview"}
+                      autoFix={autoFix}
+                      onAutoFix={setAutoFix}
+                      onPick={(src) => {
+                        setComposerMode("build");
+                        setComposer(`In \`${src}\`: `);
+                      }}
+                      onError={scheduleFix}
+                      onReady={onPreviewReady}
+                    />
+                  </div>
+                </div>
               )}
             </TabsContent>
             <TabsContent value="terminal" className="min-h-0 p-0">
